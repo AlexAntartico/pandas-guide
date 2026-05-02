@@ -64,7 +64,11 @@ df[(df['age'] > 28) | (df['department'] == 'HR')]   # OR condition
 df.query('age > 28 and department == "Eng"')
 df.query('age > 28 or department == "HR"')
 # Why query()? More readable, no need for & | operators
+```
 
+> **JupyterLab:** Reference notebook variables inside `query()` using `@`: `threshold = 28; df.query('age > @threshold')`. This lets you define filter parameters in one cell and reuse them across queries without rewriting strings.
+
+```python
 # --- ISIN for multiple values ---
 df[df['department'].isin(['Eng', 'Sales'])]
 df[~df['department'].isin(['HR'])]  # NOT in list (~ negates)
@@ -120,7 +124,11 @@ df = df.assign(
     salary_k=lambda x: x['salary'] / 1000
 )
 # Why assign()? Enables method chaining, functional style
+```
 
+> **JupyterLab:** `assign()` is ideal for Jupyter exploration — chain transforms and filters in one cell without intermediate variables: `(df.assign(bonus=lambda x: x['salary'] * 0.10).query('bonus > 6000'))`. Place the result as the last expression to get an HTML table.
+
+```python
 # --- DROP COLUMNS ---
 df = df.drop(columns=['bonus'])
 df.drop(columns=['bonus'], inplace=True)

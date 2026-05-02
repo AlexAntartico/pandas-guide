@@ -75,6 +75,8 @@ plt.savefig('charts/eda_correlation_heatmap.png', dpi=150, bbox_inches='tight')
 plt.close()
 ```
 
+> **JupyterLab:** With `%matplotlib inline` active, `plt.close()` suppresses the inline display — swap it for `plt.show()` (or remove it) to see the heatmap in the notebook. Keep `plt.savefig()` before `plt.show()` if you want both inline display and a saved file.
+
 ---
 
 ## Step 10: Production EDA Function
@@ -132,6 +134,8 @@ def quick_eda(df, target_col=None):
 # Usage
 quick_eda(df, target_col='salary')
 ```
+
+> **JupyterLab:** `quick_eda()` uses `print()` throughout, which works fine in Jupyter. For richer output, replace the `df.describe()` print with `display(df.select_dtypes(include=[np.number]).describe())` — it renders as a styled HTML table instead of plain text.
 
 ---
 

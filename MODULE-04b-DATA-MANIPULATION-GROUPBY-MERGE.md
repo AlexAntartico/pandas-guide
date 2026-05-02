@@ -44,6 +44,11 @@ df.groupby('department').agg({
 # Create summary reports
 ```
 
+> **JupyterLab:** Multi-column `.agg()` creates MultiIndex columns that display as nested headers — readable but awkward to work with. Append `.reset_index()` to flatten to a plain DataFrame that renders cleanly as a table. For single-column agg, the result is already a clean Series or DataFrame.
+
+```python
+```
+
 ### Transform and Filter
 
 ```python
@@ -145,6 +150,8 @@ print(merged['_merge'])
 # Values: 'left_only', 'right_only', 'both'
 # Why indicator? Debug join issues, understand data overlap
 ```
+
+> **JupyterLab:** After a merge, place `merged['_merge'].value_counts()` as the last line in a cell — it renders as a Series table and immediately shows how many rows matched vs. came from only one side, without scrolling through the full result.
 
 ---
 

@@ -82,6 +82,8 @@ df_dropped_cols = df.dropna(axis=1, thresh=int(0.8 * len(df)))
 
 ### Simple Imputation
 
+> **JupyterLab:** Work on a copy before imputing: `df_clean = df.copy()`. If you modify `df` directly across cells, re-running the load cell resets the data but leaves other cells in an inconsistent state. Use `df_clean` for all mutations so any cell can be safely re-run.
+
 ```python
 # --- NUMERICAL COLUMNS ---
 # Mean imputation (use when data is normally distributed)

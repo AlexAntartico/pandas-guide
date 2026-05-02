@@ -4,6 +4,8 @@
 
 ## 3. Duplicate Detection and Removal
 
+> **JupyterLab:** Same cell re-execution caution as Module 03a: use `df_clean = df.copy()` and apply all mutations to `df_clean`. This keeps your original `df` intact so re-running any cell doesn't produce unexpected cumulative state.
+
 ```python
 # --- DETECT DUPLICATES ---
 print(df.duplicated())              # Boolean series (True if duplicate)

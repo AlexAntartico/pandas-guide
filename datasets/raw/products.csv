@@ -1,0 +1,73 @@
+product_id,product_name,category,price,cost,supplier,rating,stock_quantity,weight_kg,sku,launch_date
+P0001,Laptop,Electronics,799.99,414.75,DirectMfg,1.6,140,1.81,SKU-91650,2024-02-21
+P0002,Smartphone,Electronics,24.99,8.31,DirectMfg,3.2,138,2.21,SKU-47128,2024-03-21
+P0003,Tablet,Electronics,59.99,19.11,DirectMfg,3.5,173,8.15,SKU-16648,2021-09-24
+P0004,Headphones,Electronics,9.99,4.38,TechSupply Co,1.4,27,1.38,SKU-61369,2022-01-02
+P0005,Smartwatch,Electronics,799.99,397.22,DirectMfg,2.3,101,10.72,SKU-97932,2023-12-29
+P0006,Speaker,Electronics,19.99,12.78,WholesalePlus,3.3,47,12.21,SKU-71377,2021-07-19
+P0007,Monitor,Electronics,,299.32,WholesalePlus,2.9,485,3.43,SKU-90863,2022-06-13
+P0008,Keyboard,Electronics,199.99,81.36,DirectMfg,4.2,451,4.94,SKU-73898,2021-03-03
+P0009,Mouse,Electronics,19.99,8.80,DirectMfg,2.9,433,2.64,SKU-55693,2024-05-22
+P0010,Webcam,Electronics,29.99,13.59,WholesalePlus,4.3,407,1.69,SKU-82895,2024-08-23
+P0011,Charger,Electronics,19.99,11.33,PrimeSource,2.8,302,6.26,SKU-91379,2022-05-15
+P0012,Cable,Electronics,39.99,25.58,WholesalePlus,1.3,106,12.23,SKU-87459,2023-06-02
+P0013,T-Shirt,electronics,499.99,238.44,DirectMfg,3.2,120,2.68,SKU-97766,2021-06-09
+P0014,Jeans,electronics,999.99,295.73,PrimeSource,2.9,284,1.56,SKU-68355,2021-12-27
+P0015,Jacket,electronics,99.99,63.23,TechSupply Co,3.4,350,12.23,SKU-59664,2022-11-02
+P0016,Dress,Clothing,999.99,507.99,TechSupply Co,1.4,418,2.17,SKU-86122,2024-07-26
+P0017,Sweater,Clothing,9.99,5.52,GlobalGoods,2.8,149,5.91,SKU-85750,2023-07-05
+P0018,Hoodie,Clothing,49.99,16.61,DirectMfg,2.2,406,13.71,SKU-49917,2023-06-10
+P0019,Shorts,Clothing,199.99,129.22,PrimeSource,1.0,261,6.12,SKU-26718,2022-08-26
+P0020,Skirt,Clothing,14.99,5.96,PrimeSource,4.9,0,10.58,SKU-57086,2021-08-13
+P0021,Coat,Clothing,99.99,59.62,GlobalGoods,2.7,302,5.97,SKU-51697,2024-12-28
+P0022,Socks,Clothing,299.99,123.72,WholesalePlus,3.2,339,2.68,SKU-28228,2022-01-21
+P0023,Hat,Clothing,299.99,176.19,DirectMfg,4.4,78,4.4,SKU-97826,2021-09-15
+P0024,Scarf,Clothing,29.99,7.64,TechSupply Co,1.6,453,7.35,SKU-67243,2021-10-06
+P0025,Blender,HOME & KITCHEN,19.99,6.09,WholesalePlus,4.4,457,11.86,SKU-89223,2023-05-22
+P0026,Toaster,HOME & KITCHEN,39.99,17.27,WholesalePlus,3.2,230,5.83,SKU-39588,2022-01-16
+P0027,Coffee Maker,Home & Kitchen,499.99,245.91,PrimeSource,3.0,374,3.63,SKU-75762,2022-07-06
+P0028,Vacuum,Home & Kitchen,499.99,310.31,PrimeSource,2.5,500,0.66,SKU-73342,2024-12-14
+P0029,Lamp,Home & Kitchen,199.99,59.05,WholesalePlus,4.8,40,2.22,SKU-78997,2022-07-27
+P0030,Pillow,Home & Kitchen,799.99,365.42,PrimeSource,4.6,45,3.75,SKU-92662,2025-02-27
+P0031,Towel Set,Home & Kitchen,19.99,10.47,PrimeSource,4.2,159,9.23,SKU-55029,2024-01-01
+P0032,Cutting Board,Home & Kitchen,9.99,4.37,PrimeSource,4.6,293,11.03,SKU-65183,2022-12-24
+P0033,Knife Set,Home & Kitchen,99.99,36.56,TechSupply Co,3.8,305,11.27,SKU-83886,2022-06-18
+P0034,Rice Cooker,Home & Kitchen,14.99,7.52,PrimeSource,1.7,26,9.88,SKU-48240,2025-02-19
+P0035,Mug,Home & Kitchen,9.99,3.64,TechSupply Co,1.5,39,12.79,SKU-46418,2022-06-01
+P0036,Plate Set,Home & Kitchen,29.99,14.88,DirectMfg,4.4,7,11.15,SKU-89144,2021-12-24
+P0037,Novel,home_kitchen,29.99,15.40,DirectMfg,4.2,133,11.76,SKU-40958,2023-09-21
+P0038,Textbook,home_kitchen,39.99,22.78,TechSupply Co,2.4,43,14.51,SKU-88059,2021-11-12
+P0039,Cookbook,Books,999.99,551.10,WholesalePlus,4.1,121,9.94,SKU-93568,2021-12-09
+P0040,Biography,Books,49.99,24.05,DirectMfg,1.2,135,11.36,SKU-25203,2021-04-18
+P0041,Sci-Fi,Books,39.99,17.42,WholesalePlus,2.2,382,14.23,SKU-79798,2022-04-24
+P0042,Self-Help,Books,,157.02,WholesalePlus,2.9,74,8.0,SKU-66981,2021-01-25
+P0043,History,Books,99.99,62.08,WholesalePlus,2.5,161,14.43,SKU-99505,2021-03-26
+P0044,Art Book,Books,24.99,15.42,DirectMfg,4.8,221,9.2,SKU-95467,2022-07-13
+P0045,Travel Guide,Books,149.99,53.72,TechSupply Co,2.0,299,5.93,SKU-98511,2022-05-11
+P0046,Comic,Books,49.99,22.89,GlobalGoods,2.3,5,10.12,SKU-18906,2021-01-25
+P0047,Dictionary,Books,499.99,144.54,TechSupply Co,3.7,179,3.37,SKU-47132,2022-05-31
+P0048,Journal,Books,49.99,13.18,PrimeSource,1.4,480,8.95,SKU-38419,2024-05-12
+P0049,Yoga Mat,Sports,24.99,13.33,TechSupply Co,1.3,309,2.04,SKU-96034,2024-08-19
+P0050,Dumbbells,Sports,39.99,24.33,GlobalGoods,2.0,239,9.94,SKU-19924,2024-08-01
+P0051,Running Shoes,Sports,799.99,495.26,DirectMfg,4.1,354,13.56,SKU-52389,2022-06-12
+P0052,Basketball,Sports,39.99,22.49,DirectMfg,4.1,195,5.89,SKU-17872,2022-06-13
+P0053,Tennis Racket,Sports,79.99,25.69,TechSupply Co,3.0,475,3.09,SKU-61463,2022-01-01
+P0054,Bicycle Helmet,Sports,999.99,293.37,PrimeSource,4.1,111,9.25,SKU-23926,2023-06-24
+P0055,Water Bottle,Sports,79.99,23.30,TechSupply Co,1.3,372,3.83,SKU-68442,2021-02-08
+P0056,Jump Rope,Sports,999.99,309.54,TechSupply Co,4.7,340,5.92,SKU-29871,2024-12-04
+P0057,Resistance Bands,Sports,149.99,91.77,PrimeSource,1.0,362,14.1,SKU-74314,2023-09-07
+P0058,Gym Bag,Sports,499.99,205.78,TechSupply Co,3.2,1,5.83,SKU-73185,2021-09-06
+P0059,Fitness Tracker,Sports,199.99,76.67,DirectMfg,2.6,323,14.96,SKU-94813,2021-07-05
+P0060,Foam Roller,Sports,199.99,92.77,DirectMfg,1.3,235,11.43,SKU-48005,2024-08-19
+P0061,Moisturizer,Beauty,49.99,16.03,TechSupply Co,4.9,338,2.95,SKU-61131,2021-08-07
+P0062,Shampoo,Beauty,199.99,88.92,WholesalePlus,3.9,71,0.63,SKU-13324,2025-01-14
+P0063,Sunscreen,Beauty,59.99,26.74,TechSupply Co,4.2,329,4.69,SKU-79984,2023-07-10
+P0064,Lip Balm,Beauty,9.99,2.65,TechSupply Co,2.4,369,0.74,SKU-25491,2022-03-10
+P0065,Face Mask,Beauty,799.99,500.82,PrimeSource,1.6,296,3.57,SKU-19441,2021-03-17
+P0066,Perfume,Beauty,29.99,13.36,TechSupply Co,2.9,470,9.31,SKU-41808,2024-12-07
+P0067,Nail Polish,Beauty,29.99,7.67,TechSupply Co,4.6,420,11.93,SKU-69793,2024-06-05
+P0068,Hair Dryer,Beauty,39.99,23.36,TechSupply Co,4.3,54,1.8,SKU-87984,2024-06-14
+P0069,Makeup Kit,Beauty,59.99,16.51,GlobalGoods,2.7,415,12.55,SKU-98918,2023-04-04
+P0070,Body Lotion,Beauty,149.99,44.75,PrimeSource,3.2,164,12.56,SKU-37948,2021-04-04
+P0071,Eye Cream,Beauty,39.99,15.36,TechSupply Co,2.1,387,6.29,SKU-58487,2024-02-08
+P0072,Serum,Beauty,39.99,17.01,PrimeSource,1.2,51,11.89,SKU-92863,2024-06-08

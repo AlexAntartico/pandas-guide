@@ -129,6 +129,10 @@ df = tables[0]
 df = pd.read_clipboard()  # Copy from Excel, paste directly
 ```
 
+> **JupyterLab:** `pd.read_clipboard()` is especially handy in notebooks — copy any rows from a browser table or spreadsheet, then run the cell. On Linux it requires `xclip` or `xsel` (`sudo pacman -S xclip`).
+>
+> For `pd.read_html()`, use `display(tables[0])` to render the first result as a styled table, or check `len(tables)` to see how many tables were scraped from the page.
+
 ---
 
 ## Production-Grade Loading Pattern

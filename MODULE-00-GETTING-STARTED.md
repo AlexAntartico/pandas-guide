@@ -31,6 +31,12 @@ python -c "import pandas; print(pandas.__version__)"
 
 **Version note:** This guide targets pandas 2.x. Some behaviors differ in 1.x.
 
+> **JupyterLab:** Install packages directly in a notebook cell by prefixing with `!`:
+> ```python
+> !pip install pandas numpy matplotlib seaborn openpyxl xlsxwriter sqlalchemy requests
+> ```
+> Run this cell once, then **Kernel → Restart** so the new packages are available. To launch JupyterLab itself: `pip install jupyterlab` then `jupyter lab`.
+
 ---
 
 ## Core Philosophy
@@ -49,6 +55,8 @@ import numpy as np
 # pd = pandas (the library)
 # np = numpy (numerical computing foundation)
 ```
+
+> **JupyterLab:** Put imports in the **first cell** of your notebook and run it (`Shift+Enter`) before any other cell. JupyterLab's autocomplete is aware of `pd` and `np` after they're imported.
 
 ---
 
@@ -112,6 +120,8 @@ print(df)
 # Each column is a Series
 print(type(df['name']))  # <class 'pandas.core.series.Series'>
 ```
+
+> **JupyterLab:** Skip `print(df)` — place `df` as the **last line** of a cell and JupyterLab renders it as a styled HTML table. Using `print()` gives plain text instead and loses the formatting.
 
 ### 3. Index — The Labels
 
@@ -209,6 +219,8 @@ print(df.info())
 print(df.memory_usage())
 ```
 
+> **JupyterLab:** `df.info()` prints to stdout — call it **without** `print()` wrapping in a cell. `print(df.info())` appends a stray `None` at the end. For `df.memory_usage()`, placing it as the last expression in a cell renders it as a Series table.
+
 ---
 
 ## Setting and Resetting Index
@@ -266,6 +278,8 @@ df.loc[0:2]               # Rows with labels 0, 1, 2 (inclusive!)
 ```
 
 **Important:** `loc` is label-based (inclusive of end), `iloc` is position-based (exclusive of end).
+
+> **JupyterLab:** `df.head()`, `df.tail()`, and `df.sample()` all return DataFrames — place them as the last line of a cell to get the HTML table view. You can also display multiple DataFrames in one cell using `display(df.head(), df.tail())` (no import needed in JupyterLab).
 
 ---
 

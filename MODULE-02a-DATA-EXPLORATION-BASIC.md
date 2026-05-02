@@ -65,6 +65,8 @@ print(df.info())
 # Why? Quick scan for missing data and type issues
 ```
 
+> **JupyterLab:** Call `df.info()` without `print()` — it prints to stdout either way, but `print(df.info())` appends a stray `None`. `df.dtypes`, `df.describe()`, and `df.head()` all render as styled tables when placed as the last line in a cell.
+
 ---
 
 ## Step 2: Sample the Data
@@ -173,6 +175,8 @@ print(df[df.isnull().any(axis=1)])   # Show rows with any NaN
 ---
 
 ## Step 6: Quick Visual EDA
+
+> **JupyterLab:** Add `%matplotlib inline` to your imports cell so plots render directly in the notebook. With it active, replace `plt.savefig(...); plt.close()` with `plt.show()` for in-notebook display — `plt.close()` suppresses the inline output. Keep `plt.savefig()` only if you also want to save the image to disk.
 
 ```python
 import matplotlib.pyplot as plt

@@ -28,6 +28,8 @@ df = pd.read_csv('data.csv')
 df = pd.read_csv('data.tsv', sep='\t')
 ```
 
+> **JupyterLab:** Paths are relative to the directory where you launched `jupyter lab`, not the notebook file's location. Run `%pwd` in a cell to confirm, or use absolute paths. To get the notebook's own directory: `from pathlib import Path; here = Path().resolve()`.
+
 ### Critical Parameters (and WHY they matter)
 
 ```python
@@ -76,6 +78,8 @@ for chunk in pd.read_csv('large_file.csv', chunksize=chunk_size):
     filtered = chunk[chunk['status'] == 'active']
     chunks.append(filtered)
 df = pd.concat(chunks, ignore_index=True)
+
+> **JupyterLab:** Add a progress bar to chunk loops with `from tqdm.notebook import tqdm`, then wrap the iterator: `for chunk in tqdm(pd.read_csv('file.csv', chunksize=chunk_size), desc="Loading")`. Install with `!pip install tqdm`.
 
 # --- USECOLS (Memory Optimization) ---
 df = pd.read_csv('data.csv', usecols=['name', 'age', 'salary'])
