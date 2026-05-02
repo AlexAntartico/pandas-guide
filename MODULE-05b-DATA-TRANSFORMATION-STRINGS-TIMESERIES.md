@@ -43,6 +43,8 @@ df_str['name_length'] = df_str['name_clean'].str.len()
 df_str['word_count'] = df_str['name_clean'].str.count(' ') + 1
 ```
 
+> **JupyterLab:** After building multiple string columns, view a focused before/after subset as the last line in a cell: `df_str[['name', 'name_clean', 'first_name', 'last_name']]` — much easier to read than the full wide DataFrame.
+
 ---
 
 ## 4. DateTime Operations
@@ -119,7 +121,11 @@ ts['sales_30d_avg'] = ts['sales'].rolling(window=30).mean()
 ts['sales_7d_std'] = ts['sales'].rolling(window=7).std()
 ts['sales_7d_min'] = ts['sales'].rolling(window=7).min()
 ts['sales_7d_max'] = ts['sales'].rolling(window=7).max()
+```
 
+> **JupyterLab:** For a quick visual check, pandas' built-in `.plot()` renders inline with `%matplotlib inline` — no full matplotlib setup needed: `ts[['sales', 'sales_7d_avg', 'sales_30d_avg']].plot(figsize=(12, 4))`.
+
+```python
 # --- EXPANDING WINDOWS ---
 # Cumulative statistics
 ts['cumsum'] = ts['sales'].expanding().sum()

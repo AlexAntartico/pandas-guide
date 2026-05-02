@@ -55,6 +55,8 @@ plt.rcParams.update({
 # - DPI 150: Sharp on screens and print
 ```
 
+> **JupyterLab:** Add `%matplotlib inline` to your imports cell before this setup block — it makes all charts render directly in the notebook. `plt.rcParams` settings persist for the entire kernel session, so set them once in your first cell and they apply to all subsequent plots.
+
 ---
 
 ## 2. Line Charts — Trends Over Time
@@ -79,7 +81,11 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.savefig('charts/line_basic.png', bbox_inches='tight')
 plt.close()
+```
 
+> **JupyterLab:** Swap `plt.close()` for `plt.show()` to render inline. To do both — save to disk **and** display in the notebook — call `plt.savefig()` first, then `plt.show()`. Never call `plt.close()` before `plt.savefig()` or the saved file will be blank.
+
+```python
 # --- LINE WITH MOVING AVERAGE ---
 fig, ax = plt.subplots(figsize=(12, 6))
 # Raw daily data (faint)

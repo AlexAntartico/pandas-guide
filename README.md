@@ -127,10 +127,22 @@ pandas-guide/
 ## Navigation
 Each file is self-contained but references others. Start from MODULE-00 and progress sequentially, or jump to specific modules as needed.
 
+## JupyterLab Usage
+This guide is written for use in **JupyterLab**. Every module contains `> **JupyterLab:**` callout blocks that highlight notebook-specific behaviour: when to skip `print()`, how `%matplotlib inline` affects charts, path quirks, cell re-execution pitfalls, magic commands (`%%timeit`, `%pwd`, `%memit`), and more.
+
+Install JupyterLab and launch it before working through the modules:
+```bash
+pip install jupyterlab
+jupyter lab
+```
+
+The complete **JUPYTERLAB WORKFLOW** checklist is at the end of MODULE-08b.
+
 ## Prerequisites
 - Python 3.8+
 - Basic Python knowledge (variables, functions, loops)
 - No prior pandas experience required (but helpful)
+- JupyterLab (recommended) — all callouts in this guide target JupyterLab
 
 ## Libraries Used
 - pandas (core)
@@ -141,3 +153,6 @@ Each file is self-contained but references others. Start from MODULE-00 and prog
 - xlsxwriter (Excel formatting)
 - sqlalchemy (SQL operations)
 - requests (API calls)
+- jupyterlab (recommended IDE)
+- tqdm (progress bars for chunk loops)
+- ipympl (interactive `%matplotlib widget` charts)

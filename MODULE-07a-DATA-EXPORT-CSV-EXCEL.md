@@ -29,6 +29,11 @@ df = pd.DataFrame({
 # --- BASIC EXPORT ---
 df.to_csv('output.csv')
                         # Default: comma-separated, includes index and header
+```
+
+> **JupyterLab:** Paths are relative to the Jupyter launch directory — confirm with `%pwd`. After exporting, verify in the next cell: `pd.read_csv('output.csv').head()` renders as a table instantly.
+
+```python
 
 # --- CRITICAL PARAMETERS ---
 df.to_csv('output.csv',
@@ -108,6 +113,8 @@ with pd.ExcelWriter('report.xlsx', engine='openpyxl') as writer:
 ```
 
 ### Styled Excel Reports (openpyxl)
+
+> **JupyterLab:** Preview column styling in the notebook before committing to a file: `df.style.highlight_max(color='#bbf7d0').set_properties(**{'font-weight': 'bold'})` renders inline when placed as the last line in a cell. Use it to prototype the look, then replicate it with openpyxl/xlsxwriter for the actual `.xlsx`.
 
 ```python
 from openpyxl.styles import Font, PatternFill, Alignment

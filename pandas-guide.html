@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pandas Master Guide</title>
     <style>
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
@@ -41,6 +42,7 @@ pre code {
     color: inherit;
     padding: 0;
     border-radius: 0;
+    font-size: inherit;
 }
 table {
     width: 100%;
@@ -70,6 +72,18 @@ blockquote {
     background: #eff6ff;
     color: #1e40af;
 }
+blockquote.jupyter-note {
+    border-left: 4px solid #f59e0b;
+    background: #fffbeb;
+    color: #78350f;
+}
+blockquote.jupyter-note code {
+    background: #fef3c7;
+    color: #92400e;
+}
+blockquote.jupyter-note pre {
+    background: #1c1917;
+}
 ul, ol { padding-left: 24px; }
 li { margin-bottom: 4px; }
 hr { border: none; border-top: 1px solid #e5e7eb; margin: 32px 0; }
@@ -81,13 +95,15 @@ a:hover { text-decoration: underline; }
     pre { page-break-inside: avoid; }
     img { page-break-inside: avoid; max-width: 100%; }
     h1, h2, h3 { page-break-after: avoid; }
+    blockquote { page-break-inside: avoid; }
 }
-</style>
+
+    </style>
 </head>
 <body>
 <h1>🐼 PANDAS MASTER GUIDE — ARCHITECTURE</h1>
 <h2>Structure Overview</h2>
-This guide is divided into <strong>9 modules</strong> (some split into a/b for readability, ~300 lines each).
+<p>This guide is divided into <strong>9 modules</strong> (some split into a/b for readability, ~300 lines each).</p>
 <pre><code>pandas-guide/
 ├── README.md                                     ← Overview + navigation
 ├── MODULE-00-GETTING-STARTED.md                  ← Setup, philosophy, core objects
@@ -116,16 +132,19 @@ This guide is divided into <strong>9 modules</strong> (some split into a/b for r
 │   ├── chart06_boxplot_region.png
 │   ├── chart07_correlation_heatmap.png
 │   └── chart08_dashboard.png
-└── (total: ~3,600 lines across 18 files)</code></pre>
+└── (total: ~3,600 lines across 18 files)
+</code></pre>
 <h2>Module Breakdown</h2>
 <h3>MODULE-00: GETTING STARTED</h3>
-<ul><li>Pandas philosophy and why it exists</li>
+<ul>
+<li>Pandas philosophy and why it exists</li>
 <li>Core objects: Series, DataFrame, Index</li>
 <li>Installation and version management</li>
 <li>First DataFrame: creating from scratch</li>
 </ul>
 <h3>MODULE-01: DATA INGESTION</h3>
-<ul><li>CSV: read_csv deep dive (all important parameters)</li>
+<ul>
+<li>CSV: read_csv deep dive (all important parameters)</li>
 <li>JSON: read_json, nested JSON handling</li>
 <li>Excel: read_excel, multi-sheet, formatting</li>
 <li>SQL: read_sql, read_sql_query, connections</li>
@@ -134,7 +153,8 @@ This guide is divided into <strong>9 modules</strong> (some split into a/b for r
 <li>Error handling and chunking for large files</li>
 </ul>
 <h3>MODULE-02: DATA EXPLORATION (Simple EDA)</h3>
-<ul><li>First look: head(), tail(), sample()</li>
+<ul>
+<li>First look: head(), tail(), sample()</li>
 <li>Structure: info(), shape, columns, dtypes</li>
 <li>Summary statistics: describe()</li>
 <li>Value counts and distributions</li>
@@ -143,7 +163,8 @@ This guide is divided into <strong>9 modules</strong> (some split into a/b for r
 <li>Quick visual exploration</li>
 </ul>
 <h3>MODULE-03: DATA CLEANING</h3>
-<ul><li>Missing values: detection, analysis, strategies</li>
+<ul>
+<li>Missing values: detection, analysis, strategies</li>
 <li>Imputation methods (mean, median, forward fill, interpolation)</li>
 <li>Duplicate detection and removal</li>
 <li>Type conversion and validation</li>
@@ -152,7 +173,8 @@ This guide is divided into <strong>9 modules</strong> (some split into a/b for r
 <li>Data validation patterns</li>
 </ul>
 <h3>MODULE-04: DATA MANIPULATION</h3>
-<ul><li>Indexing and selection: loc, iloc, at, iat</li>
+<ul>
+<li>Indexing and selection: loc, iloc, at, iat</li>
 <li>Boolean filtering and masking</li>
 <li>Sorting (single/multi column, ascending/descending)</li>
 <li>Column operations: add, drop, rename, reorder</li>
@@ -162,7 +184,8 @@ This guide is divided into <strong>9 modules</strong> (some split into a/b for r
 <li>Concat and append</li>
 </ul>
 <h3>MODULE-05: DATA TRANSFORMATION</h3>
-<ul><li>Pivot tables and crosstabs</li>
+<ul>
+<li>Pivot tables and crosstabs</li>
 <li>Melting and stacking (wide to long)</li>
 <li>String operations (str accessor)</li>
 <li>DateTime operations</li>
@@ -172,7 +195,8 @@ This guide is divided into <strong>9 modules</strong> (some split into a/b for r
 <li>Feature engineering basics</li>
 </ul>
 <h3>MODULE-06: VISUALIZATION</h3>
-<ul><li>Matplotlib fundamentals for pandas</li>
+<ul>
+<li>Matplotlib fundamentals for pandas</li>
 <li>Built-in pandas plotting</li>
 <li>Professional line charts</li>
 <li>Bar charts (grouped, stacked)</li>
@@ -186,7 +210,8 @@ This guide is divided into <strong>9 modules</strong> (some split into a/b for r
 <li>Production-grade chart templates</li>
 </ul>
 <h3>MODULE-07: DATA EXPORT</h3>
-<ul><li>CSV export: to_csv with formatting options</li>
+<ul>
+<li>CSV export: to_csv with formatting options</li>
 <li>Excel export: to_excel with styling (openpyxl, xlsxwriter)</li>
 <li>JSON export: to_json formats</li>
 <li>SQL export: to_sql</li>
@@ -195,7 +220,8 @@ This guide is divided into <strong>9 modules</strong> (some split into a/b for r
 <li>Formatted Excel reports with charts</li>
 </ul>
 <h3>MODULE-08: PRODUCTION-GRADE</h3>
-<ul><li>Performance optimization</li>
+<ul>
+<li>Performance optimization</li>
 <li>Memory management</li>
 <li>Vectorization vs apply</li>
 <li>Chunking for large datasets</li>
@@ -206,14 +232,24 @@ This guide is divided into <strong>9 modules</strong> (some split into a/b for r
 <li>Best practices checklist</li>
 </ul>
 <h2>Navigation</h2>
-Each file is self-contained but references others. Start from MODULE-00 and progress sequentially, or jump to specific modules as needed.
+<p>Each file is self-contained but references others. Start from MODULE-00 and progress sequentially, or jump to specific modules as needed.</p>
+<h2>JupyterLab Usage</h2>
+<p>This guide is written for use in <strong>JupyterLab</strong>. Every module contains <code>&gt; **JupyterLab:**</code> callout blocks that highlight notebook-specific behaviour: when to skip <code>print()</code>, how <code>%matplotlib inline</code> affects charts, path quirks, cell re-execution pitfalls, magic commands (<code>%%timeit</code>, <code>%pwd</code>, <code>%memit</code>), and more.</p>
+<p>Install JupyterLab and launch it before working through the modules:</p>
+<pre><code class="language-bash">pip install jupyterlab
+jupyter lab
+</code></pre>
+<p>The complete <strong>JUPYTERLAB WORKFLOW</strong> checklist is at the end of MODULE-08b.</p>
 <h2>Prerequisites</h2>
-<ul><li>Python 3.8+</li>
+<ul>
+<li>Python 3.8+</li>
 <li>Basic Python knowledge (variables, functions, loops)</li>
 <li>No prior pandas experience required (but helpful)</li>
+<li>JupyterLab (recommended) — all callouts in this guide target JupyterLab</li>
 </ul>
 <h2>Libraries Used</h2>
-<ul><li>pandas (core)</li>
+<ul>
+<li>pandas (core)</li>
 <li>numpy (numerical operations)</li>
 <li>matplotlib (plotting)</li>
 <li>seaborn (statistical visualization)</li>
@@ -221,54 +257,66 @@ Each file is self-contained but references others. Start from MODULE-00 and prog
 <li>xlsxwriter (Excel formatting)</li>
 <li>sqlalchemy (SQL operations)</li>
 <li>requests (API calls)</li>
+<li>jupyterlab (recommended IDE)</li>
+<li>tqdm (progress bars for chunk loops)</li>
+<li>ipympl (interactive <code>%matplotlib widget</code> charts)</li>
 </ul>
-<div class="page-break"></div>
+<hr>
 <h1>MODULE-00: GETTING STARTED WITH PANDAS</h1>
 <h2>Why Pandas Exists</h2>
 <p>Pandas was created by <strong>Wes McKinney</strong> in 2008 while working at quantitative trading firms. He needed a tool that combined:
-<ul><li>The data manipulation power of Excel/SQL</li>
-<li>The flexibility of Python</li>
-<li>The performance of compiled languages</li>
-</ul>
-<strong>Why pandas over pure Python lists/dicts?</strong>
-<ul><li>Vectorized operations (no slow Python loops)</li>
-<li>Built-in handling of missing data (NaN)</li>
-<li>Labeled axes (column names, row indices)</li>
-<li>Time-series functionality</li>
-<li>Seamless integration with numpy, matplotlib, scipy</li>
-</ul>
-<hr></p>
+- The data manipulation power of Excel/SQL
+- The flexibility of Python
+- The performance of compiled languages</p>
+<p><strong>Why pandas over pure Python lists/dicts?</strong>
+- Vectorized operations (no slow Python loops)
+- Built-in handling of missing data (NaN)
+- Labeled axes (column names, row indices)
+- Time-series functionality
+- Seamless integration with numpy, matplotlib, scipy</p>
+<hr />
 <h2>Installation</h2>
-<p>``<code>bash
-<h1>Minimal installation</h1>
-pip install pandas</p>
-<h1>Recommended full installation</h1>
+<pre><code class="language-bash"># Minimal installation
+pip install pandas
+
+# Recommended full installation
 pip install pandas numpy matplotlib seaborn openpyxl xlsxwriter sqlalchemy requests
-<h1>Verify installation</h1>
-python -c "import pandas; print(pandas.__version__)"
-</code>`<code>
+
+# Verify installation
+python -c &quot;import pandas; print(pandas.__version__)&quot;
+</code></pre>
 <p><strong>Version note:</strong> This guide targets pandas 2.x. Some behaviors differ in 1.x.</p>
-<hr>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Install packages directly in a notebook cell by prefixing with <code>!</code>:
+<code>python
+!pip install pandas numpy matplotlib seaborn openpyxl xlsxwriter sqlalchemy requests</code>
+Run this cell once, then <strong>Kernel → Restart</strong> so the new packages are available. To launch JupyterLab itself: <code>pip install jupyterlab</code> then <code>jupyter lab</code>.</p>
+</blockquote>
+<hr />
 <h2>Core Philosophy</h2>
 <p>Pandas is built on three principles:</p>
-<ul><li><strong>Labeled data</strong> — Every row and column has a name (index)</li>
+<ol>
+<li><strong>Labeled data</strong> — Every row and column has a name (index)</li>
 <li><strong>Missing data is first-class</strong> — NaN values are handled gracefully</li>
 <li><strong>Vectorization</strong> — Operations apply to entire columns at once (fast)</li>
-</ul>
-<pre><code>import pandas as pd
+</ol>
+<pre><code class="language-python">import pandas as pd
 import numpy as np
 
 # Standard import convention — always use these aliases
 # pd = pandas (the library)
-# np = numpy (numerical computing foundation)</code></pre>
-<hr>
+# np = numpy (numerical computing foundation)
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Put imports in the <strong>first cell</strong> of your notebook and run it (<code>Shift+Enter</code>) before any other cell. JupyterLab's autocomplete is aware of <code>pd</code> and <code>np</code> after they're imported.</p>
+</blockquote>
+<hr />
 <h2>The Three Core Objects</h2>
 <h3>1. Series — 1D Labeled Array</h3>
 <p>A Series is like a column in a spreadsheet. It has:
-<ul><li><strong>Values</strong> (the data)</li>
-<li><strong>Index</strong> (labels for each value)</li>
-</ul></p>
-<pre><code># Creating a Series
+- <strong>Values</strong> (the data)
+- <strong>Index</strong> (labels for each value)</p>
+<pre><code class="language-python"># Creating a Series
 s = pd.Series([10, 20, 30, 40], index=['a', 'b', 'c', 'd'])
 print(s)
 # a    10
@@ -283,18 +331,20 @@ print(s[['a', 'c']])  # Multiple values
 
 # Access by position
 print(s.iloc[0])   # 10 (first position)
-print(s.loc['a'])  # 10 (by label)</code></pre>
+print(s.loc['a'])  # 10 (by label)
+</code></pre>
 <p><strong>Why index matters:</strong> The index lets you align data automatically during operations.</p>
-<pre><code>s1 = pd.Series([1, 2, 3], index=['a', 'b', 'c'])
+<pre><code class="language-python">s1 = pd.Series([1, 2, 3], index=['a', 'b', 'c'])
 s2 = pd.Series([4, 5, 6], index=['b', 'c', 'd'])
 print(s1 + s2)  # Automatic alignment by index
 # a    NaN  (only in s1)
 # b    6.0  (1 + 5)
 # c    8.0  (2 + 6)
-# d    NaN  (only in s2)</code></pre>
+# d    NaN  (only in s2)
+</code></pre>
 <h3>2. DataFrame — 2D Labeled Table</h3>
 <p>A DataFrame is like a spreadsheet or SQL table. It's a collection of Series that share an index.</p>
-<pre><code># Creating a DataFrame from dict
+<pre><code class="language-python"># Creating a DataFrame from dict
 df = pd.DataFrame({
     'name': ['Alice', 'Bob', 'Charlie'],
     'age': [25, 30, 35],
@@ -308,21 +358,25 @@ print(df)
 # 2 Charlie   35   70000
 
 # Each column is a Series
-print(type(df['name']))  # <class 'pandas.core.series.Series'></code></pre>
+print(type(df['name']))  # &lt;class 'pandas.core.series.Series'&gt;
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Skip <code>print(df)</code> — place <code>df</code> as the <strong>last line</strong> of a cell and JupyterLab renders it as a styled HTML table. Using <code>print()</code> gives plain text instead and loses the formatting.</p>
+</blockquote>
 <h3>3. Index — The Labels</h3>
 <p>The Index is the "row labels" of a DataFrame. It enables:
-<ul><li>Fast lookups</li>
-<li>Data alignment</li>
-<li>Hierarchical (multi-level) indexing</li>
-</ul></p>
-<pre><code>df = pd.DataFrame(
+- Fast lookups
+- Data alignment
+- Hierarchical (multi-level) indexing</p>
+<pre><code class="language-python">df = pd.DataFrame(
     {'A': [1, 2, 3], 'B': [4, 5, 6]},
     index=['row1', 'row2', 'row3']
 )
-print(df.index)  # Index(['row1', 'row2', 'row3'], dtype='object')</code></pre>
-<hr>
+print(df.index)  # Index(['row1', 'row2', 'row3'], dtype='object')
+</code></pre>
+<hr />
 <h2>Creating DataFrames: All Methods</h2>
-<pre><code>import pandas as pd
+<pre><code class="language-python">import pandas as pd
 
 # 1. From dictionary (most common)
 df1 = pd.DataFrame({
@@ -353,10 +407,11 @@ df4 = pd.DataFrame(
 # df5 = pd.read_csv('data.csv')
 
 # 6. From Excel file
-# df6 = pd.read_excel('data.xlsx')</code></pre>
-<hr>
+# df6 = pd.read_excel('data.xlsx')
+</code></pre>
+<hr />
 <h2>Essential DataFrame Attributes</h2>
-<pre><code>df = pd.DataFrame({
+<pre><code class="language-python">df = pd.DataFrame({
     'name': ['Alice', 'Bob', 'Charlie', 'Diana'],
     'age': [25, 30, 35, 28],
     'salary': [50000, 60000, 70000, 55000],
@@ -390,10 +445,14 @@ print(df.T)
 print(df.info())
 
 # memory_usage(): how much RAM each column uses
-print(df.memory_usage())</code></pre>
-<hr>
+print(df.memory_usage())
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> <code>df.info()</code> prints to stdout — call it <strong>without</strong> <code>print()</code> wrapping in a cell. <code>print(df.info())</code> appends a stray <code>None</code> at the end. For <code>df.memory_usage()</code>, placing it as the last expression in a cell renders it as a Series table.</p>
+</blockquote>
+<hr />
 <h2>Setting and Resetting Index</h2>
-<pre><code>df = pd.DataFrame({
+<pre><code class="language-python">df = pd.DataFrame({
     'name': ['Alice', 'Bob', 'Charlie'],
     'age': [25, 30, 35],
     'salary': [50000, 60000, 70000]
@@ -416,10 +475,11 @@ print(df_reset)
 # 1. Faster lookups by label
 # 2. Meaningful row identifiers
 # 3. Required for time-series operations
-# 4. Enables hierarchical indexing</code></pre>
-<hr>
+# 4. Enables hierarchical indexing
+</code></pre>
+<hr />
 <h2>Viewing Data</h2>
-<pre><code># First N rows
+<pre><code class="language-python"># First N rows
 df.head(3)
 
 # Last N rows
@@ -436,53 +496,138 @@ df.iloc[[0, 2]]           # Rows 0 and 2
 
 # Specific rows by label
 df.loc[0]                 # Row with index label 0
-df.loc[0:2]               # Rows with labels 0, 1, 2 (inclusive!)</code></pre>
-<p><strong>Important:</strong> </code>loc<code> is label-based (inclusive of end), </code>iloc<code> is position-based (exclusive of end).</p>
-<hr>
+df.loc[0:2]               # Rows with labels 0, 1, 2 (inclusive!)
+</code></pre>
+<p><strong>Important:</strong> <code>loc</code> is label-based (inclusive of end), <code>iloc</code> is position-based (exclusive of end).</p>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> <code>df.head()</code>, <code>df.tail()</code>, and <code>df.sample()</code> all return DataFrames — place them as the last line of a cell to get the HTML table view. You can also display multiple DataFrames in one cell using <code>display(df.head(), df.tail())</code> (no import needed in JupyterLab).</p>
+</blockquote>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 01:</strong> Learn to load data from CSV, JSON, Excel, SQL, APIs</li>
+<ul>
+<li><strong>Module 01:</strong> Learn to load data from CSV, JSON, Excel, SQL, APIs</li>
 <li><strong>Module 02:</strong> Explore and understand your data (EDA)</li>
 <li><strong>Module 03:</strong> Clean and prepare messy real-world data</li>
 </ul>
-<hr>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Operation</td><td>Code</td><td>Description</td></tr>
-<tr><td>Create DataFrame</td><td></code>pd.DataFrame(dict)<code></td><td>From dictionary</td></tr>
-<tr><td>View shape</td><td></code>df.shape<code></td><td>(rows, cols)</td></tr>
-<tr><td>View columns</td><td></code>df.columns<code></td><td>Column names</td></tr>
-<tr><td>View types</td><td></code>df.dtypes<code></td><td>Data types</td></tr>
-<tr><td>First rows</td><td></code>df.head(n)<code></td><td>Top n rows</td></tr>
-<tr><td>Random sample</td><td></code>df.sample(n)<code></td><td>Random n rows</td></tr>
-<tr><td>Set index</td><td></code>df.set_index('col')<code></td><td>Use column as index</td></tr>
-<tr><td>Reset index</td><td></code>df.reset_index()<code></td><td>Convert index to column</td></tr>
-<tr><td>Info</td><td></code>df.info()<code></td><td>Structure summary</td></tr>
-<tr><td>Memory</td><td></code>df.memory_usage()`</td><td>RAM usage</td></tr>
-</tbody></table>
-<div class="page-break"></div>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create DataFrame</td>
+<td><code>pd.DataFrame(dict)</code></td>
+<td>From dictionary</td>
+</tr>
+<tr>
+<td>View shape</td>
+<td><code>df.shape</code></td>
+<td>(rows, cols)</td>
+</tr>
+<tr>
+<td>View columns</td>
+<td><code>df.columns</code></td>
+<td>Column names</td>
+</tr>
+<tr>
+<td>View types</td>
+<td><code>df.dtypes</code></td>
+<td>Data types</td>
+</tr>
+<tr>
+<td>First rows</td>
+<td><code>df.head(n)</code></td>
+<td>Top n rows</td>
+</tr>
+<tr>
+<td>Random sample</td>
+<td><code>df.sample(n)</code></td>
+<td>Random n rows</td>
+</tr>
+<tr>
+<td>Set index</td>
+<td><code>df.set_index('col')</code></td>
+<td>Use column as index</td>
+</tr>
+<tr>
+<td>Reset index</td>
+<td><code>df.reset_index()</code></td>
+<td>Convert index to column</td>
+</tr>
+<tr>
+<td>Info</td>
+<td><code>df.info()</code></td>
+<td>Structure summary</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td><code>df.memory_usage()</code></td>
+<td>RAM usage</td>
+</tr>
+</tbody>
+</table>
+<hr>
 <h1>MODULE-01a: DATA INGESTION — CSV AND JSON</h1>
 <h2>The Data Loading Landscape</h2>
 <p>Real-world data comes in many formats. Pandas provides <code>read_*</code> functions for each:</p>
 <table>
-<tr><td>Function</td><td>Format</td><td>Best For</td></tr>
-<tr><td><code>read_csv()</code></td><td>CSV/TSV</td><td>Flat files, exports from systems</td></tr>
-<tr><td><code>read_json()</code></td><td>JSON</td><td>APIs, NoSQL databases</td></tr>
-<tr><td><code>read_excel()</code></td><td>Excel (.xlsx)</td><td>Business reports, spreadsheets</td></tr>
-<tr><td><code>read_sql()</code></td><td>SQL databases</td><td>Relational databases</td></tr>
-<tr><td><code>read_parquet()</code></td><td>Parquet</td><td>Big data, analytics pipelines</td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Function</th>
+<th>Format</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>read_csv()</code></td>
+<td>CSV/TSV</td>
+<td>Flat files, exports from systems</td>
+</tr>
+<tr>
+<td><code>read_json()</code></td>
+<td>JSON</td>
+<td>APIs, NoSQL databases</td>
+</tr>
+<tr>
+<td><code>read_excel()</code></td>
+<td>Excel (.xlsx)</td>
+<td>Business reports, spreadsheets</td>
+</tr>
+<tr>
+<td><code>read_sql()</code></td>
+<td>SQL databases</td>
+<td>Relational databases</td>
+</tr>
+<tr>
+<td><code>read_parquet()</code></td>
+<td>Parquet</td>
+<td>Big data, analytics pipelines</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>1. CSV FILES — The Workhorse</h2>
 <h3>Basic Loading</h3>
-<pre><code>import pandas as pd
+<pre><code class="language-python">import pandas as pd
 
 # Minimal — just the file path
 df = pd.read_csv('data.csv')
 
 # With TSV (tab-separated)
-df = pd.read_csv('data.tsv', sep='\t')</code></pre>
+df = pd.read_csv('data.tsv', sep='\t')
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Paths are relative to the directory where you launched <code>jupyter lab</code>, not the notebook file's location. Run <code>%pwd</code> in a cell to confirm, or use absolute paths. To get the notebook's own directory: <code>from pathlib import Path; here = Path().resolve()</code>.</p>
+</blockquote>
 <h3>Critical Parameters (and WHY they matter)</h3>
-<pre><code># --- HEADER & ROWS ---
+<pre><code class="language-python"># --- HEADER &amp; ROWS ---
 df = pd.read_csv('data.csv',
     header=0,           # Row to use as column names (0 = first row)
                         # Why? Some files have metadata rows at top
@@ -528,12 +673,15 @@ for chunk in pd.read_csv('large_file.csv', chunksize=chunk_size):
     chunks.append(filtered)
 df = pd.concat(chunks, ignore_index=True)
 
+&gt; **JupyterLab:** Add a progress bar to chunk loops with `from tqdm.notebook import tqdm`, then wrap the iterator: `for chunk in tqdm(pd.read_csv('file.csv', chunksize=chunk_size), desc=&quot;Loading&quot;)`. Install with `!pip install tqdm`.
+
 # --- USECOLS (Memory Optimization) ---
 df = pd.read_csv('data.csv', usecols=['name', 'age', 'salary'])
-                        # Why? Faster loading, less memory</code></pre>
+                        # Why? Faster loading, less memory
+</code></pre>
 <h3>Common CSV Pitfalls</h3>
-<pre><code># Problem: Comma in quoted fields
-# Solution: Pandas handles this automatically with quotechar='"'
+<pre><code class="language-python"># Problem: Comma in quoted fields
+# Solution: Pandas handles this automatically with quotechar='&quot;'
 
 # Problem: Mixed line endings (Windows \r\n vs Unix \n)
 # Solution: Use lineterminator='\n' or let pandas auto-detect
@@ -541,36 +689,38 @@ df = pd.read_csv('data.csv', usecols=['name', 'age', 'salary'])
 # Problem: Inconsistent number of fields
 # Solution: on_bad_lines parameter
 df = pd.read_csv('data.csv', on_bad_lines='warn')
-                        # Options: 'error', 'warn', 'skip'</code></pre>
-<hr>
+                        # Options: 'error', 'warn', 'skip'
+</code></pre>
+<hr />
 <h2>2. JSON FILES</h2>
 <p>JSON (JavaScript Object Notation) is hierarchical. Pandas needs help flattening it.</p>
 <h3>Simple JSON (List of Dicts)</h3>
-<pre><code># JSON array of objects → DataFrame directly
+<pre><code class="language-python"># JSON array of objects → DataFrame directly
 df = pd.read_json('data.json')
 
 # From JSON string
 import json
-json_str = '[{"name": "Alice", "age": 25}, {"name": "Bob", "age": 30}]'
-df = pd.read_json(json_str)</code></pre>
+json_str = '[{&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 25}, {&quot;name&quot;: &quot;Bob&quot;, &quot;age&quot;: 30}]'
+df = pd.read_json(json_str)
+</code></pre>
 <h3>Nested JSON — The Real Challenge</h3>
-<pre><code>import json
+<pre><code class="language-python">import json
 from pandas import json_normalize
 
 # Nested structure (common from APIs)
 nested_data = {
-    "users": [
+    &quot;users&quot;: [
         {
-            "id": 1,
-            "name": "Alice",
-            "address": {"city": "NYC", "zip": "10001"},
-            "orders": [{"id": 101, "amount": 50}, {"id": 102, "amount": 75}]
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Alice&quot;,
+            &quot;address&quot;: {&quot;city&quot;: &quot;NYC&quot;, &quot;zip&quot;: &quot;10001&quot;},
+            &quot;orders&quot;: [{&quot;id&quot;: 101, &quot;amount&quot;: 50}, {&quot;id&quot;: 102, &quot;amount&quot;: 75}]
         },
         {
-            "id": 2,
-            "name": "Bob",
-            "address": {"city": "LA", "zip": "90001"},
-            "orders": [{"id": 103, "amount": 100}]
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;Bob&quot;,
+            &quot;address&quot;: {&quot;city&quot;: &quot;LA&quot;, &quot;zip&quot;: &quot;90001&quot;},
+            &quot;orders&quot;: [{&quot;id&quot;: 103, &quot;amount&quot;: 100}]
         }
     ]
 }
@@ -594,43 +744,80 @@ print(df_orders)
 #    id  amount name address.city
 # 0 101      50  Alice          NYC
 # 1 102      75  Alice          NYC
-# 2 103     100    Bob           LA</code></pre>
+# 2 103     100    Bob           LA
+</code></pre>
 <h3>JSON Orientation</h3>
-<pre><code># Pandas can read JSON in different orientations
-# 'records': [{"col": val}, ...]  (default, most common)
-# 'split':   {"index": [...], "columns": [...], "data": [[...]]}
+<pre><code class="language-python"># Pandas can read JSON in different orientations
+# 'records': [{&quot;col&quot;: val}, ...]  (default, most common)
+# 'split':   {&quot;index&quot;: [...], &quot;columns&quot;: [...], &quot;data&quot;: [[...]]}
 # 'index':   {row_idx: {col: val}}
 # 'columns': {col: {row_idx: val}}
 # 'values':  [[val, val], ...]
 
 # Example: reading 'split' orientation
-df = pd.read_json('data.json', orient='split')</code></pre>
-<hr>
+df = pd.read_json('data.json', orient='split')
+</code></pre>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Task</td><td>Code</td></tr>
-<tr><td>Load CSV</td><td><code>pd.read_csv('file.csv')</code></td></tr>
-<tr><td>Load TSV</td><td><code>pd.read_csv('file.tsv', sep='\t')</code></td></tr>
-<tr><td>Load JSON</td><td><code>pd.read_json('file.json')</code></td></tr>
-<tr><td>Preview large file</td><td><code>pd.read_csv('file.csv', nrows=100)</code></td></tr>
-<tr><td>Load specific columns</td><td><code>pd.read_csv('file.csv', usecols=['a', 'b'])</code></td></tr>
-<tr><td>Parse dates</td><td><code>pd.read_csv('file.csv', parse_dates=['date'])</code></td></tr>
-<tr><td>Handle missing values</td><td><code>pd.read_csv('file.csv', na_values=['NA', '-'])</code></td></tr>
-<tr><td>Chunk large file</td><td><code>pd.read_csv('file.csv', chunksize=10000)</code></td></tr>
-<tr><td>Flatten nested JSON</td><td><code>json_normalize(data, record_path='items')</code></td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Load CSV</td>
+<td><code>pd.read_csv('file.csv')</code></td>
+</tr>
+<tr>
+<td>Load TSV</td>
+<td><code>pd.read_csv('file.tsv', sep='\t')</code></td>
+</tr>
+<tr>
+<td>Load JSON</td>
+<td><code>pd.read_json('file.json')</code></td>
+</tr>
+<tr>
+<td>Preview large file</td>
+<td><code>pd.read_csv('file.csv', nrows=100)</code></td>
+</tr>
+<tr>
+<td>Load specific columns</td>
+<td><code>pd.read_csv('file.csv', usecols=['a', 'b'])</code></td>
+</tr>
+<tr>
+<td>Parse dates</td>
+<td><code>pd.read_csv('file.csv', parse_dates=['date'])</code></td>
+</tr>
+<tr>
+<td>Handle missing values</td>
+<td><code>pd.read_csv('file.csv', na_values=['NA', '-'])</code></td>
+</tr>
+<tr>
+<td>Chunk large file</td>
+<td><code>pd.read_csv('file.csv', chunksize=10000)</code></td>
+</tr>
+<tr>
+<td>Flatten nested JSON</td>
+<td><code>json_normalize(data, record_path='items')</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 01b:</strong> Excel, SQL, API, and Parquet loading</li>
+<ul>
+<li><strong>Module 01b:</strong> Excel, SQL, API, and Parquet loading</li>
 <li><strong>Module 02a:</strong> Basic data exploration (EDA)</li>
 </ul>
-<div class="page-break"></div>
-<h1>MODULE-01b: DATA INGESTION — EXCEL, SQL, APIs, AND MORE</h1>
 <hr>
+<h1>MODULE-01b: DATA INGESTION — EXCEL, SQL, APIs, AND MORE</h1>
+<hr />
 <h2>3. EXCEL FILES</h2>
 <p>Excel files can contain multiple sheets, formatting, and formulas.</p>
 <h3>Basic Loading</h3>
-<pre><code>import pandas as pd
+<pre><code class="language-python">import pandas as pd
 
 # Single sheet
 df = pd.read_excel('data.xlsx')              # First sheet by default
@@ -641,9 +828,10 @@ df = pd.read_excel('data.xlsx', sheet_name=0) # By index (0-based)
 sheets = pd.read_excel('data.xlsx', sheet_name=None)
                         # Returns dict: {sheet_name: DataFrame}
 for name, df in sheets.items():
-    print(f"Sheet: {name}, Shape: {df.shape}")</code></pre>
+    print(f&quot;Sheet: {name}, Shape: {df.shape}&quot;)
+</code></pre>
 <h3>Important Parameters</h3>
-<pre><code>df = pd.read_excel('data.xlsx',
+<pre><code class="language-python">df = pd.read_excel('data.xlsx',
     sheet_name='Data',
     header=0,               # Row for column names
     index_col=0,            # Column for row index
@@ -656,15 +844,17 @@ for name, df in sheets.items():
     na_values=['NA', 'N/A', '-'],
     engine='openpyxl',      # For .xlsx files
     engine='xlrd',          # For .xls files (older format)
-)</code></pre>
+)
+</code></pre>
 <h3>Multi-Header Excel Files</h3>
-<pre><code># Some Excel files have multi-row headers
+<pre><code class="language-python"># Some Excel files have multi-row headers
 df = pd.read_excel('data.xlsx', header=[0, 1])
                         # Creates MultiIndex columns
-# Access: df[('Header1', 'SubHeader1')]</code></pre>
-<hr>
+# Access: df[('Header1', 'SubHeader1')]
+</code></pre>
+<hr />
 <h2>4. SQL DATABASES</h2>
-<pre><code>from sqlalchemy import create_engine
+<pre><code class="language-python">from sqlalchemy import create_engine
 
 # Create engine (supports PostgreSQL, MySQL, SQLite, etc.)
 engine = create_engine('sqlite:///mydatabase.db')
@@ -672,25 +862,26 @@ engine = create_engine('postgresql://user:pass@host:5432/dbname')
 engine = create_engine('mysql+pymysql://user:pass@host:3306/dbname')
 
 # Read SQL query
-df = pd.read_sql("SELECT * FROM users WHERE active = 1", engine)
+df = pd.read_sql(&quot;SELECT * FROM users WHERE active = 1&quot;, engine)
 
 # Read entire table
 df = pd.read_sql_table('users', engine)
 
 # Read with parameters (prevents SQL injection)
 df = pd.read_sql(
-    "SELECT * FROM users WHERE department = %s",
+    &quot;SELECT * FROM users WHERE department = %s&quot;,
     engine,
     params=['Engineering']
 )
 
 # Chunk large results
-chunk_iter = pd.read_sql("SELECT * FROM large_table", engine, chunksize=10000)
+chunk_iter = pd.read_sql(&quot;SELECT * FROM large_table&quot;, engine, chunksize=10000)
 for chunk in chunk_iter:
-    process(chunk)</code></pre>
-<hr>
+    process(chunk)
+</code></pre>
+<hr />
 <h2>5. API DATA (JSON from REST APIs)</h2>
-<pre><code>import requests
+<pre><code class="language-python">import requests
 from pandas import json_normalize
 
 # Fetch data from API
@@ -706,10 +897,11 @@ df = json_normalize(
     data['results'],
     record_path='items',
     meta=['page', 'total_count']
-)</code></pre>
-<hr>
+)
+</code></pre>
+<hr />
 <h2>6. OTHER FORMATS</h2>
-<pre><code># Parquet (columnar, compressed — best for big data)
+<pre><code class="language-python"># Parquet (columnar, compressed — best for big data)
 df = pd.read_parquet('data.parquet')
 
 # Feather (fast binary format)
@@ -724,29 +916,34 @@ tables = pd.read_html('https://example.com/table-page.html')
 df = tables[0]
 
 # Clipboard (quick copy-paste)
-df = pd.read_clipboard()  # Copy from Excel, paste directly</code></pre>
-<hr>
+df = pd.read_clipboard()  # Copy from Excel, paste directly
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> <code>pd.read_clipboard()</code> is especially handy in notebooks — copy any rows from a browser table or spreadsheet, then run the cell. On Linux it requires <code>xclip</code> or <code>xsel</code> (<code>sudo pacman -S xclip</code>).</p>
+<p>For <code>pd.read_html()</code>, use <code>display(tables[0])</code> to render the first result as a styled table, or check <code>len(tables)</code> to see how many tables were scraped from the page.</p>
+</blockquote>
+<hr />
 <h2>Production-Grade Loading Pattern</h2>
-<pre><code>import pandas as pd
+<pre><code class="language-python">import pandas as pd
 import logging
 from pathlib import Path
 
-def load_data_safely(file_path: str, **kwargs) -> pd.DataFrame:
-    """
+def load_data_safely(file_path: str, **kwargs) -&gt; pd.DataFrame:
+    &quot;&quot;&quot;
     Production-grade data loader with error handling.
-    
+
     Args:
         file_path: Path to data file
         **kwargs: Additional arguments passed to read_* functions
-        
+
     Returns:
         DataFrame with loaded data
-    """
+    &quot;&quot;&quot;
     path = Path(file_path)
-    
+
     if not path.exists():
-        raise FileNotFoundError(f"File not found: {file_path}")
-    
+        raise FileNotFoundError(f&quot;File not found: {file_path}&quot;)
+
     # Determine format from extension
     ext = path.suffix.lower()
     loaders = {
@@ -757,51 +954,82 @@ def load_data_safely(file_path: str, **kwargs) -> pd.DataFrame:
         '.xls': pd.read_excel,
         '.parquet': pd.read_parquet,
     }
-    
+
     if ext not in loaders:
-        raise ValueError(f"Unsupported format: {ext}")
-    
+        raise ValueError(f&quot;Unsupported format: {ext}&quot;)
+
     try:
         df = loaders[ext](file_path, **kwargs)
-        logging.info(f"Loaded {len(df)} rows, {len(df.columns)} columns from {file_path}")
+        logging.info(f&quot;Loaded {len(df)} rows, {len(df.columns)} columns from {file_path}&quot;)
         return df
     except Exception as e:
-        logging.error(f"Failed to load {file_path}: {e}")
+        logging.error(f&quot;Failed to load {file_path}: {e}&quot;)
         raise
 
 # Usage
-df = load_data_safely('data/sales_2024.csv', parse_dates=['date'])</code></pre>
-<hr>
+df = load_data_safely('data/sales_2024.csv', parse_dates=['date'])
+</code></pre>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Task</td><td>Code</td></tr>
-<tr><td>Load Excel</td><td><code>pd.read_excel('file.xlsx')</code></td></tr>
-<tr><td>Multiple sheets</td><td><code>pd.read_excel('file.xlsx', sheet_name=None)</code></td></tr>
-<tr><td>Load SQL</td><td><code>pd.read_sql('SELECT...', engine)</code></td></tr>
-<tr><td>Load from API</td><td><code>pd.DataFrame(requests.get(url).json())</code></td></tr>
-<tr><td>Load Parquet</td><td><code>pd.read_parquet('file.parquet')</code></td></tr>
-<tr><td>Load HTML table</td><td><code>pd.read_html(url)</code></td></tr>
-<tr><td>Load from clipboard</td><td><code>pd.read_clipboard()</code></td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Load Excel</td>
+<td><code>pd.read_excel('file.xlsx')</code></td>
+</tr>
+<tr>
+<td>Multiple sheets</td>
+<td><code>pd.read_excel('file.xlsx', sheet_name=None)</code></td>
+</tr>
+<tr>
+<td>Load SQL</td>
+<td><code>pd.read_sql('SELECT...', engine)</code></td>
+</tr>
+<tr>
+<td>Load from API</td>
+<td><code>pd.DataFrame(requests.get(url).json())</code></td>
+</tr>
+<tr>
+<td>Load Parquet</td>
+<td><code>pd.read_parquet('file.parquet')</code></td>
+</tr>
+<tr>
+<td>Load HTML table</td>
+<td><code>pd.read_html(url)</code></td>
+</tr>
+<tr>
+<td>Load from clipboard</td>
+<td><code>pd.read_clipboard()</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 02a:</strong> Basic data exploration (EDA)</li>
+<ul>
+<li><strong>Module 02a:</strong> Basic data exploration (EDA)</li>
 <li><strong>Module 07a:</strong> Export to CSV and Excel</li>
 </ul>
-<div class="page-break"></div>
+<hr>
 <h1>MODULE-02a: DATA EXPLORATION — BASIC EDA</h1>
 <h2>What is EDA and Why It Matters</h2>
 <p><strong>Exploratory Data Analysis (EDA)</strong> is the process of understanding your data before modeling or reporting.</p>
 <p><strong>Why EDA first?</strong>
-<ul><li>Reveals data quality issues (missing values, outliers, errors)</li>
-<li>Uncovers patterns and relationships</li>
-<li>Informs feature engineering decisions</li>
-<li>Prevents garbage-in-garbage-out scenarios</li>
-</ul>
-<blockquote>"The greatest value of a picture is when it forces us to notice what we never expected to see." — John Tukey</blockquote></p>
-<hr>
+- Reveals data quality issues (missing values, outliers, errors)
+- Uncovers patterns and relationships
+- Informs feature engineering decisions
+- Prevents garbage-in-garbage-out scenarios</p>
+<blockquote>
+<p>"The greatest value of a picture is when it forces us to notice what we never expected to see." — John Tukey</p>
+</blockquote>
+<hr />
 <h2>Loading Sample Data</h2>
-<pre><code>import pandas as pd
+<pre><code class="language-python">import pandas as pd
 import numpy as np
 
 df = pd.DataFrame({
@@ -819,13 +1047,14 @@ df = pd.DataFrame({
 
 # Add some missing values for realism
 df.loc[df.sample(10).index, 'salary'] = np.nan
-df.loc[df.sample(5).index, 'performance_score'] = np.nan</code></pre>
-<hr>
+df.loc[df.sample(5).index, 'performance_score'] = np.nan
+</code></pre>
+<hr />
 <h2>Step 1: First Look — Shape and Structure</h2>
-<pre><code># --- DIMENSIONS ---
-print(f"Shape: {df.shape}")          # (rows, columns)
-print(f"Rows: {df.shape[0]}")        # Number of records
-print(f"Columns: {df.shape[1]}")     # Number of features
+<pre><code class="language-python"># --- DIMENSIONS ---
+print(f&quot;Shape: {df.shape}&quot;)          # (rows, columns)
+print(f&quot;Rows: {df.shape[0]}&quot;)        # Number of records
+print(f&quot;Columns: {df.shape[1]}&quot;)     # Number of features
 
 # --- COLUMN NAMES ---
 print(df.columns.tolist())           # List of column names
@@ -841,10 +1070,14 @@ print(df.dtypes)
 # --- DETAILED STRUCTURE ---
 print(df.info())
 # Shows: column names, non-null counts, dtypes, memory usage
-# Why? Quick scan for missing data and type issues</code></pre>
-<hr>
+# Why? Quick scan for missing data and type issues
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Call <code>df.info()</code> without <code>print()</code> — it prints to stdout either way, but <code>print(df.info())</code> appends a stray <code>None</code>. <code>df.dtypes</code>, <code>df.describe()</code>, and <code>df.head()</code> all render as styled tables when placed as the last line in a cell.</p>
+</blockquote>
+<hr />
 <h2>Step 2: Sample the Data</h2>
-<pre><code># --- FIRST ROWS ---
+<pre><code class="language-python"># --- FIRST ROWS ---
 print(df.head())                     # First 5 rows (default)
 print(df.head(10))                   # First 10 rows
 
@@ -859,10 +1092,11 @@ print(df.sample(frac=0.1))           # 10% of data
 
 # --- SPECIFIC ROWS ---
 print(df.iloc[0])                    # First row (by position)
-print(df.loc[0])                     # Row with index label 0</code></pre>
-<hr>
+print(df.loc[0])                     # Row with index label 0
+</code></pre>
+<hr />
 <h2>Step 3: Numerical Summary Statistics</h2>
-<pre><code># --- BASIC DESCRIPTION ---
+<pre><code class="language-python"># --- BASIC DESCRIPTION ---
 print(df.describe())
 # Shows: count, mean, std, min, 25%, 50%, 75%, max
 # Why? Quick overview of distribution and potential outliers
@@ -883,10 +1117,11 @@ print(df['salary'].quantile([0.25, 0.50, 0.75]))  # Quartiles
 
 # --- WHY MEAN VS MEDIAN? ---
 # Mean is sensitive to outliers; median is robust
-# Use median when data is skewed (income, house prices, etc.)</code></pre>
-<hr>
+# Use median when data is skewed (income, house prices, etc.)
+</code></pre>
+<hr />
 <h2>Step 4: Categorical Data Analysis</h2>
-<pre><code># --- VALUE COUNTS ---
+<pre><code class="language-python"># --- VALUE COUNTS ---
 print(df['department'].value_counts())
 # Why? Understand class distribution, spot imbalances
 
@@ -908,16 +1143,17 @@ print(df['department'].unique())     # List of unique values
 
 # --- CROSS-TABULATION ---
 print(pd.crosstab(df['department'], df['remote_work']))
-# Why? See relationships between two categorical variables</code></pre>
-<hr>
+# Why? See relationships between two categorical variables
+</code></pre>
+<hr />
 <h2>Step 5: Missing Data Analysis</h2>
-<pre><code># --- COUNT MISSING VALUES ---
+<pre><code class="language-python"># --- COUNT MISSING VALUES ---
 print(df.isnull().sum())             # Missing values per column
 print(df.isnull().sum().sum())       # Total missing values
 
 # --- PERCENTAGE MISSING ---
 missing_pct = df.isnull().mean() * 100
-print(missing_pct[missing_pct > 0])  # Only columns with missing data
+print(missing_pct[missing_pct &gt; 0])  # Only columns with missing data
 
 # --- ROWS WITH ANY MISSING ---
 print(df[df.isnull().any(axis=1)])   # Show rows with any NaN
@@ -926,10 +1162,14 @@ print(df[df.isnull().any(axis=1)])   # Show rows with any NaN
 # Why analyze patterns?
 # - MCAR (Missing Completely At Random): no pattern
 # - MAR (Missing At Random): depends on observed data
-# - MNAR (Missing Not At Random): depends on unobserved data</code></pre>
-<hr>
+# - MNAR (Missing Not At Random): depends on unobserved data
+</code></pre>
+<hr />
 <h2>Step 6: Quick Visual EDA</h2>
-<pre><code>import matplotlib.pyplot as plt
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Add <code>%matplotlib inline</code> to your imports cell so plots render directly in the notebook. With it active, replace <code>plt.savefig(...); plt.close()</code> with <code>plt.show()</code> for in-notebook display — <code>plt.close()</code> suppresses the inline output. Keep <code>plt.savefig()</code> only if you also want to save the image to disk.</p>
+</blockquote>
+<pre><code class="language-python">import matplotlib.pyplot as plt
 
 # --- HISTOGRAM ---
 df['salary'].hist(bins=30, edgecolor='black')
@@ -953,33 +1193,75 @@ plt.title('Experience vs Salary')
 plt.xlabel('Years of Experience')
 plt.ylabel('Salary')
 plt.savefig('charts/eda_experience_vs_salary.png', dpi=150, bbox_inches='tight')
-plt.close()</code></pre>
-<hr>
+plt.close()
+</code></pre>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Task</td><td>Code</td></tr>
-<tr><td>Shape</td><td><code>df.shape</code></td></tr>
-<tr><td>First rows</td><td><code>df.head(n)</code></td></tr>
-<tr><td>Random sample</td><td><code>df.sample(n)</code></td></tr>
-<tr><td>Column types</td><td><code>df.dtypes</code></td></tr>
-<tr><td>Structure info</td><td><code>df.info()</code></td></tr>
-<tr><td>Numerical summary</td><td><code>df.describe()</code></td></tr>
-<tr><td>All columns summary</td><td><code>df.describe(include='all')</code></td></tr>
-<tr><td>Value counts</td><td><code>df['col'].value_counts()</code></td></tr>
-<tr><td>Missing count</td><td><code>df.isnull().sum()</code></td></tr>
-<tr><td>Missing %</td><td><code>df.isnull().mean() * 100</code></td></tr>
-<tr><td>Duplicates</td><td><code>df.duplicated().sum()</code></td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shape</td>
+<td><code>df.shape</code></td>
+</tr>
+<tr>
+<td>First rows</td>
+<td><code>df.head(n)</code></td>
+</tr>
+<tr>
+<td>Random sample</td>
+<td><code>df.sample(n)</code></td>
+</tr>
+<tr>
+<td>Column types</td>
+<td><code>df.dtypes</code></td>
+</tr>
+<tr>
+<td>Structure info</td>
+<td><code>df.info()</code></td>
+</tr>
+<tr>
+<td>Numerical summary</td>
+<td><code>df.describe()</code></td>
+</tr>
+<tr>
+<td>All columns summary</td>
+<td><code>df.describe(include='all')</code></td>
+</tr>
+<tr>
+<td>Value counts</td>
+<td><code>df['col'].value_counts()</code></td>
+</tr>
+<tr>
+<td>Missing count</td>
+<td><code>df.isnull().sum()</code></td>
+</tr>
+<tr>
+<td>Missing %</td>
+<td><code>df.isnull().mean() * 100</code></td>
+</tr>
+<tr>
+<td>Duplicates</td>
+<td><code>df.duplicated().sum()</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 02b:</strong> Advanced EDA (correlation, distributions, EDA function)</li>
+<ul>
+<li><strong>Module 02b:</strong> Advanced EDA (correlation, distributions, EDA function)</li>
 <li><strong>Module 03a:</strong> Missing values — detection and imputation</li>
 </ul>
-<div class="page-break"></div>
-<h1>MODULE-02b: DATA EXPLORATION — ADVANCED EDA</h1>
 <hr>
+<h1>MODULE-02b: DATA EXPLORATION — ADVANCED EDA</h1>
+<hr />
 <h2>Step 7: Correlation Analysis</h2>
-<pre><code>import numpy as np
+<pre><code class="language-python">import numpy as np
 
 # --- NUMERICAL CORRELATION ---
 correlation = df.select_dtypes(include=[np.number]).corr()
@@ -1003,10 +1285,11 @@ print(find_high_correlations(df, threshold=0.3))
 
 # --- SPEARMAN CORRELATION ---
 # For non-linear relationships or ordinal data
-print(df.select_dtypes(include=[np.number]).corr(method='spearman'))</code></pre>
-<hr>
+print(df.select_dtypes(include=[np.number]).corr(method='spearman'))
+</code></pre>
+<hr />
 <h2>Step 8: Distribution Analysis</h2>
-<pre><code># --- HISTOGRAM DATA ---
+<pre><code class="language-python"># --- HISTOGRAM DATA ---
 print(df['salary'].value_counts(bins=10).sort_index())
 # Bin numerical data into 10 ranges
 
@@ -1025,10 +1308,11 @@ print(df['salary'].kurt())
 
 # --- GROUPED STATISTICS ---
 print(df.groupby('department')['salary'].agg(['mean', 'median', 'std', 'count']))
-# Why? Compare distributions across categories</code></pre>
-<hr>
+# Why? Compare distributions across categories
+</code></pre>
+<hr />
 <h2>Step 9: Correlation Heatmap</h2>
-<pre><code>import matplotlib.pyplot as plt
+<pre><code class="language-python">import matplotlib.pyplot as plt
 import seaborn as sns
 
 # --- CORRELATION HEATMAP ---
@@ -1036,82 +1320,113 @@ plt.figure(figsize=(10, 8))
 sns.heatmap(df.select_dtypes(include=[np.number]).corr(), annot=True, cmap='coolwarm', center=0)
 plt.title('Correlation Matrix')
 plt.savefig('charts/eda_correlation_heatmap.png', dpi=150, bbox_inches='tight')
-plt.close()</code></pre>
-<hr>
+plt.close()
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> With <code>%matplotlib inline</code> active, <code>plt.close()</code> suppresses the inline display — swap it for <code>plt.show()</code> (or remove it) to see the heatmap in the notebook. Keep <code>plt.savefig()</code> before <code>plt.show()</code> if you want both inline display and a saved file.</p>
+</blockquote>
+<hr />
 <h2>Step 10: Production EDA Function</h2>
-<pre><code>def quick_eda(df, target_col=None):
-    """
+<pre><code class="language-python">def quick_eda(df, target_col=None):
+    &quot;&quot;&quot;
     Production-grade quick EDA function.
     Run this on any new dataset.
-    """
-    print("=" * 60)
-    print("QUICK EDA REPORT")
-    print("=" * 60)
-    
+    &quot;&quot;&quot;
+    print(&quot;=&quot; * 60)
+    print(&quot;QUICK EDA REPORT&quot;)
+    print(&quot;=&quot; * 60)
+
     # 1. Shape
-    print(f"\n📊 Shape: {df.shape[0]} rows × {df.shape[1]} columns")
-    
+    print(f&quot;\n📊 Shape: {df.shape[0]} rows × {df.shape[1]} columns&quot;)
+
     # 2. Types
-    print(f"\n📋 Data Types:")
+    print(f&quot;\n📋 Data Types:&quot;)
     print(df.dtypes.value_counts())
-    
+
     # 3. Missing data
     missing = df.isnull().sum()
     missing_pct = (missing / len(df)) * 100
-    print(f"\n❌ Missing Data:")
+    print(f&quot;\n❌ Missing Data:&quot;)
     for col in df.columns:
-        if missing[col] > 0:
-            print(f"  {col}: {missing[col]} ({missing_pct[col]:.1f}%)")
-    
+        if missing[col] &gt; 0:
+            print(f&quot;  {col}: {missing[col]} ({missing_pct[col]:.1f}%)&quot;)
+
     # 4. Duplicates
     dupes = df.duplicated().sum()
-    print(f"\n🔄 Duplicates: {dupes} ({dupes/len(df)*100:.1f}%)")
-    
+    print(f&quot;\n🔄 Duplicates: {dupes} ({dupes/len(df)*100:.1f}%)&quot;)
+
     # 5. Numerical summary
-    print(f"\n📈 Numerical Columns:")
+    print(f&quot;\n📈 Numerical Columns:&quot;)
     print(df.select_dtypes(include=[np.number]).describe())
-    
+
     # 6. Categorical summary
-    print(f"\n📝 Categorical Columns:")
+    print(f&quot;\n📝 Categorical Columns:&quot;)
     cat_cols = df.select_dtypes(include=['object', 'category']).columns
     for col in cat_cols:
-        print(f"\n  {col}:")
-        print(f"    Unique: {df[col].nunique()}")
-        print(f"    Top 3: {df[col].value_counts().head(3).to_dict()}")
-    
+        print(f&quot;\n  {col}:&quot;)
+        print(f&quot;    Unique: {df[col].nunique()}&quot;)
+        print(f&quot;    Top 3: {df[col].value_counts().head(3).to_dict()}&quot;)
+
     # 7. Correlations (if target specified)
     if target_col:
-        print(f"\n🎯 Correlations with '{target_col}':")
+        print(f&quot;\n🎯 Correlations with '{target_col}':&quot;)
         num_cols = df.select_dtypes(include=[np.number]).columns
         corr = df[num_cols].corr()[target_col].sort_values(ascending=False)
         print(corr)
-    
-    print("\n" + "=" * 60)
+
+    print(&quot;\n&quot; + &quot;=&quot; * 60)
 
 # Usage
-quick_eda(df, target_col='salary')</code></pre>
-<hr>
+quick_eda(df, target_col='salary')
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> <code>quick_eda()</code> uses <code>print()</code> throughout, which works fine in Jupyter. For richer output, replace the <code>df.describe()</code> print with <code>display(df.select_dtypes(include=[np.number]).describe())</code> — it renders as a styled HTML table instead of plain text.</p>
+</blockquote>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Task</td><td>Code</td></tr>
-<tr><td>Correlation</td><td><code>df.corr()</code></td></tr>
-<tr><td>Skewness</td><td><code>df['col'].skew()</code></td></tr>
-<tr><td>Grouped stats</td><td><code>df.groupby('col')['val'].agg(['mean', 'std'])</code></td></tr>
-<tr><td>Heatmap</td><td><code>sns.heatmap(df.corr(), annot=True)</code></td></tr>
-<tr><td>Full EDA</td><td><code>quick_eda(df, target_col='salary')</code></td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Correlation</td>
+<td><code>df.corr()</code></td>
+</tr>
+<tr>
+<td>Skewness</td>
+<td><code>df['col'].skew()</code></td>
+</tr>
+<tr>
+<td>Grouped stats</td>
+<td><code>df.groupby('col')['val'].agg(['mean', 'std'])</code></td>
+</tr>
+<tr>
+<td>Heatmap</td>
+<td><code>sns.heatmap(df.corr(), annot=True)</code></td>
+</tr>
+<tr>
+<td>Full EDA</td>
+<td><code>quick_eda(df, target_col='salary')</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 03a:</strong> Missing values — detection and imputation</li>
+<ul>
+<li><strong>Module 03a:</strong> Missing values — detection and imputation</li>
 <li><strong>Module 06a:</strong> Basic visualization (line, bar, scatter)</li>
 </ul>
-<div class="page-break"></div>
+<hr>
 <h1>MODULE-03a: DATA CLEANING — MISSING VALUES</h1>
 <h2>Why Data Cleaning Matters</h2>
 <p>Real-world data is messy. Studies show data scientists spend <strong>60-80% of their time</strong> on data cleaning.</p>
-<hr>
+<hr />
 <h2>1. Missing Values — Detection and Analysis</h2>
-<pre><code>import pandas as pd
+<pre><code class="language-python">import pandas as pd
 import numpy as np
 
 # Create messy dataset
@@ -1141,17 +1456,19 @@ print(missing_pct)
 print(df[df.isnull().any(axis=1)])
 
 # --- NON-MISSING COUNT ---
-print(df.notnull().sum())          # Non-missing per column</code></pre>
-<hr>
+print(df.notnull().sum())          # Non-missing per column
+</code></pre>
+<hr />
 <h2>2. Missing Values — Strategies and Imputation</h2>
 <h3>Strategy Decision Tree</h3>
 <pre><code>Missing Data?
-├── <5% missing → Drop rows (if MCAR)
+├── &lt;5% missing → Drop rows (if MCAR)
 ├── 5-20% missing → Impute (mean/median/mode)
 ├── 20-50% missing → Advanced imputation or flag as separate category
-└── >50% missing → Consider dropping column</code></pre>
+└── &gt;50% missing → Consider dropping column
+</code></pre>
 <h3>Drop Missing Values</h3>
-<pre><code># --- DROP ROWS ---
+<pre><code class="language-python"># --- DROP ROWS ---
 df_dropped = df.dropna()
                         # Drop rows with ANY missing value
 df_dropped = df.dropna(subset=['salary'])
@@ -1165,13 +1482,17 @@ df_dropped = df.dropna(thresh=3)
 df_dropped_cols = df.dropna(axis=1)
                         # Drop columns with any missing
 df_dropped_cols = df.dropna(axis=1, thresh=int(0.8 * len(df)))
-                        # Drop columns with >20% missing
+                        # Drop columns with &gt;20% missing
 
 # Why drop vs impute?
 # Drop: Simple, but loses data. Only use when missing is minimal and random.
-# Impute: Preserves data, but introduces assumptions.</code></pre>
+# Impute: Preserves data, but introduces assumptions.
+</code></pre>
 <h3>Simple Imputation</h3>
-<pre><code># --- NUMERICAL COLUMNS ---
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Work on a copy before imputing: <code>df_clean = df.copy()</code>. If you modify <code>df</code> directly across cells, re-running the load cell resets the data but leaves other cells in an inconsistent state. Use <code>df_clean</code> for all mutations so any cell can be safely re-run.</p>
+</blockquote>
+<pre><code class="language-python"># --- NUMERICAL COLUMNS ---
 # Mean imputation (use when data is normally distributed)
 df['age'] = df['age'].fillna(df['age'].mean())
 
@@ -1194,9 +1515,10 @@ df['email'] = df['email'].fillna('no-email@company.com')
 # For time-series data (fill with previous/next value)
 df['salary'] = df['salary'].ffill()  # Forward fill
 df['salary'] = df['salary'].bfill()  # Backward fill
-# Why? In time series, missing values are often similar to adjacent values</code></pre>
+# Why? In time series, missing values are often similar to adjacent values
+</code></pre>
 <h3>Advanced Imputation</h3>
-<pre><code># --- GROUP-BASED IMPUTATION ---
+<pre><code class="language-python"># --- GROUP-BASED IMPUTATION ---
 # Fill missing salary with department median
 df['salary'] = df.groupby('department')['salary'].transform(
     lambda x: x.fillna(x.median())
@@ -1213,28 +1535,58 @@ from sklearn.impute import KNNImputer
 imputer = KNNImputer(n_neighbors=3)
 numeric_cols = df.select_dtypes(include=[np.number]).columns
 df[numeric_cols] = imputer.fit_transform(df[numeric_cols])
-# Why KNN? Uses similar rows to estimate missing values</code></pre>
-<hr>
+# Why KNN? Uses similar rows to estimate missing values
+</code></pre>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Task</td><td>Code</td></tr>
-<tr><td>Count missing</td><td><code>df.isnull().sum()</code></td></tr>
-<tr><td>Drop rows with NaN</td><td><code>df.dropna()</code></td></tr>
-<tr><td>Fill with mean</td><td><code>df['col'].fillna(df['col'].mean())</code></td></tr>
-<tr><td>Fill with median</td><td><code>df['col'].fillna(df['col'].median())</code></td></tr>
-<tr><td>Forward fill</td><td><code>df['col'].ffill()</code></td></tr>
-<tr><td>Group-based fill</td><td><code>df.groupby('g')['c'].transform(lambda x: x.fillna(x.median()))</code></td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Count missing</td>
+<td><code>df.isnull().sum()</code></td>
+</tr>
+<tr>
+<td>Drop rows with NaN</td>
+<td><code>df.dropna()</code></td>
+</tr>
+<tr>
+<td>Fill with mean</td>
+<td><code>df['col'].fillna(df['col'].mean())</code></td>
+</tr>
+<tr>
+<td>Fill with median</td>
+<td><code>df['col'].fillna(df['col'].median())</code></td>
+</tr>
+<tr>
+<td>Forward fill</td>
+<td><code>df['col'].ffill()</code></td>
+</tr>
+<tr>
+<td>Group-based fill</td>
+<td><code>df.groupby('g')['c'].transform(lambda x: x.fillna(x.median()))</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 03b:</strong> Duplicates, type conversion, string cleaning, outliers</li>
+<ul>
+<li><strong>Module 03b:</strong> Duplicates, type conversion, string cleaning, outliers</li>
 <li><strong>Module 04a:</strong> Indexing and filtering</li>
 </ul>
-<div class="page-break"></div>
-<h1>MODULE-03b: DATA CLEANING — DUPLICATES, TYPES, STRINGS, OUTLIERS</h1>
 <hr>
+<h1>MODULE-03b: DATA CLEANING — DUPLICATES, TYPES, STRINGS, OUTLIERS</h1>
+<hr />
 <h2>3. Duplicate Detection and Removal</h2>
-<pre><code># --- DETECT DUPLICATES ---
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Same cell re-execution caution as Module 03a: use <code>df_clean = df.copy()</code> and apply all mutations to <code>df_clean</code>. This keeps your original <code>df</code> intact so re-running any cell doesn't produce unexpected cumulative state.</p>
+</blockquote>
+<pre><code class="language-python"># --- DETECT DUPLICATES ---
 print(df.duplicated())              # Boolean series (True if duplicate)
 print(df.duplicated().sum())        # Count of duplicate rows
 print(df[df.duplicated(keep=False)])  # Show all duplicates (including first occurrence)
@@ -1249,10 +1601,11 @@ df_clean = df.drop_duplicates(subset=['name', 'email'], keep='last')
 
 # Why keep='first' vs 'last'?
 # 'first': Keep original record, remove later entries
-# 'last': Keep most recent record (useful for updated data)</code></pre>
-<hr>
+# 'last': Keep most recent record (useful for updated data)
+</code></pre>
+<hr />
 <h2>4. Type Conversion and Validation</h2>
-<pre><code># --- CHECK CURRENT TYPES ---
+<pre><code class="language-python"># --- CHECK CURRENT TYPES ---
 print(df.dtypes)
 
 # --- CONVERT TYPES ---
@@ -1276,27 +1629,28 @@ df['age'] = df['age'].astype('Int64')  # Capital I — nullable integer
 
 # --- VALIDATE TYPES ---
 def validate_types(df, expected_types):
-    """Validate that columns have expected types."""
+    &quot;&quot;&quot;Validate that columns have expected types.&quot;&quot;&quot;
     issues = []
     for col, expected in expected_types.items():
         actual = str(df[col].dtype)
         if actual != expected:
-            issues.append(f"  {col}: expected {expected}, got {actual}")
+            issues.append(f&quot;  {col}: expected {expected}, got {actual}&quot;)
     if issues:
-        print("Type validation issues:")
+        print(&quot;Type validation issues:&quot;)
         for issue in issues:
             print(issue)
     else:
-        print("All types valid ✓")
+        print(&quot;All types valid ✓&quot;)
 
 validate_types(df, {
     'age': 'int64',
     'salary': 'float64',
     'department': 'category'
-})</code></pre>
-<hr>
+})
+</code></pre>
+<hr />
 <h2>5. String Cleaning</h2>
-<pre><code># --- COMMON STRING ISSUES ---
+<pre><code class="language-python"># --- COMMON STRING ISSUES ---
 df['name'] = df['name'].str.strip()         # Remove leading/trailing whitespace
 df['name'] = df['name'].str.lower()         # Convert to lowercase
 df['name'] = df['name'].str.upper()         # Convert to uppercase
@@ -1326,10 +1680,11 @@ df['department'] = df['department'].replace({
 
 # --- LENGTH AND COUNT ---
 print(df['email'].str.len())                 # String length
-print(df['email'].str.count('@'))            # Count occurrences of @</code></pre>
-<hr>
+print(df['email'].str.count('@'))            # Count occurrences of @
+</code></pre>
+<hr />
 <h2>6. Outlier Detection and Handling</h2>
-<pre><code># --- STATISTICAL OUTLIER DETECTION ---
+<pre><code class="language-python"># --- STATISTICAL OUTLIER DETECTION ---
 # IQR Method (Interquartile Range)
 Q1 = df['salary'].quantile(0.25)
 Q3 = df['salary'].quantile(0.75)
@@ -1337,14 +1692,14 @@ IQR = Q3 - Q1
 lower_bound = Q1 - 1.5 * IQR
 upper_bound = Q3 + 1.5 * IQR
 
-outliers = df[(df['salary'] < lower_bound) | (df['salary'] > upper_bound)]
-print(f"Outliers detected: {len(outliers)}")
+outliers = df[(df['salary'] &lt; lower_bound) | (df['salary'] &gt; upper_bound)]
+print(f&quot;Outliers detected: {len(outliers)}&quot;)
 
 # Z-Score Method
 from scipy import stats
 z_scores = np.abs(stats.zscore(df['salary'].dropna()))
-outliers_z = df['salary'].dropna()[z_scores > 3]
-print(f"Z-score outliers (>3σ): {len(outliers_z)}")
+outliers_z = df['salary'].dropna()[z_scores &gt; 3]
+print(f&quot;Z-score outliers (&gt;3σ): {len(outliers_z)}&quot;)
 
 # --- HANDLE OUTLIERS ---
 # Option 1: Cap values (winsorize)
@@ -1352,71 +1707,102 @@ df['salary_capped'] = df['salary'].clip(lower=lower_bound, upper=upper_bound)
 # Why cap? Preserves data but limits extreme influence
 
 # Option 2: Remove outliers
-df_no_outliers = df[(df['salary'] >= lower_bound) & (df['salary'] <= upper_bound)]
+df_no_outliers = df[(df['salary'] &gt;= lower_bound) &amp; (df['salary'] &lt;= upper_bound)]
 
 # Option 3: Log transform (for right-skewed data)
 df['salary_log'] = np.log1p(df['salary'])
 # Why log? Compresses large values, expands small values
-# log1p = log(1+x) — handles zeros safely</code></pre>
-<hr>
+# log1p = log(1+x) — handles zeros safely
+</code></pre>
+<hr />
 <h2>7. Data Validation Patterns</h2>
-<pre><code># --- BUSINESS RULE VALIDATION ---
+<pre><code class="language-python"># --- BUSINESS RULE VALIDATION ---
 def validate_data(df):
-    """Production-grade data validation."""
+    &quot;&quot;&quot;Production-grade data validation.&quot;&quot;&quot;
     issues = []
-    
+
     # Check for negative ages
-    if (df['age'] < 0).any():
-        issues.append("Negative ages found")
-    
+    if (df['age'] &lt; 0).any():
+        issues.append(&quot;Negative ages found&quot;)
+
     # Check for future dates
-    if (df['hire_date'] > pd.Timestamp.now()).any():
-        issues.append("Future hire dates found")
-    
+    if (df['hire_date'] &gt; pd.Timestamp.now()).any():
+        issues.append(&quot;Future hire dates found&quot;)
+
     # Check for impossible salaries
-    if (df['salary'] < 0).any():
-        issues.append("Negative salaries found")
-    
+    if (df['salary'] &lt; 0).any():
+        issues.append(&quot;Negative salaries found&quot;)
+
     # Check for empty strings in required fields
     if df['name'].str.strip().eq('').any():
-        issues.append("Empty names found")
-    
+        issues.append(&quot;Empty names found&quot;)
+
     # Check for duplicate IDs
     if df['id'].duplicated().any():
-        issues.append("Duplicate IDs found")
-    
+        issues.append(&quot;Duplicate IDs found&quot;)
+
     return issues
 
 issues = validate_data(df)
 if issues:
-    print("Validation issues:")
+    print(&quot;Validation issues:&quot;)
     for issue in issues:
-        print(f"  ⚠️ {issue}")
+        print(f&quot;  ⚠️ {issue}&quot;)
 else:
-    print("✓ All validations passed")</code></pre>
-<hr>
+    print(&quot;✓ All validations passed&quot;)
+</code></pre>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Task</td><td>Code</td></tr>
-<tr><td>Remove duplicates</td><td><code>df.drop_duplicates()</code></td></tr>
-<tr><td>Convert type</td><td><code>df['col'].astype('float')</code></td></tr>
-<tr><td>String to numeric</td><td><code>pd.to_numeric(df['col'], errors='coerce')</code></td></tr>
-<tr><td>String to date</td><td><code>pd.to_datetime(df['col'])</code></td></tr>
-<tr><td>Strip whitespace</td><td><code>df['col'].str.strip()</code></td></tr>
-<tr><td>Detect outliers (IQR)</td><td><code>Q1 - 1.5<em>IQR</code> to <code>Q3 + 1.5</em>IQR</code></td></tr>
-<tr><td>Cap outliers</td><td><code>df['col'].clip(lower, upper)</code></td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Remove duplicates</td>
+<td><code>df.drop_duplicates()</code></td>
+</tr>
+<tr>
+<td>Convert type</td>
+<td><code>df['col'].astype('float')</code></td>
+</tr>
+<tr>
+<td>String to numeric</td>
+<td><code>pd.to_numeric(df['col'], errors='coerce')</code></td>
+</tr>
+<tr>
+<td>String to date</td>
+<td><code>pd.to_datetime(df['col'])</code></td>
+</tr>
+<tr>
+<td>Strip whitespace</td>
+<td><code>df['col'].str.strip()</code></td>
+</tr>
+<tr>
+<td>Detect outliers (IQR)</td>
+<td><code>Q1 - 1.5*IQR</code> to <code>Q3 + 1.5*IQR</code></td>
+</tr>
+<tr>
+<td>Cap outliers</td>
+<td><code>df['col'].clip(lower, upper)</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 04a:</strong> Indexing and filtering</li>
+<ul>
+<li><strong>Module 04a:</strong> Indexing and filtering</li>
 <li><strong>Module 06a:</strong> Basic visualization</li>
 </ul>
-<div class="page-break"></div>
-<h1>MODULE-04a: DATA MANIPULATION — INDEXING, FILTERING, SORTING</h1>
 <hr>
+<h1>MODULE-04a: DATA MANIPULATION — INDEXING, FILTERING, SORTING</h1>
+<hr />
 <h2>1. Indexing and Selection</h2>
 <h3>The Four Accessors</h3>
-<pre><code>import pandas as pd
+<pre><code class="language-python">import pandas as pd
 import numpy as np
 
 df = pd.DataFrame({
@@ -1432,7 +1818,7 @@ print(df.loc['a'])                    # Row 'a' (all columns)
 print(df.loc['a', 'name'])            # Single value
 print(df.loc['a':'c'])                # Slice (inclusive of 'c'!)
 print(df.loc[['a', 'c'], ['name', 'salary']])  # Specific rows and columns
-print(df.loc[df['age'] > 28])         # Boolean filter by label
+print(df.loc[df['age'] &gt; 28])         # Boolean filter by label
 
 # --- iloc: POSITION-based ---
 # Syntax: df.iloc[row_positions, column_positions]
@@ -1450,9 +1836,10 @@ print(df.iat[0, 0])                   # Faster than iloc for single value
 
 # WHY FOUR ACCESSORS?
 # loc/iloc: Flexible, support slices and lists
-# at/iat: Fast, single value only (optimization)</code></pre>
+# at/iat: Fast, single value only (optimization)
+</code></pre>
 <h3>Common Indexing Patterns</h3>
-<pre><code># --- SELECT SINGLE COLUMN ---
+<pre><code class="language-python"># --- SELECT SINGLE COLUMN ---
 df['name']            # Returns Series
 df[['name']]          # Returns DataFrame (note double brackets)
 df.name               # Attribute access (only works if valid Python identifier)
@@ -1461,29 +1848,33 @@ df.name               # Attribute access (only works if valid Python identifier)
 df[['name', 'salary']]
 
 # --- SELECT ROWS BY CONDITION ---
-df[df['age'] > 28]
-df[(df['age'] > 28) & (df['department'] == 'Eng')]  # Multiple conditions
-df[(df['age'] > 28) | (df['department'] == 'HR')]   # OR condition
+df[df['age'] &gt; 28]
+df[(df['age'] &gt; 28) &amp; (df['department'] == 'Eng')]  # Multiple conditions
+df[(df['age'] &gt; 28) | (df['department'] == 'HR')]   # OR condition
 
 # --- QUERY METHOD (cleaner syntax) ---
-df.query('age > 28 and department == "Eng"')
-df.query('age > 28 or department == "HR"')
-# Why query()? More readable, no need for & | operators
-
-# --- ISIN for multiple values ---
+df.query('age &gt; 28 and department == &quot;Eng&quot;')
+df.query('age &gt; 28 or department == &quot;HR&quot;')
+# Why query()? More readable, no need for &amp; | operators
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Reference notebook variables inside <code>query()</code> using <code>@</code>: <code>threshold = 28; df.query('age &gt; @threshold')</code>. This lets you define filter parameters in one cell and reuse them across queries without rewriting strings.</p>
+</blockquote>
+<pre><code class="language-python"># --- ISIN for multiple values ---
 df[df['department'].isin(['Eng', 'Sales'])]
 df[~df['department'].isin(['HR'])]  # NOT in list (~ negates)
 
 # --- BETWEEN ---
 df[df['age'].between(28, 35)]
-# Equivalent to: (df['age'] >= 28) & (df['age'] <= 35)
+# Equivalent to: (df['age'] &gt;= 28) &amp; (df['age'] &lt;= 35)
 
 # --- STR accessor for string filtering ---
 df[df['name'].str.startswith('A')]
-df[df['name'].str.contains('li')]</code></pre>
-<hr>
+df[df['name'].str.contains('li')]
+</code></pre>
+<hr />
 <h2>2. Sorting</h2>
-<pre><code># --- SORT BY SINGLE COLUMN ---
+<pre><code class="language-python"># --- SORT BY SINGLE COLUMN ---
 df.sort_values('salary')              # Ascending (default)
 df.sort_values('salary', ascending=False)  # Descending
 
@@ -1497,17 +1888,18 @@ df.sort_index(axis=1)                 # Sort columns by name
 
 # --- IN-PLACE SORTING ---
 df.sort_values('salary', inplace=True)
-# Why inplace? Saves memory (no copy), but modifies original</code></pre>
-<hr>
+# Why inplace? Saves memory (no copy), but modifies original
+</code></pre>
+<hr />
 <h2>3. Column Operations</h2>
-<pre><code># --- ADD NEW COLUMN ---
+<pre><code class="language-python"># --- ADD NEW COLUMN ---
 df['bonus'] = df['salary'] * 0.10
 df['age_group'] = pd.cut(df['age'], bins=[20, 30, 40, 50], labels=['20s', '30s', '40s'])
 # pd.cut: discretize continuous data into bins
 # Why cut? Create categories for analysis (age groups, salary bands)
 
 df['salary_k'] = df['salary'] / 1000
-df['is_senior'] = df['age'] > 30
+df['is_senior'] = df['age'] &gt; 30
 
 # --- ASSIGN METHOD (chaining) ---
 df = df.assign(
@@ -1515,8 +1907,11 @@ df = df.assign(
     salary_k=lambda x: x['salary'] / 1000
 )
 # Why assign()? Enables method chaining, functional style
-
-# --- DROP COLUMNS ---
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> <code>assign()</code> is ideal for Jupyter exploration — chain transforms and filters in one cell without intermediate variables: <code>(df.assign(bonus=lambda x: x['salary'] * 0.10).query('bonus &gt; 6000'))</code>. Place the result as the last expression to get an HTML table.</p>
+</blockquote>
+<pre><code class="language-python"># --- DROP COLUMNS ---
 df = df.drop(columns=['bonus'])
 df.drop(columns=['bonus'], inplace=True)
 df = df[['name', 'age', 'salary']]  # Select only specific columns
@@ -1531,10 +1926,11 @@ df = df[['department', 'name', 'age', 'salary']]
 
 # --- INSERT COLUMN AT SPECIFIC POSITION ---
 df.insert(1, 'employee_id', range(1, len(df)+1))
-# insert(loc, column, value) — inserts at position `loc`</code></pre>
-<hr>
+# insert(loc, column, value) — inserts at position `loc`
+</code></pre>
+<hr />
 <h2>4. Apply Functions</h2>
-<pre><code># --- apply: row/column-wise operations ---
+<pre><code class="language-python"># --- apply: row/column-wise operations ---
 df.apply(lambda x: x.mean())  # Mean of each numeric column
 df.apply(lambda row: row['salary'] * 1.10, axis=1)  # Apply to each row
 # Why axis=1? When you need values from multiple columns
@@ -1550,38 +1946,78 @@ df['department'].map({'Eng': 'Engineering', 'Sales': 'Sales', 'HR': 'Human Resou
 # map(): Single column, value replacement (fastest)
 # applymap(): All cells, same function (medium)
 # apply(): Rows or columns, complex logic (slowest)
-# Vectorized operations: Always prefer when possible (fastest)</code></pre>
-<hr>
+# Vectorized operations: Always prefer when possible (fastest)
+</code></pre>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Task</td><td>Code</td></tr>
-<tr><td>Label-based selection</td><td><code>df.loc[row, col]</code></td></tr>
-<tr><td>Position-based selection</td><td><code>df.iloc[row, col]</code></td></tr>
-<tr><td>Boolean filter</td><td><code>df[df['col'] > 0]</code></td></tr>
-<tr><td>Query method</td><td><code>df.query('col > 0')</code></td></tr>
-<tr><td>Multiple conditions</td><td><code>df[(cond1) & (cond2)]</code></td></tr>
-<tr><td>Sort by column</td><td><code>df.sort_values('col')</code></td></tr>
-<tr><td>Add column</td><td><code>df['new'] = ...</code></td></tr>
-<tr><td>Drop column</td><td><code>df.drop(columns=['col'])</code></td></tr>
-<tr><td>Rename column</td><td><code>df.rename(columns={'old': 'new'})</code></td></tr>
-<tr><td>Apply function</td><td><code>df.apply(func, axis=1)</code></td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Label-based selection</td>
+<td><code>df.loc[row, col]</code></td>
+</tr>
+<tr>
+<td>Position-based selection</td>
+<td><code>df.iloc[row, col]</code></td>
+</tr>
+<tr>
+<td>Boolean filter</td>
+<td><code>df[df['col'] &gt; 0]</code></td>
+</tr>
+<tr>
+<td>Query method</td>
+<td><code>df.query('col &gt; 0')</code></td>
+</tr>
+<tr>
+<td>Multiple conditions</td>
+<td><code>df[(cond1) &amp; (cond2)]</code></td>
+</tr>
+<tr>
+<td>Sort by column</td>
+<td><code>df.sort_values('col')</code></td>
+</tr>
+<tr>
+<td>Add column</td>
+<td><code>df['new'] = ...</code></td>
+</tr>
+<tr>
+<td>Drop column</td>
+<td><code>df.drop(columns=['col'])</code></td>
+</tr>
+<tr>
+<td>Rename column</td>
+<td><code>df.rename(columns={'old': 'new'})</code></td>
+</tr>
+<tr>
+<td>Apply function</td>
+<td><code>df.apply(func, axis=1)</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 04b:</strong> GroupBy, merge, and concat</li>
+<ul>
+<li><strong>Module 04b:</strong> GroupBy, merge, and concat</li>
 <li><strong>Module 05a:</strong> Pivot tables and reshaping</li>
 </ul>
-<div class="page-break"></div>
-<h1>MODULE-04b: DATA MANIPULATION — GROUPBY, MERGE, CONCAT</h1>
 <hr>
+<h1>MODULE-04b: DATA MANIPULATION — GROUPBY, MERGE, CONCAT</h1>
+<hr />
 <h2>5. GroupBy — Split-Apply-Combine</h2>
 <p>The GroupBy pattern is the most powerful pandas operation.</p>
 <h3>The Three Steps</h3>
 <pre><code>1. SPLIT: Divide data into groups based on some key
 2. APPLY: Apply a function to each group independently
-3. COMBINE: Combine results into a single DataFrame</code></pre>
+3. COMBINE: Combine results into a single DataFrame
+</code></pre>
 <h3>Basic GroupBy</h3>
-<pre><code>import pandas as pd
+<pre><code class="language-python">import pandas as pd
 import numpy as np
 
 df = pd.DataFrame({
@@ -1605,9 +2041,14 @@ df.groupby('department').agg({
 # --- WHY AGGREGATION? ---
 # Summarize data by categories
 # Compare groups
-# Create summary reports</code></pre>
+# Create summary reports
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Multi-column <code>.agg()</code> creates MultiIndex columns that display as nested headers — readable but awkward to work with. Append <code>.reset_index()</code> to flatten to a plain DataFrame that renders cleanly as a table. For single-column agg, the result is already a clean Series or DataFrame.</p>
+</blockquote>
+<pre><code class="language-python"></code></pre>
 <h3>Transform and Filter</h3>
-<pre><code># --- TRANSFORM ---
+<pre><code class="language-python"># --- TRANSFORM ---
 # Apply function and return result with same index as input
 df['dept_avg_salary'] = df.groupby('department')['salary'].transform('mean')
 df['salary_diff_from_dept'] = df['salary'] - df['dept_avg_salary']
@@ -1615,7 +2056,7 @@ df['salary_diff_from_dept'] = df['salary'] - df['dept_avg_salary']
 
 # --- FILTER ---
 # Keep only groups that meet a condition
-df.groupby('department').filter(lambda x: len(x) >= 2)
+df.groupby('department').filter(lambda x: len(x) &gt;= 2)
 # Why filter? Remove small groups, focus on significant segments
 
 # --- APPLY (complex) ---
@@ -1625,9 +2066,10 @@ def normalize_salary(group):
     return group
 
 df_normalized = df.groupby('department').apply(normalize_salary)
-# Why apply? Complex operations that don't fit agg/transform</code></pre>
+# Why apply? Complex operations that don't fit agg/transform
+</code></pre>
 <h3>Advanced GroupBy Patterns</h3>
-<pre><code># --- MULTIPLE GROUPING COLUMNS ---
+<pre><code class="language-python"># --- MULTIPLE GROUPING COLUMNS ---
 df.groupby(['department'])['salary'].mean()
 # Creates MultiIndex (hierarchical index)
 
@@ -1643,15 +2085,17 @@ df.groupby('department')['salary'].agg(range_func)
 
 # --- SIZE AND COUNT ---
 df.groupby('department').size()     # Row count per group (includes NaN)
-df.groupby('department').count()    # Non-null count per column</code></pre>
-<hr>
+df.groupby('department').count()    # Non-null count per column
+</code></pre>
+<hr />
 <h2>6. Merge and Join</h2>
 <h3>Types of Joins</h3>
 <pre><code>INNER JOIN: Only matching rows from both tables
 LEFT JOIN:  All rows from left, matching from right (NULL if no match)
 RIGHT JOIN: All rows from right, matching from left (NULL if no match)
-OUTER JOIN: All rows from both tables (NULL where no match)</code></pre>
-<pre><code># --- SAMPLE DATA ---
+OUTER JOIN: All rows from both tables (NULL where no match)
+</code></pre>
+<pre><code class="language-python"># --- SAMPLE DATA ---
 employees = pd.DataFrame({
     'emp_id': [1, 2, 3, 4, 5],
     'name': ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'],
@@ -1680,16 +2124,21 @@ pd.merge(employees, departments, left_on='dept_id', right_on='dept_id')
 
 # --- WHY MERGE vs JOIN? ---
 # merge(): More flexible, explicit join type, works on any columns
-# join(): Simpler syntax, joins on index by default</code></pre>
+# join(): Simpler syntax, joins on index by default
+</code></pre>
 <h3>Merge Indicators</h3>
-<pre><code># Track which table each row came from
+<pre><code class="language-python"># Track which table each row came from
 merged = pd.merge(employees, departments, on='dept_id', how='outer', indicator=True)
 print(merged['_merge'])
 # Values: 'left_only', 'right_only', 'both'
-# Why indicator? Debug join issues, understand data overlap</code></pre>
-<hr>
+# Why indicator? Debug join issues, understand data overlap
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> After a merge, place <code>merged['_merge'].value_counts()</code> as the last line in a cell — it renders as a Series table and immediately shows how many rows matched vs. came from only one side, without scrolling through the full result.</p>
+</blockquote>
+<hr />
 <h2>7. Concat and Append</h2>
-<pre><code># --- VERTICAL CONCATENATION (stacking rows) ---
+<pre><code class="language-python"># --- VERTICAL CONCATENATION (stacking rows) ---
 df1 = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
 df2 = pd.DataFrame({'A': [5, 6], 'B': [7, 8]})
 
@@ -1701,29 +2150,56 @@ result = pd.concat([df1, df2], ignore_index=True)
 df3 = pd.DataFrame({'C': [9, 10], 'D': [11, 12]})
 result = pd.concat([df1, df3], axis=1)
 # axis=1: Concatenate along columns
-# Why horizontal concat? Add new columns from another source</code></pre>
-<hr>
+# Why horizontal concat? Add new columns from another source
+</code></pre>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Task</td><td>Code</td></tr>
-<tr><td>Group and aggregate</td><td><code>df.groupby('col').agg({'val': 'mean'})</code></td></tr>
-<tr><td>Transform</td><td><code>df.groupby('col')['val'].transform('mean')</code></td></tr>
-<tr><td>Filter groups</td><td><code>df.groupby('col').filter(lambda x: len(x) > 2)</code></td></tr>
-<tr><td>Merge tables</td><td><code>pd.merge(df1, df2, on='key')</code></td></tr>
-<tr><td>Left join</td><td><code>pd.merge(df1, df2, on='key', how='left')</code></td></tr>
-<tr><td>Concatenate</td><td><code>pd.concat([df1, df2])</code></td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Group and aggregate</td>
+<td><code>df.groupby('col').agg({'val': 'mean'})</code></td>
+</tr>
+<tr>
+<td>Transform</td>
+<td><code>df.groupby('col')['val'].transform('mean')</code></td>
+</tr>
+<tr>
+<td>Filter groups</td>
+<td><code>df.groupby('col').filter(lambda x: len(x) &gt; 2)</code></td>
+</tr>
+<tr>
+<td>Merge tables</td>
+<td><code>pd.merge(df1, df2, on='key')</code></td>
+</tr>
+<tr>
+<td>Left join</td>
+<td><code>pd.merge(df1, df2, on='key', how='left')</code></td>
+</tr>
+<tr>
+<td>Concatenate</td>
+<td><code>pd.concat([df1, df2])</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 05a:</strong> Pivot tables and reshaping</li>
+<ul>
+<li><strong>Module 05a:</strong> Pivot tables and reshaping</li>
 <li><strong>Module 06a:</strong> Basic visualization</li>
 </ul>
-<div class="page-break"></div>
-<h1>MODULE-05a: DATA TRANSFORMATION — PIVOT TABLES AND RESHAPING</h1>
 <hr>
+<h1>MODULE-05a: DATA TRANSFORMATION — PIVOT TABLES AND RESHAPING</h1>
+<hr />
 <h2>1. Pivot Tables</h2>
 <p>Pivot tables summarize data by grouping and aggregating — like Excel pivot tables.</p>
-<pre><code>import pandas as pd
+<pre><code class="language-python">import pandas as pd
 import numpy as np
 
 # Sample sales data
@@ -1746,7 +2222,11 @@ pivot = sales.pivot_table(
 )
 print(pivot)
 # Why pivot_table? Create summary reports, compare categories
-
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Pivot tables are among the richest displays in Jupyter — drop <code>print()</code> and place <code>pivot</code> as the last line in a cell for a styled HTML table. With <code>margins=True</code>, the "Total" row/column stands out clearly in the rendered view.</p>
+</blockquote>
+<pre><code class="language-python">
 # --- MULTIPLE AGGREGATIONS ---
 pivot = sales.pivot_table(
     values=['sales', 'quantity'],
@@ -1773,11 +2253,12 @@ print(ct)
 # --- CROSSTAB WITH NORMALIZATION ---
 ct_pct = pd.crosstab(sales['region'], sales['product'], normalize=True) * 100
 print(ct_pct)
-# Shows percentage of total</code></pre>
-<hr>
+# Shows percentage of total
+</code></pre>
+<hr />
 <h2>2. Reshaping: Wide ↔ Long</h2>
 <h3>Wide to Long (Melting)</h3>
-<pre><code># Wide format: each month is a column
+<pre><code class="language-python"># Wide format: each month is a column
 wide = pd.DataFrame({
     'product': ['A', 'B', 'C'],
     'Jan_2024': [100, 200, 150],
@@ -1794,14 +2275,19 @@ long = wide.melt(
 print(long)
 # Why melt? Most plotting libraries expect long format
 # Long format is better for grouping and filtering
-
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Use <code>display(wide, long)</code> in a single cell to show the before/after shape side-by-side — useful for understanding what <code>melt()</code> did without switching cells.</p>
+</blockquote>
+<pre><code class="language-python">
 # --- STACK: MultiIndex columns → rows ---
 df_multi = wide.set_index('product')
 stacked = df_multi.stack()
 # stack(): Move column level to row index
-# unstack(): Move row level to column index</code></pre>
+# unstack(): Move row level to column index
+</code></pre>
 <h3>Long to Wide (Pivoting)</h3>
-<pre><code># --- PIVOT: Long → Wide ---
+<pre><code class="language-python"># --- PIVOT: Long → Wide ---
 wide_back = long.pivot(index='product', columns='month', values='sales')
 # Why pivot back? Create comparison tables, export to Excel
 
@@ -1813,27 +2299,48 @@ wide_agg = long.pivot_table(index='product', columns='month', values='sales', ag
 grouped = sales.groupby(['region', 'product'])['sales'].mean()
 wide = grouped.unstack()
 # unstack(): Move innermost index level to columns
-# Why unstack? Create readable reports from grouped data</code></pre>
-<hr>
+# Why unstack? Create readable reports from grouped data
+</code></pre>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Task</td><td>Code</td></tr>
-<tr><td>Pivot table</td><td><code>df.pivot_table(values='v', index='i', columns='c', aggfunc='mean')</code></td></tr>
-<tr><td>Crosstab</td><td><code>pd.crosstab(df['a'], df['b'])</code></td></tr>
-<tr><td>Melt (wide→long)</td><td><code>df.melt(id_vars=['a'], var_name='var', value_name='val')</code></td></tr>
-<tr><td>Pivot (long→wide)</td><td><code>df.pivot(index='a', columns='b', values='c')</code></td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pivot table</td>
+<td><code>df.pivot_table(values='v', index='i', columns='c', aggfunc='mean')</code></td>
+</tr>
+<tr>
+<td>Crosstab</td>
+<td><code>pd.crosstab(df['a'], df['b'])</code></td>
+</tr>
+<tr>
+<td>Melt (wide→long)</td>
+<td><code>df.melt(id_vars=['a'], var_name='var', value_name='val')</code></td>
+</tr>
+<tr>
+<td>Pivot (long→wide)</td>
+<td><code>df.pivot(index='a', columns='b', values='c')</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 05b:</strong> String operations, DateTime, time series</li>
+<ul>
+<li><strong>Module 05b:</strong> String operations, DateTime, time series</li>
 <li><strong>Module 06a:</strong> Basic visualization</li>
 </ul>
-<div class="page-break"></div>
-<h1>MODULE-05b: DATA TRANSFORMATION — STRINGS, DATETIME, TIME SERIES</h1>
 <hr>
+<h1>MODULE-05b: DATA TRANSFORMATION — STRINGS, DATETIME, TIME SERIES</h1>
+<hr />
 <h2>3. String Operations</h2>
 <p>The <code>.str</code> accessor provides vectorized string methods.</p>
-<pre><code># Sample data with messy strings
+<pre><code class="language-python"># Sample data with messy strings
 df_str = pd.DataFrame({
     'name': ['  Alice Smith ', 'BOB JONES', 'charlie brown ', '  Diana Prince'],
     'email': ['ALICE@EXAMPLE.COM', 'bob@example.com', 'CHARLIE@Example.COM', 'diana@example.com'],
@@ -1866,10 +2373,14 @@ df_str[['first', 'last']] = df_str['name_clean'].str.split(' ', n=1, expand=True
 
 # --- LENGTH AND COUNT ---
 df_str['name_length'] = df_str['name_clean'].str.len()
-df_str['word_count'] = df_str['name_clean'].str.count(' ') + 1</code></pre>
-<hr>
+df_str['word_count'] = df_str['name_clean'].str.count(' ') + 1
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> After building multiple string columns, view a focused before/after subset as the last line in a cell: <code>df_str[['name', 'name_clean', 'first_name', 'last_name']]</code> — much easier to read than the full wide DataFrame.</p>
+</blockquote>
+<hr />
 <h2>4. DateTime Operations</h2>
-<pre><code># --- PARSING DATES ---
+<pre><code class="language-python"># --- PARSING DATES ---
 dates = pd.DataFrame({
     'date_str': ['2024-01-15', '01/20/2024', '2024-02-10', '15-Mar-2024'],
     'timestamp': ['2024-01-15 14:30:00', '2024-01-20 09:15:00', '2024-02-10 16:45:00', '2024-03-15 11:00:00']
@@ -1903,10 +2414,11 @@ date_range = pd.date_range('2024-01-01', '2024-12-31', freq='D')
 
 # --- BUSINESS DAYS ---
 bday_range = pd.bdate_range('2024-01-01', periods=10)
-# Business days only (excludes weekends)</code></pre>
-<hr>
+# Business days only (excludes weekends)
+</code></pre>
+<hr />
 <h2>5. Time Series Resampling</h2>
-<pre><code># --- CREATE TIME SERIES ---
+<pre><code class="language-python"># --- CREATE TIME SERIES ---
 np.random.seed(42)
 ts = pd.DataFrame({
     'date': pd.date_range('2024-01-01', periods=365, freq='D'),
@@ -1935,8 +2447,11 @@ ts['sales_30d_avg'] = ts['sales'].rolling(window=30).mean()
 ts['sales_7d_std'] = ts['sales'].rolling(window=7).std()
 ts['sales_7d_min'] = ts['sales'].rolling(window=7).min()
 ts['sales_7d_max'] = ts['sales'].rolling(window=7).max()
-
-# --- EXPANDING WINDOWS ---
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> For a quick visual check, pandas' built-in <code>.plot()</code> renders inline with <code>%matplotlib inline</code> — no full matplotlib setup needed: <code>ts[['sales', 'sales_7d_avg', 'sales_30d_avg']].plot(figsize=(12, 4))</code>.</p>
+</blockquote>
+<pre><code class="language-python"># --- EXPANDING WINDOWS ---
 # Cumulative statistics
 ts['cumsum'] = ts['sales'].expanding().sum()
 ts['cummean'] = ts['sales'].expanding().mean()
@@ -1945,10 +2460,11 @@ ts['cummax'] = ts['sales'].expanding().max()
 # --- EXPONENTIAL WEIGHTED ---
 # More weight to recent observations
 ts['ewm_30'] = ts['sales'].ewm(span=30).mean()
-# Why EWM? React faster to recent changes than simple moving average</code></pre>
-<hr>
+# Why EWM? React faster to recent changes than simple moving average
+</code></pre>
+<hr />
 <h2>6. Categorical Data</h2>
-<pre><code># --- CREATE CATEGORIES ---
+<pre><code class="language-python"># --- CREATE CATEGORIES ---
 df_cat = pd.DataFrame({
     'size': ['S', 'M', 'L', 'XL', 'S', 'M', 'L', 'XL'],
     'priority': ['High', 'Low', 'Medium', 'High', 'Low', 'Medium', 'High', 'Low']
@@ -1973,60 +2489,131 @@ print(df_cat['size'].cat.codes)         # Numeric codes (0, 1, 2, ...)
 
 # --- MEMORY SAVINGS ---
 df_large = pd.DataFrame({'col': np.random.choice(['A', 'B', 'C', 'D', 'E'], 1_000_000)})
-print(f"Object: {df_large['col'].memory_usage(deep=True)} bytes")
+print(f&quot;Object: {df_large['col'].memory_usage(deep=True)} bytes&quot;)
 df_large['col_cat'] = df_large['col'].astype('category')
-print(f"Category: {df_large['col_cat'].memory_usage(deep=True)} bytes")
-# Category typically uses ~10-20% of object memory</code></pre>
-<hr>
+print(f&quot;Category: {df_large['col_cat'].memory_usage(deep=True)} bytes&quot;)
+# Category typically uses ~10-20% of object memory
+</code></pre>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Task</td><td>Code</td></tr>
-<tr><td>String strip</td><td><code>df['col'].str.strip()</code></td></tr>
-<tr><td>String extract</td><td><code>df['col'].str.extract(r'pattern')</code></td></tr>
-<tr><td>Parse dates</td><td><code>pd.to_datetime(df['col'])</code></td></tr>
-<tr><td>Date components</td><td><code>df['col'].dt.year</code>, <code>.dt.month</code>, <code>.dt.day</code></td></tr>
-<tr><td>Resample</td><td><code>df.resample('M').sum()</code></td></tr>
-<tr><td>Rolling mean</td><td><code>df['col'].rolling(7).mean()</code></td></tr>
-<tr><td>Categorical</td><td><code>df['col'].astype('category')</code></td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String strip</td>
+<td><code>df['col'].str.strip()</code></td>
+</tr>
+<tr>
+<td>String extract</td>
+<td><code>df['col'].str.extract(r'pattern')</code></td>
+</tr>
+<tr>
+<td>Parse dates</td>
+<td><code>pd.to_datetime(df['col'])</code></td>
+</tr>
+<tr>
+<td>Date components</td>
+<td><code>df['col'].dt.year</code>, <code>.dt.month</code>, <code>.dt.day</code></td>
+</tr>
+<tr>
+<td>Resample</td>
+<td><code>df.resample('M').sum()</code></td>
+</tr>
+<tr>
+<td>Rolling mean</td>
+<td><code>df['col'].rolling(7).mean()</code></td>
+</tr>
+<tr>
+<td>Categorical</td>
+<td><code>df['col'].astype('category')</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 06a:</strong> Basic visualization</li>
+<ul>
+<li><strong>Module 06a:</strong> Basic visualization</li>
 <li><strong>Module 07a:</strong> Export to CSV and Excel</li>
 </ul>
-<div class="page-break"></div>
+<hr>
 <h1>MODULE-06a: VISUALIZATION — BASIC CHARTS</h1>
 <h2>Why Visualization Matters</h2>
-<blockquote>"The single most important thing in data analysis is to <strong>look at your data</strong>." — John Tukey</blockquote>
+<blockquote>
+<p>"The single most important thing in data analysis is to <strong>look at your data</strong>." — John Tukey</p>
+</blockquote>
 <p>Visualization helps you:
-<ul><li>Spot patterns, trends, and outliers instantly</li>
-<li>Communicate findings to stakeholders</li>
-<li>Validate assumptions before modeling</li>
-<li>Create production-grade reports</li>
-</ul>
-<hr></p>
+- Spot patterns, trends, and outliers instantly
+- Communicate findings to stakeholders
+- Validate assumptions before modeling
+- Create production-grade reports</p>
+<hr />
 <h2>Chart Selection Guide</h2>
 <table>
-<tr><td>Goal</td><td>Chart Type</td><td>When to Use</td></tr>
-<tr><td>Show trend over time</td><td>Line chart</td><td>Continuous time series</td></tr>
-<tr><td>Compare categories</td><td>Bar chart</td><td>Few categories (<10)</td></tr>
-<tr><td>Show distribution</td><td>Histogram/KDE</td><td>Understanding spread</td></tr>
-<tr><td>Show relationship</td><td>Scatter plot</td><td>Two numerical variables</td></tr>
-<tr><td>Show composition</td><td>Stacked bar/Pie</td><td>Parts of a whole</td></tr>
-<tr><td>Show comparison</td><td>Box plot</td><td>Distributions across groups</td></tr>
-<tr><td>Show correlation</td><td>Heatmap</td><td>Many variable relationships</td></tr>
-<tr><td>Show multiple metrics</td><td>Dashboard</td><td>Executive summary</td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Chart Type</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Show trend over time</td>
+<td>Line chart</td>
+<td>Continuous time series</td>
+</tr>
+<tr>
+<td>Compare categories</td>
+<td>Bar chart</td>
+<td>Few categories (&lt;10)</td>
+</tr>
+<tr>
+<td>Show distribution</td>
+<td>Histogram/KDE</td>
+<td>Understanding spread</td>
+</tr>
+<tr>
+<td>Show relationship</td>
+<td>Scatter plot</td>
+<td>Two numerical variables</td>
+</tr>
+<tr>
+<td>Show composition</td>
+<td>Stacked bar/Pie</td>
+<td>Parts of a whole</td>
+</tr>
+<tr>
+<td>Show comparison</td>
+<td>Box plot</td>
+<td>Distributions across groups</td>
+</tr>
+<tr>
+<td>Show correlation</td>
+<td>Heatmap</td>
+<td>Many variable relationships</td>
+</tr>
+<tr>
+<td>Show multiple metrics</td>
+<td>Dashboard</td>
+<td>Executive summary</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>1. Setup and Styling</h2>
-<pre><code>import pandas as pd
+<pre><code class="language-python">import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Set professional style
 plt.style.use('seaborn-v0_8-whitegrid')
-sns.set_palette("deep")
+sns.set_palette(&quot;deep&quot;)
 
 # Global styling parameters
 plt.rcParams.update({
@@ -2041,10 +2628,14 @@ plt.rcParams.update({
 # Why these settings?
 # - seaborn style: Clean, professional look
 # - No top/right spines: Reduces chart junk (Tufte's principle)
-# - DPI 150: Sharp on screens and print</code></pre>
-<hr>
+# - DPI 150: Sharp on screens and print
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Add <code>%matplotlib inline</code> to your imports cell before this setup block — it makes all charts render directly in the notebook. <code>plt.rcParams</code> settings persist for the entire kernel session, so set them once in your first cell and they apply to all subsequent plots.</p>
+</blockquote>
+<hr />
 <h2>2. Line Charts — Trends Over Time</h2>
-<pre><code># Sample time series
+<pre><code class="language-python"># Sample time series
 np.random.seed(42)
 sales = pd.DataFrame({
     'date': pd.date_range('2024-01-01', periods=365, freq='D'),
@@ -2063,8 +2654,11 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.savefig('charts/line_basic.png', bbox_inches='tight')
 plt.close()
-
-# --- LINE WITH MOVING AVERAGE ---
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Swap <code>plt.close()</code> for <code>plt.show()</code> to render inline. To do both — save to disk <strong>and</strong> display in the notebook — call <code>plt.savefig()</code> first, then <code>plt.show()</code>. Never call <code>plt.close()</code> before <code>plt.savefig()</code> or the saved file will be blank.</p>
+</blockquote>
+<pre><code class="language-python"># --- LINE WITH MOVING AVERAGE ---
 fig, ax = plt.subplots(figsize=(12, 6))
 # Raw daily data (faint)
 ax.plot(daily.index, daily.values, color='#94a3b8', linewidth=0.8, alpha=0.5, label='Daily')
@@ -2080,12 +2674,13 @@ ax.legend(loc='upper left')
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.savefig('charts/line_with_ma.png', bbox_inches='tight')
-plt.close()</code></pre>
+plt.close()
+</code></pre>
 <p><strong>See generated chart:</strong>
-!<a href="charts/chart01_revenue_trend.png">Revenue Trend</a></p>
-<hr>
+<img alt="Revenue Trend" src="charts/chart01_revenue_trend.png" /></p>
+<hr />
 <h2>3. Bar Charts — Comparing Categories</h2>
-<pre><code># --- SIMPLE BAR CHART ---
+<pre><code class="language-python"># --- SIMPLE BAR CHART ---
 fig, ax = plt.subplots(figsize=(10, 6))
 region_totals = sales.groupby('region')['revenue'].sum().sort_values(ascending=True)
 colors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444']
@@ -2123,13 +2718,14 @@ ax.legend(title='Product')
 plt.xticks(rotation=0)
 plt.tight_layout()
 plt.savefig('charts/bar_stacked.png', bbox_inches='tight')
-plt.close()</code></pre>
+plt.close()
+</code></pre>
 <p><strong>See generated charts:</strong>
-!<a href="charts/chart02_revenue_by_region.png">Revenue by Region</a>
-!<a href="charts/chart04_stacked_bar.png">Stacked Bar</a></p>
-<hr>
+<img alt="Revenue by Region" src="charts/chart02_revenue_by_region.png" />
+<img alt="Stacked Bar" src="charts/chart04_stacked_bar.png" /></p>
+<hr />
 <h2>4. Histograms and Distribution Plots</h2>
-<pre><code># --- HISTOGRAM WITH KDE ---
+<pre><code class="language-python"># --- HISTOGRAM WITH KDE ---
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
 # Left: Histogram
@@ -2153,28 +2749,54 @@ plt.close()
 # Why histogram vs KDE?
 # Histogram: Shows actual count distribution (good for discrete bins)
 # KDE: Smoothed density estimate (good for comparing distributions)
-# Use both together for complete picture</code></pre>
+# Use both together for complete picture
+</code></pre>
 <p><strong>See generated chart:</strong>
-!<a href="charts/chart03_revenue_distribution.png">Distribution</a></p>
-<hr>
+<img alt="Distribution" src="charts/chart03_revenue_distribution.png" /></p>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Chart</td><td>Code</td><td>Best For</td></tr>
-<tr><td>Line</td><td><code>ax.plot(x, y)</code></td><td>Trends over time</td></tr>
-<tr><td>Bar</td><td><code>ax.bar(x, y)</code> or <code>df.plot.bar()</code></td><td>Category comparison</td></tr>
-<tr><td>Histogram</td><td><code>sns.histplot(data)</code></td><td>Distribution</td></tr>
-<tr><td>KDE</td><td><code>sns.kdeplot(data)</code></td><td>Smoothed distribution</td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Chart</th>
+<th>Code</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Line</td>
+<td><code>ax.plot(x, y)</code></td>
+<td>Trends over time</td>
+</tr>
+<tr>
+<td>Bar</td>
+<td><code>ax.bar(x, y)</code> or <code>df.plot.bar()</code></td>
+<td>Category comparison</td>
+</tr>
+<tr>
+<td>Histogram</td>
+<td><code>sns.histplot(data)</code></td>
+<td>Distribution</td>
+</tr>
+<tr>
+<td>KDE</td>
+<td><code>sns.kdeplot(data)</code></td>
+<td>Smoothed distribution</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 06b:</strong> Scatter plots, box plots, heatmaps, dashboards</li>
+<ul>
+<li><strong>Module 06b:</strong> Scatter plots, box plots, heatmaps, dashboards</li>
 <li><strong>Module 07a:</strong> Export to CSV and Excel</li>
 </ul>
-<div class="page-break"></div>
-<h1>MODULE-06b: VISUALIZATION — ADVANCED CHARTS AND DASHBOARDS</h1>
 <hr>
+<h1>MODULE-06b: VISUALIZATION — ADVANCED CHARTS AND DASHBOARDS</h1>
+<hr />
 <h2>5. Scatter Plots — Relationships</h2>
-<pre><code># --- BASIC SCATTER ---
+<pre><code class="language-python"># --- BASIC SCATTER ---
 fig, ax = plt.subplots(figsize=(10, 7))
 ax.scatter(sales['units'], sales['revenue'], alpha=0.6, s=50, edgecolors='white', linewidth=0.5)
 ax.set_title('Units vs Revenue', fontsize=16, fontweight='bold', pad=15)
@@ -2207,12 +2829,13 @@ sns.regplot(x='units', y='revenue', data=sales, ax=ax, scatter_kws={'alpha':0.5,
 ax.set_title('Units vs Revenue (with Regression Line)', fontsize=16, fontweight='bold', pad=15)
 plt.tight_layout()
 plt.savefig('charts/scatter_regression.png', bbox_inches='tight')
-plt.close()</code></pre>
+plt.close()
+</code></pre>
 <p><strong>See generated chart:</strong>
-!<a href="charts/chart05_scatter_units_revenue.png">Scatter</a></p>
-<hr>
+<img alt="Scatter" src="charts/chart05_scatter_units_revenue.png" /></p>
+<hr />
 <h2>6. Box Plots — Distribution Comparison</h2>
-<pre><code># --- BASIC BOX PLOT ---
+<pre><code class="language-python"># --- BASIC BOX PLOT ---
 fig, ax = plt.subplots(figsize=(10, 6))
 sns.boxplot(data=sales, x='region', y='revenue', ax=ax, palette='Set3',
             flierprops=dict(marker='o', markersize=4, alpha=0.5))
@@ -2237,12 +2860,13 @@ plt.close()
 # Why box plot vs violin?
 # Box plot: Shows median, quartiles, outliers (compact)
 # Violin plot: Shows full distribution shape (more informative)
-# Use violin when distribution shape matters</code></pre>
+# Use violin when distribution shape matters
+</code></pre>
 <p><strong>See generated chart:</strong>
-!<a href="charts/chart06_boxplot_region.png">Box Plot</a></p>
-<hr>
+<img alt="Box Plot" src="charts/chart06_boxplot_region.png" /></p>
+<hr />
 <h2>7. Heatmaps — Correlation and Patterns</h2>
-<pre><code># --- CORRELATION HEATMAP ---
+<pre><code class="language-python"># --- CORRELATION HEATMAP ---
 fig, ax = plt.subplots(figsize=(10, 8))
 corr_cols = ['revenue', 'units', 'discount', 'customer_satisfaction']
 corr_matrix = sales[corr_cols].corr()
@@ -2266,12 +2890,16 @@ sns.heatmap(
 ax.set_title('Correlation Matrix', fontsize=16, fontweight='bold', pad=15)
 plt.tight_layout()
 plt.savefig('charts/heatmap.png', bbox_inches='tight')
-plt.close()</code></pre>
+plt.close()
+</code></pre>
 <p><strong>See generated chart:</strong>
-!<a href="charts/chart07_correlation_heatmap.png">Correlation Heatmap</a></p>
-<hr>
+<img alt="Correlation Heatmap" src="charts/chart07_correlation_heatmap.png" /></p>
+<hr />
 <h2>8. Multi-Panel Dashboards</h2>
-<pre><code>fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> For interactive charts (zoom, pan, hover), switch from <code>%matplotlib inline</code> to <code>%matplotlib widget</code> (requires <code>!pip install ipympl</code>). These two backends can't coexist in a session without a kernel restart — use <code>inline</code> for static output and <code>widget</code> when you need to explore a chart interactively.</p>
+</blockquote>
+<pre><code class="language-python">fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 fig.suptitle('Sales Performance Dashboard', fontsize=18, fontweight='bold', y=0.98)
 
 # Panel 1: Monthly revenue trend
@@ -2304,22 +2932,23 @@ axes[1, 1].set_ylabel('Satisfaction Score')
 
 plt.tight_layout()
 plt.savefig('charts/dashboard.png', dpi=150, bbox_inches='tight')
-plt.close()</code></pre>
+plt.close()
+</code></pre>
 <p><strong>See generated chart:</strong>
-!<a href="charts/chart08_dashboard.png">Dashboard</a></p>
-<hr>
+<img alt="Dashboard" src="charts/chart08_dashboard.png" /></p>
+<hr />
 <h2>9. Chart Customization — Production Grade</h2>
-<pre><code># --- CUSTOM FORMATTERS ---
+<pre><code class="language-python"># --- CUSTOM FORMATTERS ---
 from matplotlib.ticker import FuncFormatter
 
 def currency_fmt(x, pos):
-    """Format numbers as currency."""
-    if x >= 1e6: return f'${x/1e6:.1f}M'
-    elif x >= 1e3: return f'${x/1e3:.0f}K'
+    &quot;&quot;&quot;Format numbers as currency.&quot;&quot;&quot;
+    if x &gt;= 1e6: return f'${x/1e6:.1f}M'
+    elif x &gt;= 1e3: return f'${x/1e3:.0f}K'
     return f'${x:.0f}'
 
 def pct_fmt(x, pos):
-    """Format numbers as percentage."""
+    &quot;&quot;&quot;Format numbers as percentage.&quot;&quot;&quot;
     return f'{x*100:.0f}%'
 
 # Apply formatter
@@ -2328,26 +2957,30 @@ ax.xaxis.set_major_formatter(FuncFormatter(pct_fmt))
 
 # --- CUSTOM COLORS AND COLORMAPS ---
 # Sequential (ordered data)
-sns.color_palette("Blues", 5)
-sns.color_palette("YlOrRd", 5)
+sns.color_palette(&quot;Blues&quot;, 5)
+sns.color_palette(&quot;YlOrRd&quot;, 5)
 
 # Diverging (positive/negative)
-sns.color_palette("coolwarm", 5)
-sns.color_palette("RdBu_r", 5)
+sns.color_palette(&quot;coolwarm&quot;, 5)
+sns.color_palette(&quot;RdBu_r&quot;, 5)
 
 # Categorical (unordered categories)
-sns.color_palette("Set1", 5)
-sns.color_palette("Set2", 5)
-sns.color_palette("Set3", 5)
+sns.color_palette(&quot;Set1&quot;, 5)
+sns.color_palette(&quot;Set2&quot;, 5)
+sns.color_palette(&quot;Set3&quot;, 5)
 
 # --- ADDING ANNOTATIONS ---
 ax.annotate('Peak', xy=(peak_date, peak_value),
             xytext=(peak_date + 30, peak_value + 10000),
-            arrowprops=dict(arrowstyle='->', color='red'),
-            fontsize=12, color='red')</code></pre>
-<hr>
+            arrowprops=dict(arrowstyle='-&gt;', color='red'),
+            fontsize=12, color='red')
+</code></pre>
+<hr />
 <h2>10. Saving Charts for Production</h2>
-<pre><code># --- SAVE FOR WEB ---
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Always call <code>plt.savefig()</code> <strong>before</strong> <code>plt.show()</code> — once <code>plt.show()</code> flushes the figure, a subsequent <code>savefig()</code> writes a blank file. Pattern: <code>plt.savefig('out.png', ...); plt.show()</code>.</p>
+</blockquote>
+<pre><code class="language-python"># --- SAVE FOR WEB ---
 plt.savefig('chart_web.png', dpi=150, bbox_inches='tight')
 # dpi=150: Good for screens
 # bbox_inches='tight': Remove extra whitespace
@@ -2363,37 +2996,95 @@ plt.savefig('chart_ppt.png', dpi=200, bbox_inches='tight', transparent=False)
 
 # --- SAVE MULTIPLE FORMATS ---
 for fmt in ['png', 'pdf', 'svg']:
-    plt.savefig(f'chart.{fmt}', dpi=300 if fmt == 'png' else None, bbox_inches='tight')</code></pre>
-<hr>
+    plt.savefig(f'chart.{fmt}', dpi=300 if fmt == 'png' else None, bbox_inches='tight')
+</code></pre>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Chart</td><td>Code</td><td>Best For</td></tr>
-<tr><td>Scatter</td><td><code>ax.scatter(x, y)</code></td><td>Relationship between 2 vars</td></tr>
-<tr><td>Box plot</td><td><code>sns.boxplot(x, y, data)</code></td><td>Distribution by group</td></tr>
-<tr><td>Heatmap</td><td><code>sns.heatmap(data)</code></td><td>Correlation/pattern matrix</td></tr>
-<tr><td>Pie</td><td><code>ax.pie(sizes)</code></td><td>Parts of a whole</td></tr>
-<tr><td>Dashboard</td><td><code>plt.subplots(2, 2)</code></td><td>Multi-metric overview</td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Chart</th>
+<th>Code</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scatter</td>
+<td><code>ax.scatter(x, y)</code></td>
+<td>Relationship between 2 vars</td>
+</tr>
+<tr>
+<td>Box plot</td>
+<td><code>sns.boxplot(x, y, data)</code></td>
+<td>Distribution by group</td>
+</tr>
+<tr>
+<td>Heatmap</td>
+<td><code>sns.heatmap(data)</code></td>
+<td>Correlation/pattern matrix</td>
+</tr>
+<tr>
+<td>Pie</td>
+<td><code>ax.pie(sizes)</code></td>
+<td>Parts of a whole</td>
+</tr>
+<tr>
+<td>Dashboard</td>
+<td><code>plt.subplots(2, 2)</code></td>
+<td>Multi-metric overview</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 07a:</strong> Export to CSV and Excel</li>
+<ul>
+<li><strong>Module 07a:</strong> Export to CSV and Excel</li>
 <li><strong>Module 08a:</strong> Performance optimization</li>
 </ul>
-<div class="page-break"></div>
+<hr>
 <h1>MODULE-07a: DATA EXPORT — CSV AND EXCEL</h1>
 <h2>Export Overview</h2>
 <p>After cleaning and analyzing data, you need to output it. Pandas provides <code>to_*</code> methods for each format:</p>
 <table>
-<tr><td>Function</td><td>Format</td><td>Best For</td></tr>
-<tr><td><code>to_csv()</code></td><td>CSV</td><td>Data exchange, imports into other systems</td></tr>
-<tr><td><code>to_excel()</code></td><td>Excel</td><td>Business reports, sharing with non-technical users</td></tr>
-<tr><td><code>to_json()</code></td><td>JSON</td><td>APIs, web applications, NoSQL</td></tr>
-<tr><td><code>to_sql()</code></td><td>SQL database</td><td>Database storage</td></tr>
-<tr><td><code>to_parquet()</code></td><td>Parquet</td><td>Big data, analytics pipelines</td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Function</th>
+<th>Format</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>to_csv()</code></td>
+<td>CSV</td>
+<td>Data exchange, imports into other systems</td>
+</tr>
+<tr>
+<td><code>to_excel()</code></td>
+<td>Excel</td>
+<td>Business reports, sharing with non-technical users</td>
+</tr>
+<tr>
+<td><code>to_json()</code></td>
+<td>JSON</td>
+<td>APIs, web applications, NoSQL</td>
+</tr>
+<tr>
+<td><code>to_sql()</code></td>
+<td>SQL database</td>
+<td>Database storage</td>
+</tr>
+<tr>
+<td><code>to_parquet()</code></td>
+<td>Parquet</td>
+<td>Big data, analytics pipelines</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>1. CSV Export</h2>
-<pre><code>import pandas as pd
+<pre><code class="language-python">import pandas as pd
 
 df = pd.DataFrame({
     'name': ['Alice', 'Bob', 'Charlie'],
@@ -2405,7 +3096,11 @@ df = pd.DataFrame({
 # --- BASIC EXPORT ---
 df.to_csv('output.csv')
                         # Default: comma-separated, includes index and header
-
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Paths are relative to the Jupyter launch directory — confirm with <code>%pwd</code>. After exporting, verify in the next cell: <code>pd.read_csv('output.csv').head()</code> renders as a table instantly.</p>
+</blockquote>
+<pre><code class="language-python">
 # --- CRITICAL PARAMETERS ---
 df.to_csv('output.csv',
     index=False,            # Don't write row numbers (almost always False)
@@ -2430,10 +3125,11 @@ df.to_csv('output.tsv', sep='\t', index=False)
 # --- APPEND TO EXISTING FILE ---
 df.to_csv('output.csv', mode='a', header=False, index=False)
 # mode='a': Append mode (default is 'w' for write/overwrite)
-# header=False: Don't write header again</code></pre>
-<hr>
+# header=False: Don't write header again
+</code></pre>
+<hr />
 <h2>2. Excel Export — Basic</h2>
-<pre><code># --- BASIC EXPORT ---
+<pre><code class="language-python"># --- BASIC EXPORT ---
 df.to_excel('output.xlsx', index=False)
                         # Uses openpyxl engine by default
 
@@ -2449,11 +3145,12 @@ df.to_excel('output.xlsx',
     date_format='YYYY-MM-DD',
     engine='openpyxl',        # For .xlsx files
     engine='xlsxwriter',      # Alternative engine (more formatting options)
-)</code></pre>
-<hr>
+)
+</code></pre>
+<hr />
 <h2>3. Excel Export — Professional Reports</h2>
 <h3>Multi-Sheet Reports</h3>
-<pre><code># Create multiple DataFrames
+<pre><code class="language-python"># Create multiple DataFrames
 summary = df.groupby('department').agg({
     'salary': ['mean', 'median', 'count'],
     'age': 'mean'
@@ -2469,9 +3166,13 @@ with pd.ExcelWriter('report.xlsx', engine='openpyxl') as writer:
     details.to_excel(writer, sheet_name='Details', index=False)
     trends.to_excel(writer, sheet_name='Monthly Trends')
 # Why ExcelWriter? Single file with multiple sheets
-# Context manager ensures proper file closure</code></pre>
+# Context manager ensures proper file closure
+</code></pre>
 <h3>Styled Excel Reports (openpyxl)</h3>
-<pre><code>from openpyxl.styles import Font, PatternFill, Alignment
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Preview column styling in the notebook before committing to a file: <code>df.style.highlight_max(color='#bbf7d0').set_properties(**{'font-weight': 'bold'})</code> renders inline when placed as the last line in a cell. Use it to prototype the look, then replicate it with openpyxl/xlsxwriter for the actual <code>.xlsx</code>.</p>
+</blockquote>
+<pre><code class="language-python">from openpyxl.styles import Font, PatternFill, Alignment
 
 with pd.ExcelWriter('styled_report.xlsx', engine='openpyxl') as writer:
     df.to_excel(writer, sheet_name='Employees', index=False)
@@ -2522,9 +3223,10 @@ with pd.ExcelWriter('styled_report.xlsx', engine='openpyxl') as writer:
     # --- FREEZE TOP ROW ---
     worksheet.freeze_panes = 'A2'
 
-print("Styled report saved to styled_report.xlsx")</code></pre>
+print(&quot;Styled report saved to styled_report.xlsx&quot;)
+</code></pre>
 <h3>Styled Excel Reports (xlsxwriter)</h3>
-<pre><code># xlsxwriter provides more built-in formatting
+<pre><code class="language-python"># xlsxwriter provides more built-in formatting
 with pd.ExcelWriter('styled_xlsxwriter.xlsx', engine='xlsxwriter') as writer:
     df.to_excel(writer, sheet_name='Employees', index=False)
 
@@ -2566,29 +3268,59 @@ with pd.ExcelWriter('styled_xlsxwriter.xlsx', engine='xlsxwriter') as writer:
 
     # Auto-fit columns
     worksheet.autofit()
-    print("xlsxwriter report saved")</code></pre>
-<hr>
+    print(&quot;xlsxwriter report saved&quot;)
+</code></pre>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Task</td><td>Code</td></tr>
-<tr><td>Export CSV</td><td><code>df.to_csv('file.csv', index=False)</code></td></tr>
-<tr><td>Export TSV</td><td><code>df.to_csv('file.tsv', sep='\t', index=False)</code></td></tr>
-<tr><td>Export Excel</td><td><code>df.to_excel('file.xlsx', index=False)</code></td></tr>
-<tr><td>Multi-sheet Excel</td><td><code>pd.ExcelWriter('file.xlsx')</code> with context manager</td></tr>
-<tr><td>Append CSV</td><td><code>df.to_csv('file.csv', mode='a', header=False)</code></td></tr>
-<tr><td>Custom float format</td><td><code>df.to_csv('file.csv', float_format='%.2f')</code></td></tr>
-<tr><td>Custom date format</td><td><code>df.to_csv('file.csv', date_format='%Y-%m-%d')</code></td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Export CSV</td>
+<td><code>df.to_csv('file.csv', index=False)</code></td>
+</tr>
+<tr>
+<td>Export TSV</td>
+<td><code>df.to_csv('file.tsv', sep='\t', index=False)</code></td>
+</tr>
+<tr>
+<td>Export Excel</td>
+<td><code>df.to_excel('file.xlsx', index=False)</code></td>
+</tr>
+<tr>
+<td>Multi-sheet Excel</td>
+<td><code>pd.ExcelWriter('file.xlsx')</code> with context manager</td>
+</tr>
+<tr>
+<td>Append CSV</td>
+<td><code>df.to_csv('file.csv', mode='a', header=False)</code></td>
+</tr>
+<tr>
+<td>Custom float format</td>
+<td><code>df.to_csv('file.csv', float_format='%.2f')</code></td>
+</tr>
+<tr>
+<td>Custom date format</td>
+<td><code>df.to_csv('file.csv', date_format='%Y-%m-%d')</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 07b:</strong> Export to JSON, SQL, Parquet</li>
+<ul>
+<li><strong>Module 07b:</strong> Export to JSON, SQL, Parquet</li>
 <li><strong>Module 08a:</strong> Performance optimization</li>
 </ul>
-<div class="page-break"></div>
-<h1>MODULE-07b: DATA EXPORT — JSON, SQL, PARQUET, AND MORE</h1>
 <hr>
+<h1>MODULE-07b: DATA EXPORT — JSON, SQL, PARQUET, AND MORE</h1>
+<hr />
 <h2>4. JSON Export</h2>
-<pre><code>import pandas as pd
+<pre><code class="language-python">import pandas as pd
 
 df = pd.DataFrame({
     'name': ['Alice', 'Bob', 'Charlie'],
@@ -2618,10 +3350,11 @@ df.to_json('output.json',
     date_unit='s',          # Date unit: 's', 'ms', 'us', 'ns'
     force_ascii=False,      # Allow non-ASCII characters
     double_precision=10,    # Float precision
-)</code></pre>
-<hr>
+)
+</code></pre>
+<hr />
 <h2>5. SQL Export</h2>
-<pre><code>from sqlalchemy import create_engine
+<pre><code class="language-python">from sqlalchemy import create_engine
 
 # Create database connection
 engine = create_engine('sqlite:///output.db')
@@ -2650,17 +3383,22 @@ df.to_sql('employees', engine,
 # --- WHY CHUNKSIZE? ---
 # Large inserts can timeout or run out of memory
 # chunksize=1000: Insert 1000 rows at a time
-# Trade-off: smaller = safer, larger = faster</code></pre>
-<hr>
+# Trade-off: smaller = safer, larger = faster
+</code></pre>
+<hr />
 <h2>6. Other Export Formats</h2>
-<pre><code># --- PARQUET (columnar, compressed) ---
+<pre><code class="language-python"># --- PARQUET (columnar, compressed) ---
 df.to_parquet('output.parquet', engine='pyarrow')
 # Why parquet?
 # - Columnar storage (fast for analytical queries)
 # - Compression (smaller files)
 # - Preserves data types
 # - Industry standard for big data
-
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Parquet is the best format for saving intermediate DataFrames between sessions — it's fast, compressed, and restores all dtypes (including <code>category</code>) exactly. Use <code>df.to_parquet('checkpoint.parquet')</code> / <code>df = pd.read_parquet('checkpoint.parquet')</code> as a notebook checkpoint pattern to avoid re-running expensive processing cells.</p>
+</blockquote>
+<pre><code class="language-python">
 # --- FEATHER (fast binary) ---
 df.to_feather('output.feather')
 # Why feather?
@@ -2682,35 +3420,40 @@ df.to_html('output.html', index=False, border=1)
 # - Embed in web pages
 # - Email reports
 # - Documentation
-
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Skip the file and render directly in the notebook: <code>from IPython.display import HTML; display(HTML(df.to_html(index=False, border=1)))</code>. Useful for embedding a styled table in a notebook report without creating a separate file.</p>
+</blockquote>
+<pre><code class="language-python">
 # --- LATEX (for papers) ---
 df.to_latex('output.tex', index=False)
 # Why LaTeX?
 # - Academic papers
-# - Professional documents</code></pre>
-<hr>
+# - Professional documents
+</code></pre>
+<hr />
 <h2>7. Production Export Pattern</h2>
-<pre><code>import logging
+<pre><code class="language-python">import logging
 from pathlib import Path
 
 def export_data(df, output_path: str, **kwargs):
-    """
+    &quot;&quot;&quot;
     Production-grade data exporter with validation and logging.
-    
+
     Args:
         df: DataFrame to export
         output_path: Output file path
         **kwargs: Additional arguments for to_* functions
-    """
+    &quot;&quot;&quot;
     path = Path(output_path)
-    
+
     # Validate DataFrame
     if df.empty:
-        raise ValueError("Cannot export empty DataFrame")
-    
+        raise ValueError(&quot;Cannot export empty DataFrame&quot;)
+
     # Create output directory if needed
     path.parent.mkdir(parents=True, exist_ok=True)
-    
+
     # Determine format from extension
     ext = path.suffix.lower()
     exporters = {
@@ -2721,51 +3464,77 @@ def export_data(df, output_path: str, **kwargs):
         '.parquet': lambda: df.to_parquet(path, **kwargs),
         '.pkl': lambda: df.to_pickle(path, **kwargs),
     }
-    
+
     if ext not in exporters:
-        raise ValueError(f"Unsupported format: {ext}")
-    
+        raise ValueError(f&quot;Unsupported format: {ext}&quot;)
+
     try:
         exporters[ext]()
         file_size = path.stat().st_size
-        logging.info(f"Exported {len(df)} rows to {output_path} ({file_size:,} bytes)")
+        logging.info(f&quot;Exported {len(df)} rows to {output_path} ({file_size:,} bytes)&quot;)
     except Exception as e:
-        logging.error(f"Failed to export to {output_path}: {e}")
+        logging.error(f&quot;Failed to export to {output_path}: {e}&quot;)
         raise
 
 # Usage
 export_data(df, 'output/reports/employees.csv')
 export_data(df, 'output/reports/employees.xlsx')
-export_data(df, 'output/reports/employees.json')</code></pre>
-<hr>
+export_data(df, 'output/reports/employees.json')
+</code></pre>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Task</td><td>Code</td></tr>
-<tr><td>Export JSON</td><td><code>df.to_json('file.json', orient='records')</code></td></tr>
-<tr><td>Export SQL</td><td><code>df.to_sql('table', engine)</code></td></tr>
-<tr><td>Export Parquet</td><td><code>df.to_parquet('file.parquet')</code></td></tr>
-<tr><td>Export Feather</td><td><code>df.to_feather('file.feather')</code></td></tr>
-<tr><td>Export HTML</td><td><code>df.to_html('file.html')</code></td></tr>
-<tr><td>Export Pickle</td><td><code>df.to_pickle('file.pkl')</code></td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Export JSON</td>
+<td><code>df.to_json('file.json', orient='records')</code></td>
+</tr>
+<tr>
+<td>Export SQL</td>
+<td><code>df.to_sql('table', engine)</code></td>
+</tr>
+<tr>
+<td>Export Parquet</td>
+<td><code>df.to_parquet('file.parquet')</code></td>
+</tr>
+<tr>
+<td>Export Feather</td>
+<td><code>df.to_feather('file.feather')</code></td>
+</tr>
+<tr>
+<td>Export HTML</td>
+<td><code>df.to_html('file.html')</code></td>
+</tr>
+<tr>
+<td>Export Pickle</td>
+<td><code>df.to_pickle('file.pkl')</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 08a:</strong> Performance optimization</li>
+<ul>
+<li><strong>Module 08a:</strong> Performance optimization</li>
 <li><strong>Module 08b:</strong> Production patterns and best practices</li>
 </ul>
-<div class="page-break"></div>
+<hr>
 <h1>MODULE-08a: PRODUCTION-GRADE PANDAS — PERFORMANCE</h1>
 <h2>Production vs Notebook</h2>
 <p>Notebook code works for exploration. Production code must be:
-<ul><li><strong>Fast</strong> — handles large datasets efficiently</li>
-<li><strong>Robust</strong> — handles errors gracefully</li>
-<li><strong>Maintainable</strong> — readable, documented, testable</li>
-<li><strong>Reproducible</strong> — same input → same output</li>
-</ul>
-<hr></p>
+- <strong>Fast</strong> — handles large datasets efficiently
+- <strong>Robust</strong> — handles errors gracefully
+- <strong>Maintainable</strong> — readable, documented, testable
+- <strong>Reproducible</strong> — same input → same output</p>
+<hr />
 <h2>1. Performance Optimization</h2>
 <h3>Vectorization: The #1 Rule</h3>
-<pre><code>import pandas as pd
+<pre><code class="language-python">import pandas as pd
 import numpy as np
 import time
 
@@ -2783,39 +3552,45 @@ result = []
 for i in range(len(df)):
     result.append(df['a'].iloc[i] + df['b'].iloc[i])
 df['sum_loop'] = result
-print(f"Loop: {time.time() - start:.4f}s")
+print(f&quot;Loop: {time.time() - start:.4f}s&quot;)
 
 # --- SLOW: apply ---
 start = time.time()
 df['sum_apply'] = df.apply(lambda row: row['a'] + row['b'], axis=1)
-print(f"apply: {time.time() - start:.4f}s")
+print(f&quot;apply: {time.time() - start:.4f}s&quot;)
 
 # --- FAST: Vectorized ---
 start = time.time()
 df['sum_vec'] = df['a'] + df['b']
-print(f"Vectorized: {time.time() - start:.4f}s")
-
+print(f&quot;Vectorized: {time.time() - start:.4f}s&quot;)
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Use <code>%%timeit</code> cell magic for more accurate benchmarking — it runs the operation many times and reports the average. Put <code>%%timeit</code> as the <strong>first line</strong> of a cell containing only the expression to test. For one-liners: <code>%timeit df['a'] + df['b']</code>. These are more reliable than <code>time.time()</code> which includes kernel overhead.</p>
+</blockquote>
+<pre><code class="language-python">
 # Vectorized operations are 10-100x faster because:
 # 1. No Python loop overhead
 # 2. numpy operations execute in C
-# 3. Memory access is sequential (cache-friendly)</code></pre>
+# 3. Memory access is sequential (cache-friendly)
+</code></pre>
 <h3>When Vectorization Isn't Enough</h3>
-<pre><code># --- NUMBA FOR COMPLEX FUNCTIONS ---
+<pre><code class="language-python"># --- NUMBA FOR COMPLEX FUNCTIONS ---
 from numba import jit
 import numpy as np
 
 @jit(nopython=True)
 def complex_calc(a, b):
-    """JIT-compiled function for complex math."""
+    &quot;&quot;&quot;JIT-compiled function for complex math.&quot;&quot;&quot;
     return np.sin(a) * np.cos(b) + np.exp(-a**2)
 
 start = time.time()
 df['numba_result'] = complex_calc(df['a'].values, df['b'].values)
-print(f"Numba: {time.time() - start:.4f}s")</code></pre>
+print(f&quot;Numba: {time.time() - start:.4f}s&quot;)
+</code></pre>
 <h3>Chunking for Large Files</h3>
-<pre><code># --- PROCESS IN CHUNKS ---
+<pre><code class="language-python"># --- PROCESS IN CHUNKS ---
 def process_large_file(file_path, chunk_size=100_000):
-    """Process file in chunks to manage memory."""
+    &quot;&quot;&quot;Process file in chunks to manage memory.&quot;&quot;&quot;
     results = []
     for chunk in pd.read_csv(file_path, chunksize=chunk_size):
         # Process each chunk
@@ -2824,7 +3599,7 @@ def process_large_file(file_path, chunk_size=100_000):
             'revenue': ['sum', 'mean', 'count']
         })
         results.append(aggregated)
-    
+
     # Combine results
     final = pd.concat(results).groupby(level=0).agg({
         ('revenue', 'sum'): 'sum',
@@ -2836,19 +3611,24 @@ def process_large_file(file_path, chunk_size=100_000):
 # Why chunking?
 # - Files larger than RAM will crash
 # - Process one chunk at a time
-# - Aggregate incrementally</code></pre>
-<hr>
+# - Aggregate incrementally
+</code></pre>
+<hr />
 <h2>2. Memory Optimization</h2>
 <h3>Check Current Memory Usage</h3>
-<pre><code># --- MEMORY PROFILE ---
+<pre><code class="language-python"># --- MEMORY PROFILE ---
 print(df.memory_usage(deep=True))
 # deep=True: Include actual object sizes (strings, etc.)
 
 # --- TOTAL MEMORY ---
 total_mb = df.memory_usage(deep=True).sum() / 1024**2
-print(f"Total: {total_mb:.1f} MB")</code></pre>
+print(f&quot;Total: {total_mb:.1f} MB&quot;)
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Place <code>df.memory_usage(deep=True)</code> as the last line in a cell — it renders as a Series table showing per-column usage. For line-by-line memory profiling, install <code>memory_profiler</code> and use the <code>%memit</code> magic: <code>%memit df.groupby('c')['a'].mean()</code>.</p>
+</blockquote>
 <h3>Downcast Numerical Types</h3>
-<pre><code># --- DOWNCAST INTEGERS ---
+<pre><code class="language-python"># --- DOWNCAST INTEGERS ---
 # int64 → int8/int16/int32 (if values fit)
 df['small_int'] = pd.to_numeric(df['small_int'], downcast='integer')
 # int64 (8 bytes) → int8 (1 byte): 8x memory savings
@@ -2860,16 +3640,17 @@ df['float_col'] = pd.to_numeric(df['float_col'], downcast='float')
 
 # --- SPECIFIC DOWNSCASTING ---
 def downcast_dataframe(df):
-    """Aggressively downcast all numerical columns."""
+    &quot;&quot;&quot;Aggressively downcast all numerical columns.&quot;&quot;&quot;
     for col in df.select_dtypes(include=['int64']).columns:
         df[col] = pd.to_numeric(df[col], downcast='integer')
     for col in df.select_dtypes(include=['float64']).columns:
         df[col] = pd.to_numeric(df[col], downcast='float')
     return df
 
-df_optimized = downcast_dataframe(df)</code></pre>
+df_optimized = downcast_dataframe(df)
+</code></pre>
 <h3>Use Categorical for Low-Cardinality Strings</h3>
-<pre><code># --- BEFORE: object dtype ---
+<pre><code class="language-python"># --- BEFORE: object dtype ---
 print(df['category_col'].dtype)  # object
 print(df['category_col'].memory_usage(deep=True))  # ~large
 
@@ -2879,9 +3660,10 @@ print(df['category_col'].dtype)  # category
 print(df['category_col'].memory_usage(deep=True))  # ~small
 
 # Memory savings = (unique_values / total_values) * original_size
-# For 1M rows with 5 unique values: ~200,000x savings</code></pre>
+# For 1M rows with 5 unique values: ~200,000x savings
+</code></pre>
 <h3>Optimize Data Loading</h3>
-<pre><code># --- LOAD ONLY WHAT YOU NEED ---
+<pre><code class="language-python"># --- LOAD ONLY WHAT YOU NEED ---
 # Use columns
 df = pd.read_csv('data.csv', usecols=['col1', 'col2', 'col3'])
 
@@ -2898,102 +3680,138 @@ df = pd.read_csv('data.csv', parse_dates=['date_col'])
 # Why optimize at load time?
 # - Less memory from the start
 # - Faster loading (less data to process)
-# - No need to convert later</code></pre>
-<hr>
+# - No need to convert later
+</code></pre>
+<hr />
 <h2>Quick Reference</h2>
 <table>
-<tr><td>Optimization</td><td>Code</td><td>Impact</td></tr>
-<tr><td>Vectorization</td><td><code>df['a'] + df['b']</code></td><td>10-100x faster</td></tr>
-<tr><td>Downcast int</td><td><code>pd.to_numeric(col, downcast='integer')</code></td><td>2-8x less memory</td></tr>
-<tr><td>Downcast float</td><td><code>pd.to_numeric(col, downcast='float')</code></td><td>2x less memory</td></tr>
-<tr><td>Categorical</td><td><code>col.astype('category')</code></td><td>10-100x less memory</td></tr>
-<tr><td>Chunking</td><td><code>read_csv(chunksize=100000)</code></td><td>Enables large file processing</td></tr>
-<tr><td>usecols</td><td><code>read_csv(usecols=['a','b'])</code></td><td>Faster load, less memory</td></tr>
-</tbody></table>
-<hr>
+<thead>
+<tr>
+<th>Optimization</th>
+<th>Code</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vectorization</td>
+<td><code>df['a'] + df['b']</code></td>
+<td>10-100x faster</td>
+</tr>
+<tr>
+<td>Downcast int</td>
+<td><code>pd.to_numeric(col, downcast='integer')</code></td>
+<td>2-8x less memory</td>
+</tr>
+<tr>
+<td>Downcast float</td>
+<td><code>pd.to_numeric(col, downcast='float')</code></td>
+<td>2x less memory</td>
+</tr>
+<tr>
+<td>Categorical</td>
+<td><code>col.astype('category')</code></td>
+<td>10-100x less memory</td>
+</tr>
+<tr>
+<td>Chunking</td>
+<td><code>read_csv(chunksize=100000)</code></td>
+<td>Enables large file processing</td>
+</tr>
+<tr>
+<td>usecols</td>
+<td><code>read_csv(usecols=['a','b'])</code></td>
+<td>Faster load, less memory</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2>Next Steps</h2>
-<ul><li><strong>Module 08b:</strong> Error handling, testing, best practices</li>
+<ul>
+<li><strong>Module 08b:</strong> Error handling, testing, best practices</li>
 <li><strong>Module 07a:</strong> Export to CSV and Excel</li>
 </ul>
-<div class="page-break"></div>
-<h1>MODULE-08b: PRODUCTION-GRADE PANDAS — PATTERNS AND BEST PRACTICES</h1>
 <hr>
+<h1>MODULE-08b: PRODUCTION-GRADE PANDAS — PATTERNS AND BEST PRACTICES</h1>
+<hr />
 <h2>3. Error Handling Patterns</h2>
-<pre><code>import logging
+<pre><code class="language-python">import logging
 from pathlib import Path
 
 def safe_load_and_process(file_path):
-    """Production-grade data loading with error handling."""
+    &quot;&quot;&quot;Production-grade data loading with error handling.&quot;&quot;&quot;
     logging.basicConfig(level=logging.INFO)
-    
+
     # 1. Validate file exists
     path = Path(file_path)
     if not path.exists():
-        logging.error(f"File not found: {file_path}")
+        logging.error(f&quot;File not found: {file_path}&quot;)
         return None
-    
+
     # 2. Load with error handling
     try:
         df = pd.read_csv(file_path)
-        logging.info(f"Loaded {len(df)} rows")
+        logging.info(f&quot;Loaded {len(df)} rows&quot;)
     except pd.errors.ParserError as e:
-        logging.error(f"Parse error: {e}")
+        logging.error(f&quot;Parse error: {e}&quot;)
         return None
     except Exception as e:
-        logging.error(f"Load error: {e}")
+        logging.error(f&quot;Load error: {e}&quot;)
         return None
-    
+
     # 3. Validate data
     if df.empty:
-        logging.warning("Empty DataFrame loaded")
+        logging.warning(&quot;Empty DataFrame loaded&quot;)
         return None
-    
+
     required_cols = ['id', 'value']
     missing_cols = [c for c in required_cols if c not in df.columns]
     if missing_cols:
-        logging.error(f"Missing columns: {missing_cols}")
+        logging.error(f&quot;Missing columns: {missing_cols}&quot;)
         return None
-    
+
     # 4. Process with validation
     try:
         df['value'] = pd.to_numeric(df['value'], errors='coerce')
         df = df.dropna(subset=['value'])
-        logging.info(f"Processed {len(df)} valid rows")
+        logging.info(f&quot;Processed {len(df)} valid rows&quot;)
     except Exception as e:
-        logging.error(f"Processing error: {e}")
+        logging.error(f&quot;Processing error: {e}&quot;)
         return None
-    
-    return df</code></pre>
-<hr>
+
+    return df
+</code></pre>
+<hr />
 <h2>4. Testing Data Pipelines</h2>
-<pre><code># --- ASSERTIONS FOR DATA VALIDATION ---
+<pre><code class="language-python"># --- ASSERTIONS FOR DATA VALIDATION ---
 def validate_dataframe(df):
-    """Validate DataFrame meets expectations."""
-    assert len(df) > 0, "DataFrame is empty"
-    assert 'id' in df.columns, "Missing 'id' column"
-    assert df['id'].is_unique, "Duplicate IDs found"
-    assert df['value'].notna().all(), "Missing values in 'value'"
-    assert (df['value'] >= 0).all(), "Negative values found"
-    assert df['date'].is_monotonic_increasing, "Dates not sorted"
-    print("✓ All validations passed")
+    &quot;&quot;&quot;Validate DataFrame meets expectations.&quot;&quot;&quot;
+    assert len(df) &gt; 0, &quot;DataFrame is empty&quot;
+    assert 'id' in df.columns, &quot;Missing 'id' column&quot;
+    assert df['id'].is_unique, &quot;Duplicate IDs found&quot;
+    assert df['value'].notna().all(), &quot;Missing values in 'value'&quot;
+    assert (df['value'] &gt;= 0).all(), &quot;Negative values found&quot;
+    assert df['date'].is_monotonic_increasing, &quot;Dates not sorted&quot;
+    print(&quot;✓ All validations passed&quot;)
 
 # --- PROPERTY-BASED TESTING ---
 def test_pipeline():
-    """Test that pipeline preserves key properties."""
+    &quot;&quot;&quot;Test that pipeline preserves key properties.&quot;&quot;&quot;
     # Load raw data
     raw = pd.read_csv('raw_data.csv')
-    
+
     # Run pipeline
     cleaned = clean_data(raw)
-    
+
     # Verify properties
-    assert len(cleaned) <= len(raw), "Pipeline added rows"
-    assert set(cleaned.columns) == set(raw.columns), "Columns changed"
-    assert cleaned['id'].nunique() == len(cleaned), "Duplicates introduced"
-    print("✓ Pipeline tests passed")</code></pre>
-<hr>
+    assert len(cleaned) &lt;= len(raw), &quot;Pipeline added rows&quot;
+    assert set(cleaned.columns) == set(raw.columns), &quot;Columns changed&quot;
+    assert cleaned['id'].nunique() == len(cleaned), &quot;Duplicates introduced&quot;
+    print(&quot;✓ Pipeline tests passed&quot;)
+</code></pre>
+<hr />
 <h2>5. Reproducible Workflows</h2>
-<pre><code># --- SET RANDOM SEED ---
+<pre><code class="language-python"># --- SET RANDOM SEED ---
 import numpy as np
 np.random.seed(42)
 pd.options.mode.copy_on_write = True  # pandas 2.0+
@@ -3022,23 +3840,28 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
-
+</code></pre>
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> <code>logging.StreamHandler()</code> output goes to the <strong>terminal</strong> where you launched <code>jupyter lab</code>, not to the cell output. During notebook exploration, use <code>print()</code> for visible status messages. Switch to proper <code>logging</code> only when moving code to production scripts.</p>
+</blockquote>
+<pre><code class="language-python">
 def run_pipeline():
-    logging.info("Starting pipeline")
+    logging.info(&quot;Starting pipeline&quot;)
     df = load_data('input.csv')
-    logging.info(f"Loaded {len(df)} rows")
-    
+    logging.info(f&quot;Loaded {len(df)} rows&quot;)
+
     df = clean_data(df)
-    logging.info(f"Cleaned: {len(df)} rows")
-    
+    logging.info(f&quot;Cleaned: {len(df)} rows&quot;)
+
     df = transform_data(df)
-    logging.info(f"Transformed: {len(df)} rows")
-    
+    logging.info(f&quot;Transformed: {len(df)} rows&quot;)
+
     export_data(df, 'output.csv')
-    logging.info("Pipeline complete")</code></pre>
-<hr>
+    logging.info(&quot;Pipeline complete&quot;)
+</code></pre>
+<hr />
 <h2>6. Best Practices Checklist</h2>
-<pre><code>"""
+<pre><code class="language-python">&quot;&quot;&quot;
 PANDAS PRODUCTION CHECKLIST
 ===========================
 
@@ -3097,15 +3920,26 @@ GENERAL:
 ☐ Log all operations
 ☐ Version pin dependencies
 ☐ Write tests for critical functions
-"""</code></pre>
-<hr>
+
+JUPYTERLAB WORKFLOW:
+☐ Use %matplotlib inline in your imports cell
+☐ Call plt.savefig() before plt.show(), never after
+☐ Use df.copy() — never mutate df across cells
+☐ Use %%timeit / %timeit instead of time.time() for benchmarks
+☐ Use print() for status messages (logging goes to terminal, not cell)
+☐ Save intermediate DataFrames as Parquet between sessions
+☐ Use display() to render multiple DataFrames in one cell
+☐ Use @variable syntax in query() to reference notebook variables
+&quot;&quot;&quot;
+</code></pre>
+<hr />
 <h2>7. Common Pitfalls and Solutions</h2>
-<pre><code># --- PITFALL 1: SettingWithCopyWarning ---
+<pre><code class="language-python"># --- PITFALL 1: SettingWithCopyWarning ---
 # WRONG: Creates warning, may not modify original
-df[df['age'] > 30]['salary'] = 100000
+df[df['age'] &gt; 30]['salary'] = 100000
 
 # RIGHT: Use .loc
-df.loc[df['age'] > 30, 'salary'] = 100000
+df.loc[df['age'] &gt; 30, 'salary'] = 100000
 
 # --- PITFALL 2: Chained Indexing ---
 # WRONG: Slow, may fail
@@ -3136,10 +3970,14 @@ df = pd.read_csv('large_file.csv')  # May crash
 
 # RIGHT: Chunk or use PyArrow
 for chunk in pd.read_csv('large_file.csv', chunksize=100_000):
-    process(chunk)</code></pre>
-<hr>
+    process(chunk)
+</code></pre>
+<hr />
 <h2>8. Copy-on-Write (pandas 2.0+)</h2>
-<pre><code># Enable copy-on-write (default in pandas 3.0+)
+<blockquote class="jupyter-note">
+<p><strong>JupyterLab:</strong> Set <code>pd.options.mode.copy_on_write = True</code> in your imports cell so it applies to the entire session. In pandas 3.0+ it's the default, so you won't need this line at all.</p>
+</blockquote>
+<pre><code class="language-python"># Enable copy-on-write (default in pandas 3.0+)
 pd.options.mode.copy_on_write = True
 
 # Why copy-on-write?
@@ -3147,39 +3985,101 @@ pd.options.mode.copy_on_write = True
 # - Makes DataFrame behavior more predictable
 # - Slight performance cost but safer
 
-# Before CoW (pandas < 2.0):
+# Before CoW (pandas &lt; 2.0):
 # df['new'] = value  # May modify original or copy
 
-# After CoW (pandas >= 2.0 with CoW enabled):
+# After CoW (pandas &gt;= 2.0 with CoW enabled):
 # df['new'] = value  # Always creates new DataFrame
-# Original is never modified unexpectedly</code></pre>
-<hr>
+# Original is never modified unexpectedly
+</code></pre>
+<hr />
 <h2>🎓 CONGRATULATIONS!</h2>
 <p>You've completed the comprehensive pandas guide. You now have knowledge from beginner to production-grade pandas usage.</p>
 <h3>What You've Learned</h3>
 <table>
-<tr><td>Module</td><td>Topics</td></tr>
-<tr><td>00</td><td>Core objects (Series, DataFrame, Index)</td></tr>
-<tr><td>01</td><td>Data ingestion (CSV, JSON, Excel, SQL, APIs)</td></tr>
-<tr><td>02</td><td>Exploratory data analysis (EDA)</td></tr>
-<tr><td>03</td><td>Data cleaning (missing values, duplicates, types)</td></tr>
-<tr><td>04</td><td>Data manipulation (filtering, grouping, merging)</td></tr>
-<tr><td>05</td><td>Data transformation (pivot, reshape, strings, time series)</td></tr>
-<tr><td>06</td><td>Professional visualization (charts, dashboards)</td></tr>
-<tr><td>07</td><td>Data export (CSV, Excel, JSON, SQL, Parquet)</td></tr>
-<tr><td>08</td><td>Production patterns (performance, memory, best practices)</td></tr>
-</tbody></table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00</td>
+<td>Core objects (Series, DataFrame, Index)</td>
+</tr>
+<tr>
+<td>01</td>
+<td>Data ingestion (CSV, JSON, Excel, SQL, APIs)</td>
+</tr>
+<tr>
+<td>02</td>
+<td>Exploratory data analysis (EDA)</td>
+</tr>
+<tr>
+<td>03</td>
+<td>Data cleaning (missing values, duplicates, types)</td>
+</tr>
+<tr>
+<td>04</td>
+<td>Data manipulation (filtering, grouping, merging)</td>
+</tr>
+<tr>
+<td>05</td>
+<td>Data transformation (pivot, reshape, strings, time series)</td>
+</tr>
+<tr>
+<td>06</td>
+<td>Professional visualization (charts, dashboards)</td>
+</tr>
+<tr>
+<td>07</td>
+<td>Data export (CSV, Excel, JSON, SQL, Parquet)</td>
+</tr>
+<tr>
+<td>08</td>
+<td>Production patterns (performance, memory, best practices)</td>
+</tr>
+</tbody>
+</table>
 <h3>Resources</h3>
 <table>
-<tr><td>Resource</td><td>Link</td></tr>
-<tr><td>Official Documentation</td><td>https://pandas.pydata.org/docs/</td></tr>
-<tr><td>10 Minutes to Pandas</td><td>https://pandas.pydata.org/docs/user_guide/10min.html</td></tr>
-<tr><td>Python for Data Analysis (Wes McKinney)</td><td>https://wesmckinney.com/book/</td></tr>
-<tr><td>Python Data Science Handbook (Jake VanderPlas)</td><td>https://jakevdp.github.io/PythonDataScienceHandbook/</td></tr>
-<tr><td>Pandas Cookbook</td><td>https://github.com/jvns/pandas-cookbook</td></tr>
-<tr><td>Effective Pandas</td><td>https://github.com/mattharrison/effective_pandas</td></tr>
-<tr><td>100 Pandas Puzzles</td><td>https://github.com/ajcr/100-pandas-puzzles</td></tr>
-</tbody></table>
-<div class="page-break"></div>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Official Documentation</td>
+<td>https://pandas.pydata.org/docs/</td>
+</tr>
+<tr>
+<td>10 Minutes to Pandas</td>
+<td>https://pandas.pydata.org/docs/user_guide/10min.html</td>
+</tr>
+<tr>
+<td>Python for Data Analysis (Wes McKinney)</td>
+<td>https://wesmckinney.com/book/</td>
+</tr>
+<tr>
+<td>Python Data Science Handbook (Jake VanderPlas)</td>
+<td>https://jakevdp.github.io/PythonDataScienceHandbook/</td>
+</tr>
+<tr>
+<td>Pandas Cookbook</td>
+<td>https://github.com/jvns/pandas-cookbook</td>
+</tr>
+<tr>
+<td>Effective Pandas</td>
+<td>https://github.com/mattharrison/effective_pandas</td>
+</tr>
+<tr>
+<td>100 Pandas Puzzles</td>
+<td>https://github.com/ajcr/100-pandas-puzzles</td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>

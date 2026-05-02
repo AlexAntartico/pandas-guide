@@ -118,6 +118,11 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
+```
+
+> **JupyterLab:** `logging.StreamHandler()` output goes to the **terminal** where you launched `jupyter lab`, not to the cell output. During notebook exploration, use `print()` for visible status messages. Switch to proper `logging` only when moving code to production scripts.
+
+```python
 
 def run_pipeline():
     logging.info("Starting pipeline")
@@ -198,6 +203,16 @@ GENERAL:
 ☐ Log all operations
 ☐ Version pin dependencies
 ☐ Write tests for critical functions
+
+JUPYTERLAB WORKFLOW:
+☐ Use %matplotlib inline in your imports cell
+☐ Call plt.savefig() before plt.show(), never after
+☐ Use df.copy() — never mutate df across cells
+☐ Use %%timeit / %timeit instead of time.time() for benchmarks
+☐ Use print() for status messages (logging goes to terminal, not cell)
+☐ Save intermediate DataFrames as Parquet between sessions
+☐ Use display() to render multiple DataFrames in one cell
+☐ Use @variable syntax in query() to reference notebook variables
 """
 ```
 
@@ -248,6 +263,8 @@ for chunk in pd.read_csv('large_file.csv', chunksize=100_000):
 ---
 
 ## 8. Copy-on-Write (pandas 2.0+)
+
+> **JupyterLab:** Set `pd.options.mode.copy_on_write = True` in your imports cell so it applies to the entire session. In pandas 3.0+ it's the default, so you won't need this line at all.
 
 ```python
 # Enable copy-on-write (default in pandas 3.0+)

@@ -87,6 +87,11 @@ df.to_parquet('output.parquet', engine='pyarrow')
 # - Compression (smaller files)
 # - Preserves data types
 # - Industry standard for big data
+```
+
+> **JupyterLab:** Parquet is the best format for saving intermediate DataFrames between sessions — it's fast, compressed, and restores all dtypes (including `category`) exactly. Use `df.to_parquet('checkpoint.parquet')` / `df = pd.read_parquet('checkpoint.parquet')` as a notebook checkpoint pattern to avoid re-running expensive processing cells.
+
+```python
 
 # --- FEATHER (fast binary) ---
 df.to_feather('output.feather')
@@ -109,6 +114,11 @@ df.to_html('output.html', index=False, border=1)
 # - Embed in web pages
 # - Email reports
 # - Documentation
+```
+
+> **JupyterLab:** Skip the file and render directly in the notebook: `from IPython.display import HTML; display(HTML(df.to_html(index=False, border=1)))`. Useful for embedding a styled table in a notebook report without creating a separate file.
+
+```python
 
 # --- LATEX (for papers) ---
 df.to_latex('output.tex', index=False)

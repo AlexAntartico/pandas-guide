@@ -119,6 +119,8 @@ plt.close()
 
 ## 8. Multi-Panel Dashboards
 
+> **JupyterLab:** For interactive charts (zoom, pan, hover), switch from `%matplotlib inline` to `%matplotlib widget` (requires `!pip install ipympl`). These two backends can't coexist in a session without a kernel restart — use `inline` for static output and `widget` when you need to explore a chart interactively.
+
 ```python
 fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 fig.suptitle('Sales Performance Dashboard', fontsize=18, fontweight='bold', y=0.98)
@@ -205,6 +207,8 @@ ax.annotate('Peak', xy=(peak_date, peak_value),
 ---
 
 ## 10. Saving Charts for Production
+
+> **JupyterLab:** Always call `plt.savefig()` **before** `plt.show()` — once `plt.show()` flushes the figure, a subsequent `savefig()` writes a blank file. Pattern: `plt.savefig('out.png', ...); plt.show()`.
 
 ```python
 # --- SAVE FOR WEB ---

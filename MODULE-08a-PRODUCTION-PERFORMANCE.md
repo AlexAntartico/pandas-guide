@@ -44,6 +44,11 @@ print(f"apply: {time.time() - start:.4f}s")
 start = time.time()
 df['sum_vec'] = df['a'] + df['b']
 print(f"Vectorized: {time.time() - start:.4f}s")
+```
+
+> **JupyterLab:** Use `%%timeit` cell magic for more accurate benchmarking — it runs the operation many times and reports the average. Put `%%timeit` as the **first line** of a cell containing only the expression to test. For one-liners: `%timeit df['a'] + df['b']`. These are more reliable than `time.time()` which includes kernel overhead.
+
+```python
 
 # Vectorized operations are 10-100x faster because:
 # 1. No Python loop overhead
@@ -112,6 +117,8 @@ print(df.memory_usage(deep=True))
 total_mb = df.memory_usage(deep=True).sum() / 1024**2
 print(f"Total: {total_mb:.1f} MB")
 ```
+
+> **JupyterLab:** Place `df.memory_usage(deep=True)` as the last line in a cell — it renders as a Series table showing per-column usage. For line-by-line memory profiling, install `memory_profiler` and use the `%memit` magic: `%memit df.groupby('c')['a'].mean()`.
 
 ### Downcast Numerical Types
 

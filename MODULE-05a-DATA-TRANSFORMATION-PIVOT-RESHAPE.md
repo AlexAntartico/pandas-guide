@@ -30,6 +30,11 @@ pivot = sales.pivot_table(
 )
 print(pivot)
 # Why pivot_table? Create summary reports, compare categories
+```
+
+> **JupyterLab:** Pivot tables are among the richest displays in Jupyter — drop `print()` and place `pivot` as the last line in a cell for a styled HTML table. With `margins=True`, the "Total" row/column stands out clearly in the rendered view.
+
+```python
 
 # --- MULTIPLE AGGREGATIONS ---
 pivot = sales.pivot_table(
@@ -84,6 +89,11 @@ long = wide.melt(
 print(long)
 # Why melt? Most plotting libraries expect long format
 # Long format is better for grouping and filtering
+```
+
+> **JupyterLab:** Use `display(wide, long)` in a single cell to show the before/after shape side-by-side — useful for understanding what `melt()` did without switching cells.
+
+```python
 
 # --- STACK: MultiIndex columns → rows ---
 df_multi = wide.set_index('product')

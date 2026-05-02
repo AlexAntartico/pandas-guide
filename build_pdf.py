@@ -28,7 +28,7 @@ MD_FILES = [
     "MODULE-08b-PRODUCTION-PATTERNS.md",
 ]
 
-FONT_DIR = "/usr/share/fonts/dejavu"
+FONT_DIR = "/usr/share/fonts/TTF"
 
 class GuidePDF(FPDF):
     def __init__(self):
