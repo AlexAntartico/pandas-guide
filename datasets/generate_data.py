@@ -91,7 +91,7 @@ def gen_customers():
         seen_emails.add(email)
         phone = fake_phone()
         city = random.choice(CITIES)
-        state = random.choice(STATES) if city in STATES or len(city) < 12 else random.choice(STATES)
+        state = random.choice(STATES)
         signup = rand_date(datetime(2020, 1, 1), datetime(2025, 4, 30))
         rows.append({
             "customer_id": f"C{i:05d}",
@@ -170,18 +170,18 @@ def gen_products():
             stock = random.randint(0, 500)
 
             # Dirty: 3 products with null/missing prices
-            if pid in [7, 42, 88]:
+            if pid in [7, 42, 66]:
                 price_str = ""
             else:
                 price_str = f"{base_price:.2f}"
 
             # Dirty: inconsistent category naming
             cat_display = cat
-            if pid in [13, 14, 15]:
+            if pid in [10, 11, 12]:
                 cat_display = "electronics"  # lowercase
             elif pid in [25, 26]:
                 cat_display = "HOME & KITCHEN"  # uppercase
-            elif pid in [37, 38]:
+            elif pid in [27, 28]:
                 cat_display = "home_kitchen"  # underscore
 
             rows.append({
@@ -497,10 +497,11 @@ def gen_campaigns():
 def gen_traffic():
     rows = []
     start = datetime(2024, 1, 1)
+    # Skip 10 random days (gaps)
+    skip_days = random.sample(range(365), 10)
     for day in range(365):
         date = start + timedelta(days=day)
-        # Skip ~10 random days (gaps)
-        if day in random.sample(range(365), 10):
+        if day in skip_days:
             continue
 
         base_sessions = random.randint(800, 2500)
@@ -594,16 +595,16 @@ def main():
     print("  1. Customers (500+ rows)...")
     customers = gen_customers()
 
-    print("  2. Products (150 rows)...")
+    print("  2. Products (72 rows)...")
     products = gen_products()
 
     print("  3. Orders (5,000 rows)...")
     orders, order_ids = gen_orders(customers)
 
-    print("  4. Order Items (~12,000 rows)...")
+    print("  4. Order Items (~15,000 rows)...")
     gen_order_items(products, orders, order_ids)
 
-    print("  5. Payments (~5,500 rows)...")
+    print("  5. Payments (~5,000 rows)...")
     gen_payments(orders)
 
     print("  6. Shipments (~4,500 rows)...")

@@ -51,8 +51,8 @@ plt.close()
 ```python
 # --- BASIC BOX PLOT ---
 fig, ax = plt.subplots(figsize=(10, 6))
-sns.boxplot(data=sales, x='region', y='revenue', ax=ax, palette='Set3',
-            flierprops=dict(marker='o', markersize=4, alpha=0.5))
+sns.boxplot(data=sales, x='region', y='revenue', ax=ax, hue='region', palette='Set3',
+            legend=False, flierprops=dict(marker='o', markersize=4, alpha=0.5))
 # Add strip plot for individual points
 sns.stripplot(data=sales, x='region', y='revenue', ax=ax, color='black', alpha=0.2, size=3)
 ax.set_title('Revenue Distribution by Region', fontsize=16, fontweight='bold', pad=15)
@@ -199,7 +199,7 @@ sns.color_palette("Set3", 5)
 
 # --- ADDING ANNOTATIONS ---
 ax.annotate('Peak', xy=(peak_date, peak_value),
-            xytext=(peak_date + 30, peak_value + 10000),
+            xytext=(peak_date + pd.Timedelta(days=30), peak_value + 10000),
             arrowprops=dict(arrowstyle='->', color='red'),
             fontsize=12, color='red')
 ```
