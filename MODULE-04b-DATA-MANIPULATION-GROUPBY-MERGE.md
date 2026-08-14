@@ -1,5 +1,7 @@
 # MODULE-04b: DATA MANIPULATION — GROUPBY, MERGE, CONCAT
 
+> **Practice:** The schema is built for this module: `orders.merge(customers, on='customer_id').merge(order_items, on='order_id').merge(products, on='product_id')`, then group by `category` or `membership`. Exercises: `datasets/README.md` (Phase 5).
+
 ---
 
 ## 5. GroupBy — Split-Apply-Combine

@@ -1,5 +1,7 @@
 # MODULE-03b: DATA CLEANING — DUPLICATES, TYPES, STRINGS, OUTLIERS
 
+> **Practice:** This maps directly to the dirty data: duplicate emails and invalid phones in `customers.csv`, mixed `state` casing, negative `total` and invalid `status` in `orders.csv`. Catalog: `datasets/DQ-EDGE-CASES.md`. Exercises: `datasets/README.md` (Phases 2 & 3).
+
 ---
 
 ## 3. Duplicate Detection and Removal

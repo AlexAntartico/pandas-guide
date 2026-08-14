@@ -43,7 +43,7 @@ website_traffic (standalone, daily aggregates)
 ## 2. products
 
 **Format:** CSV
-**Records:** 150 (12 products × 6 categories)
+**Records:** 72 (6 categories × 12 products)
 **File:** `products.csv`
 
 | Column | Type | Description |

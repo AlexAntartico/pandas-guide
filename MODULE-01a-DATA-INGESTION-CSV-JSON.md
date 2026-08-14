@@ -1,5 +1,7 @@
 # MODULE-01a: DATA INGESTION — CSV AND JSON
 
+> **Practice:** Load the real files from `datasets/raw/`: `pd.read_csv('datasets/raw/customers.csv')`, `pd.read_json('datasets/raw/customers.json')` (same data as JSON), and `pd.read_json('datasets/raw/reviews.json')` (a flat array). Compare the CSV vs JSON results. Exercises: `datasets/README.md` (Phase 1). Schema: `datasets/raw/data_dictionary.md`.
+
 ## The Data Loading Landscape
 
 Real-world data comes in many formats. Pandas provides `read_*` functions for each:
@@ -123,7 +125,8 @@ df = pd.read_json(json_str)
 
 ```python
 import json
-from pandas import json_normalize
+# Note: use pd.json_normalize (the old `from pandas import json_normalize`
+# import was deprecated in pandas 2.0)
 
 # Nested structure (common from APIs)
 nested_data = {
@@ -145,14 +148,14 @@ nested_data = {
 
 # Method 1: json_normalize (flatten nested structures)
 # Flatten one level
-df = json_normalize(nested_data['users'])
+df = pd.json_normalize(nested_data['users'])
 print(df)
 #    id   name address.city address.zip  ...
 # 0   1  Alice          NYC       10001  ...
 # 1   2    Bob           LA       90001  ...
 
 # Flatten with record_path (extract nested lists)
-df_orders = json_normalize(
+df_orders = pd.json_normalize(
     nested_data['users'],
     record_path='orders',          # The nested list to extract
     meta=['id', 'name',            # Columns to keep from parent
@@ -193,7 +196,7 @@ df = pd.read_json('data.json', orient='split')
 | Parse dates | `pd.read_csv('file.csv', parse_dates=['date'])` |
 | Handle missing values | `pd.read_csv('file.csv', na_values=['NA', '-'])` |
 | Chunk large file | `pd.read_csv('file.csv', chunksize=10000)` |
-| Flatten nested JSON | `json_normalize(data, record_path='items')` |
+| Flatten nested JSON | `pd.json_normalize(data, record_path='items')` |
 
 ---
 

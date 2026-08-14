@@ -148,10 +148,6 @@ def generate_email(first_name, last_name, company_name=None):
     return f"{email}@{domain}"
 
 
-def format_currency(amount, currency="USD"):
-    return f"{amount:.2f}"
-
-
 # ============================================================
 # Generate Clients Dataset (CSV)
 # ============================================================
@@ -162,8 +158,10 @@ def generate_clients():
         client_id = str(uuid.uuid4())
         country_code, country_name = random.choice(COUNTRIES)
 
-        is_enterprise = random.random() < 0.35
-        client_type = random.choice(["enterprise", "enterprise", "smb", "smb", "individual"]) if random.random() < 0.7 else "individual"
+        client_type = random.choices(
+            ["enterprise", "smb", "individual"],
+            weights=[28, 28, 44],
+        )[0]
 
         first_name = random.choice(FIRST_NAMES_M + FIRST_NAMES_F)
         last_name = random.choice(LAST_NAMES)

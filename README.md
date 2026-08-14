@@ -23,16 +23,31 @@ pandas-guide/
 ├── MODULE-07b-DATA-EXPORT-JSON-SQL-PARQUET.md     ← JSON, SQL, Parquet, production exporter
 ├── MODULE-08a-PRODUCTION-PERFORMANCE.md           ← Vectorization, memory, chunking
 ├── MODULE-08b-PRODUCTION-PATTERNS.md              ← Error handling, testing, best practices
+├── datasets/                                      ← Practice data + exercise prompts
+│   ├── generate_data.py                           ← Generator for the TechRetail scenario
+│   ├── README.md                                  ← Scenario + 7-phase exercise prompts
+│   ├── DQ-EDGE-CASES.md                           ← Catalog of intentional data issues
+│   └── raw/                                       ← TechRetail Inc. multi-table data
+│       ├── customers.csv / customers.json         ← Customer master (+ dirty records)
+│       ├── products.csv                           ← Product catalog
+│       ├── orders.csv / orders.parquet            ← Orders (CSV vs Parquet dtypes)
+│       ├── order_items.csv                        ← Order line items
+│       ├── payments.csv / payments.json           ← Payments (+ duplicates)
+│       ├── shipments.csv                          ← Shipment tracking
+│       ├── reviews.json                           ← Product reviews
+│       ├── marketing_campaigns.csv                ← Campaign performance
+│       ├── website_traffic.csv                    ← Daily traffic (with gaps)
+│       ├── returns.csv                            ← Returns / refunds
+│       └── data_dictionary.md                     ← Full schema reference
+├── exercises/                                      ← Guided Jupyter notebooks (one per module)
+│   ├── README.md                                  ← Notebook index + how to run
+│   ├── generate_exercises.py                      ← Generator for the notebooks
+│   ├── 00_getting_started.ipynb ... 08_production_performance.ipynb
 ├── charts/                                        ← Generated chart images
-│   ├── chart01_revenue_trend.png
-│   ├── chart02_revenue_by_region.png
-│   ├── chart03_revenue_distribution.png
-│   ├── chart04_stacked_bar.png
-│   ├── chart05_scatter_units_revenue.png
-│   ├── chart06_boxplot_region.png
-│   ├── chart07_correlation_heatmap.png
-│   └── chart08_dashboard.png
-└── (total: ~3,600 lines across 18 files)
+│   ├── chart01_revenue_trend.png ... chart08_dashboard.png
+├── build_html.py                                  ← Builds pandas-guide.html
+├── build_pdf.py                                   ← Builds Pandas-Master-Guide.pdf
+└── (total: ~3,800 lines across 18 module files)
 ```
 
 ## Module Breakdown
@@ -75,7 +90,7 @@ pandas-guide/
 - Boolean filtering and masking
 - Sorting (single/multi column, ascending/descending)
 - Column operations: add, drop, rename, reorder
-- Apply functions: apply, applymap, map
+- Apply functions: apply, map (applymap was deprecated in pandas 2.1)
 - GroupBy operations: split-apply-combine
 - Merge and join: inner, outer, left, right
 - Concat and append
@@ -126,6 +141,27 @@ pandas-guide/
 
 ## Navigation
 Each file is self-contained but references others. Start from MODULE-00 and progress sequentially, or jump to specific modules as needed.
+
+## Practice Datasets
+The guide ships with a realistic **TechRetail Inc.** e-commerce scenario in `datasets/raw/` — 10 interconnected tables (customers, products, orders, order items, payments, shipments, reviews, marketing campaigns, website traffic, returns) with *intentional* data-quality issues baked in.
+
+- **`datasets/README.md`** — the scenario, a quick-start snippet, and 7 phases of exercise prompts (loading → DQ assessment → cleaning → EDA → multi-table → advanced → reporting).
+- **`datasets/raw/data_dictionary.md`** — full schema reference for every table.
+- **`datasets/DQ-EDGE-CASES.md`** — the catalog of every embedded data issue and what it exercises.
+
+Every module links back to the relevant tables and exercise phase. Regenerate the data with:
+
+```bash
+python datasets/generate_data.py
+```
+
+> **Note:** the `datasets/` directory also contains an older, smaller scenario (`generate_datasets.py` → `clients.csv`, `promotions.tsv`, `transactions.json`). The TechRetail `raw/` scenario is the canonical one used by the modules.
+
+Hands-on exercises that walk through real analyses live in a companion repository: https://github.com/AlexAntartico/pandas_practice
+
+## Guided Exercises
+
+The `exercises/` directory contains one Jupyter notebook per module (`00_getting_started.ipynb` … `08_production_performance.ipynb`). Each walks through the TechRetail datasets with step-by-step, commented code cells — launch `jupyter lab` from the repository root and open them. See `exercises/README.md` for the index and how to regenerate them.
 
 ## JupyterLab Usage
 This guide is written for use in **JupyterLab**. Every module contains `> **JupyterLab:**` callout blocks that highlight notebook-specific behaviour: when to skip `print()`, how `%matplotlib inline` affects charts, path quirks, cell re-execution pitfalls, magic commands (`%%timeit`, `%pwd`, `%memit`), and more.

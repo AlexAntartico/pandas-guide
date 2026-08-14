@@ -1,5 +1,7 @@
 # MODULE-05a: DATA TRANSFORMATION — PIVOT TABLES AND RESHAPING
 
+> **Practice:** Build a `category × membership` revenue pivot from the joined `orders ⋈ order_items ⋈ products` tables, or `pd.crosstab(customers['membership'], customers['source'])`. Exercises: `datasets/README.md` (Phases 4 & 6).
+
 ---
 
 ## 1. Pivot Tables

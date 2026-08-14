@@ -1,5 +1,7 @@
 # MODULE-08a: PRODUCTION-GRADE PANDAS — PERFORMANCE
 
+> **Practice:** Time vectorization-vs-`apply` on `orders.csv` (5,000 rows). For chunked loading, use `datasets/transactions.json` (122 MB — regenerate with `python generate_datasets.py`). Exercises: `datasets/README.md` (Phase 6).
+
 ## Production vs Notebook
 
 Notebook code works for exploration. Production code must be:

@@ -1,5 +1,7 @@
 # MODULE-06b: VISUALIZATION — ADVANCED CHARTS AND DASHBOARDS
 
+> **Practice:** Scatter `quantity` vs `line_total` from `order_items.csv`, boxplot `total` by `membership` (join `orders` → `customers`), and a correlation heatmap of the numeric `orders` columns. Exercises: `datasets/README.md` (Phases 4 & 7).
+
 ---
 
 ## 5. Scatter Plots — Relationships

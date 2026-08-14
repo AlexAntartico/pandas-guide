@@ -1,5 +1,7 @@
 # MODULE-04a: DATA MANIPULATION — INDEXING, FILTERING, SORTING
 
+> **Practice:** Filter and sort `datasets/raw/orders.csv`: `orders.query("status == 'completed'")`, `orders.sort_values('order_date', ascending=False)`, `orders[orders['customer_id'].isin(ids)]`. Exercises: `datasets/README.md` (Phases 1 & 2).
+
 ---
 
 ## 1. Indexing and Selection
@@ -100,8 +102,11 @@ df.sort_index()                       # Sort rows by index
 df.sort_index(axis=1)                 # Sort columns by name
 
 # --- IN-PLACE SORTING ---
-df.sort_values('salary', inplace=True)
-# Why inplace? Saves memory (no copy), but modifies original
+# Prefer assigning back to the DataFrame (idiomatic and chainable):
+df = df.sort_values('salary')
+# The inplace=True form still works but is discouraged — it does NOT save
+# memory (pandas copies internally) and makes code harder to reason about:
+# df.sort_values('salary', inplace=True)
 ```
 
 ---
@@ -131,7 +136,6 @@ df = df.assign(
 ```python
 # --- DROP COLUMNS ---
 df = df.drop(columns=['bonus'])
-df.drop(columns=['bonus'], inplace=True)
 df = df[['name', 'age', 'salary']]  # Select only specific columns
 
 # --- RENAME COLUMNS ---
@@ -157,18 +161,18 @@ df.apply(lambda x: x.mean())  # Mean of each numeric column
 df.apply(lambda row: row['salary'] * 1.10, axis=1)  # Apply to each row
 # Why axis=1? When you need values from multiple columns
 
-# --- applymap: element-wise operations ---
-df.applymap(lambda x: x.upper() if isinstance(x, str) else x)
+# --- map: element-wise on DataFrame (pandas 2.1+) ---
+df.map(lambda x: x.upper() if isinstance(x, str) else x)
 
 # --- map: element-wise on Series ---
 df['department'].map({'Eng': 'Engineering', 'Sales': 'Sales', 'HR': 'Human Resources'})
 # Why map? Replace values using dict or Series (faster than apply for single column)
 
 # --- WHEN TO USE WHAT? ---
-# map(): Single column, value replacement (fastest)
-# applymap(): All cells, same function (medium)
+# map(): Single column (Series) or all cells (DataFrame), value replacement (fastest)
 # apply(): Rows or columns, complex logic (slowest)
 # Vectorized operations: Always prefer when possible (fastest)
+# Note: df.applymap() was deprecated in pandas 2.1 — use df.map() instead
 ```
 
 ---

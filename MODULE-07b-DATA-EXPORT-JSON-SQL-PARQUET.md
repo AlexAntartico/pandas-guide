@@ -1,5 +1,7 @@
 # MODULE-07b: DATA EXPORT — JSON, SQL, PARQUET, AND MORE
 
+> **Practice:** Save cleaned tables as Parquet for checkpoints and to SQLite with `create_engine('sqlite:///techretail.db')`. Exercises: `datasets/README.md` (Phase 7).
+
 ---
 
 ## 4. JSON Export

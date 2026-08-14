@@ -23,7 +23,7 @@ Your job: clean the data, explore it, answer business questions, and produce rep
 raw/
 ├── customers.csv          (~515 rows)  — Customer master
 ├── customers.json         (~515 rows)  — Same data, JSON format
-├── products.csv           (150 rows)   — Product catalog
+├── products.csv           (72 rows)    — Product catalog
 ├── orders.csv             (5,000 rows) — Order transactions
 ├── orders.parquet         (5,000 rows) — Same data, Parquet format
 ├── order_items.csv        (~12,000 rows) — Order line items

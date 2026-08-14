@@ -1,5 +1,7 @@
 # MODULE-03a: DATA CLEANING — MISSING VALUES
 
+> **Practice:** The datasets have real missing values: `customers.csv` (missing emails/phones), `shipments.csv` (missing tracking numbers and delivery dates), `products.csv` (missing prices). Full inventory: `datasets/DQ-EDGE-CASES.md`. Exercises: `datasets/README.md` (Phases 2 & 3).
+
 ## Why Data Cleaning Matters
 
 Real-world data is messy. Studies show data scientists spend **60-80% of their time** on data cleaning.

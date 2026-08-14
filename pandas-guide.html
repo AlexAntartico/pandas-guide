@@ -123,16 +123,31 @@ a:hover { text-decoration: underline; }
 ├── MODULE-07b-DATA-EXPORT-JSON-SQL-PARQUET.md     ← JSON, SQL, Parquet, production exporter
 ├── MODULE-08a-PRODUCTION-PERFORMANCE.md           ← Vectorization, memory, chunking
 ├── MODULE-08b-PRODUCTION-PATTERNS.md              ← Error handling, testing, best practices
+├── datasets/                                      ← Practice data + exercise prompts
+│   ├── generate_data.py                           ← Generator for the TechRetail scenario
+│   ├── README.md                                  ← Scenario + 7-phase exercise prompts
+│   ├── DQ-EDGE-CASES.md                           ← Catalog of intentional data issues
+│   └── raw/                                       ← TechRetail Inc. multi-table data
+│       ├── customers.csv / customers.json         ← Customer master (+ dirty records)
+│       ├── products.csv                           ← Product catalog
+│       ├── orders.csv / orders.parquet            ← Orders (CSV vs Parquet dtypes)
+│       ├── order_items.csv                        ← Order line items
+│       ├── payments.csv / payments.json           ← Payments (+ duplicates)
+│       ├── shipments.csv                          ← Shipment tracking
+│       ├── reviews.json                           ← Product reviews
+│       ├── marketing_campaigns.csv                ← Campaign performance
+│       ├── website_traffic.csv                    ← Daily traffic (with gaps)
+│       ├── returns.csv                            ← Returns / refunds
+│       └── data_dictionary.md                     ← Full schema reference
+├── exercises/                                      ← Guided Jupyter notebooks (one per module)
+│   ├── README.md                                  ← Notebook index + how to run
+│   ├── generate_exercises.py                      ← Generator for the notebooks
+│   ├── 00_getting_started.ipynb ... 08_production_performance.ipynb
 ├── charts/                                        ← Generated chart images
-│   ├── chart01_revenue_trend.png
-│   ├── chart02_revenue_by_region.png
-│   ├── chart03_revenue_distribution.png
-│   ├── chart04_stacked_bar.png
-│   ├── chart05_scatter_units_revenue.png
-│   ├── chart06_boxplot_region.png
-│   ├── chart07_correlation_heatmap.png
-│   └── chart08_dashboard.png
-└── (total: ~3,600 lines across 18 files)
+│   ├── chart01_revenue_trend.png ... chart08_dashboard.png
+├── build_html.py                                  ← Builds pandas-guide.html
+├── build_pdf.py                                   ← Builds Pandas-Master-Guide.pdf
+└── (total: ~3,800 lines across 18 module files)
 </code></pre>
 <h2>Module Breakdown</h2>
 <h3>MODULE-00: GETTING STARTED</h3>
@@ -178,7 +193,7 @@ a:hover { text-decoration: underline; }
 <li>Boolean filtering and masking</li>
 <li>Sorting (single/multi column, ascending/descending)</li>
 <li>Column operations: add, drop, rename, reorder</li>
-<li>Apply functions: apply, applymap, map</li>
+<li>Apply functions: apply, map (applymap was deprecated in pandas 2.1)</li>
 <li>GroupBy operations: split-apply-combine</li>
 <li>Merge and join: inner, outer, left, right</li>
 <li>Concat and append</li>
@@ -233,6 +248,22 @@ a:hover { text-decoration: underline; }
 </ul>
 <h2>Navigation</h2>
 <p>Each file is self-contained but references others. Start from MODULE-00 and progress sequentially, or jump to specific modules as needed.</p>
+<h2>Practice Datasets</h2>
+<p>The guide ships with a realistic <strong>TechRetail Inc.</strong> e-commerce scenario in <code>datasets/raw/</code> — 10 interconnected tables (customers, products, orders, order items, payments, shipments, reviews, marketing campaigns, website traffic, returns) with <em>intentional</em> data-quality issues baked in.</p>
+<ul>
+<li><strong><code>datasets/README.md</code></strong> — the scenario, a quick-start snippet, and 7 phases of exercise prompts (loading → DQ assessment → cleaning → EDA → multi-table → advanced → reporting).</li>
+<li><strong><code>datasets/raw/data_dictionary.md</code></strong> — full schema reference for every table.</li>
+<li><strong><code>datasets/DQ-EDGE-CASES.md</code></strong> — the catalog of every embedded data issue and what it exercises.</li>
+</ul>
+<p>Every module links back to the relevant tables and exercise phase. Regenerate the data with:</p>
+<pre><code class="language-bash">python datasets/generate_data.py
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> the <code>datasets/</code> directory also contains an older, smaller scenario (<code>generate_datasets.py</code> → <code>clients.csv</code>, <code>promotions.tsv</code>, <code>transactions.json</code>). The TechRetail <code>raw/</code> scenario is the canonical one used by the modules.</p>
+</blockquote>
+<p>Hands-on exercises that walk through real analyses live in a companion repository: https://github.com/AlexAntartico/pandas_practice</p>
+<h2>Guided Exercises</h2>
+<p>The <code>exercises/</code> directory contains one Jupyter notebook per module (<code>00_getting_started.ipynb</code> … <code>08_production_performance.ipynb</code>). Each walks through the TechRetail datasets with step-by-step, commented code cells — launch <code>jupyter lab</code> from the repository root and open them. See <code>exercises/README.md</code> for the index and how to regenerate them.</p>
 <h2>JupyterLab Usage</h2>
 <p>This guide is written for use in <strong>JupyterLab</strong>. Every module contains <code>&gt; **JupyterLab:**</code> callout blocks that highlight notebook-specific behaviour: when to skip <code>print()</code>, how <code>%matplotlib inline</code> affects charts, path quirks, cell re-execution pitfalls, magic commands (<code>%%timeit</code>, <code>%pwd</code>, <code>%memit</code>), and more.</p>
 <p>Install JupyterLab and launch it before working through the modules:</p>
@@ -263,6 +294,9 @@ jupyter lab
 </ul>
 <hr>
 <h1>MODULE-00: GETTING STARTED WITH PANDAS</h1>
+<blockquote>
+<p><strong>Practice:</strong> The bundled TechRetail datasets in <code>datasets/raw/</code> are used throughout Modules 01–08. See <code>datasets/README.md</code> for the scenario, quick-start snippet, and exercise prompts.</p>
+</blockquote>
 <h2>Why Pandas Exists</h2>
 <p>Pandas was created by <strong>Wes McKinney</strong> in 2008 while working at quantitative trading firms. He needed a tool that combined:
 - The data manipulation power of Excel/SQL
@@ -574,6 +608,9 @@ df.loc[0:2]               # Rows with labels 0, 1, 2 (inclusive!)
 </table>
 <hr>
 <h1>MODULE-01a: DATA INGESTION — CSV AND JSON</h1>
+<blockquote>
+<p><strong>Practice:</strong> Load the real files from <code>datasets/raw/</code>: <code>pd.read_csv('datasets/raw/customers.csv')</code>, <code>pd.read_json('datasets/raw/customers.json')</code> (same data as JSON), and <code>pd.read_json('datasets/raw/reviews.json')</code> (a flat array). Compare the CSV vs JSON results. Exercises: <code>datasets/README.md</code> (Phase 1). Schema: <code>datasets/raw/data_dictionary.md</code>.</p>
+</blockquote>
 <h2>The Data Loading Landscape</h2>
 <p>Real-world data comes in many formats. Pandas provides <code>read_*</code> functions for each:</p>
 <table>
@@ -705,7 +742,8 @@ df = pd.read_json(json_str)
 </code></pre>
 <h3>Nested JSON — The Real Challenge</h3>
 <pre><code class="language-python">import json
-from pandas import json_normalize
+# Note: use pd.json_normalize (the old `from pandas import json_normalize`
+# import was deprecated in pandas 2.0)
 
 # Nested structure (common from APIs)
 nested_data = {
@@ -727,14 +765,14 @@ nested_data = {
 
 # Method 1: json_normalize (flatten nested structures)
 # Flatten one level
-df = json_normalize(nested_data['users'])
+df = pd.json_normalize(nested_data['users'])
 print(df)
 #    id   name address.city address.zip  ...
 # 0   1  Alice          NYC       10001  ...
 # 1   2    Bob           LA       90001  ...
 
 # Flatten with record_path (extract nested lists)
-df_orders = json_normalize(
+df_orders = pd.json_normalize(
     nested_data['users'],
     record_path='orders',          # The nested list to extract
     meta=['id', 'name',            # Columns to keep from parent
@@ -801,7 +839,7 @@ df = pd.read_json('data.json', orient='split')
 </tr>
 <tr>
 <td>Flatten nested JSON</td>
-<td><code>json_normalize(data, record_path='items')</code></td>
+<td><code>pd.json_normalize(data, record_path='items')</code></td>
 </tr>
 </tbody>
 </table>
@@ -813,6 +851,9 @@ df = pd.read_json('data.json', orient='split')
 </ul>
 <hr>
 <h1>MODULE-01b: DATA INGESTION — EXCEL, SQL, APIs, AND MORE</h1>
+<blockquote>
+<p><strong>Practice:</strong> Compare <code>datasets/raw/orders.csv</code> vs <code>datasets/raw/orders.parquet</code> — Parquet preserves dtypes, CSV re-infers them. No Excel file ships with this guide, but the companion repo https://github.com/AlexAntartico/pandas_practice loads <code>cpi2022_globalresultstrends.xlsx</code> with <code>sheet_name=None</code>. Exercises: <code>datasets/README.md</code> (Phase 1).</p>
+</blockquote>
 <hr />
 <h2>3. EXCEL FILES</h2>
 <p>Excel files can contain multiple sheets, formatting, and formulas.</p>
@@ -882,7 +923,6 @@ for chunk in chunk_iter:
 <hr />
 <h2>5. API DATA (JSON from REST APIs)</h2>
 <pre><code class="language-python">import requests
-from pandas import json_normalize
 
 # Fetch data from API
 response = requests.get('https://api.example.com/users')
@@ -892,8 +932,9 @@ data = response.json()
 # Convert to DataFrame
 df = pd.DataFrame(data['results'])  # Adjust based on API structure
 
-# Handle nested API responses
-df = json_normalize(
+# Handle nested API responses (use pd.json_normalize, not the old
+# `from pandas import json_normalize` import — deprecated in pandas 2.0)
+df = pd.json_normalize(
     data['results'],
     record_path='items',
     meta=['page', 'total_count']
@@ -1017,6 +1058,9 @@ df = load_data_safely('data/sales_2024.csv', parse_dates=['date'])
 </ul>
 <hr>
 <h1>MODULE-02a: DATA EXPLORATION — BASIC EDA</h1>
+<blockquote>
+<p><strong>Practice:</strong> Run these steps on real data instead of the synthetic example below: load <code>datasets/raw/customers.csv</code> and <code>datasets/raw/orders.csv</code>, then try <code>orders.describe()</code>, <code>customers['membership'].value_counts()</code>, and <code>customers.isnull().sum()</code>. Exercises: <code>datasets/README.md</code> (Phases 1 &amp; 4).</p>
+</blockquote>
 <h2>What is EDA and Why It Matters</h2>
 <p><strong>Exploratory Data Analysis (EDA)</strong> is the process of understanding your data before modeling or reporting.</p>
 <p><strong>Why EDA first?</strong>
@@ -1259,6 +1303,9 @@ plt.close()
 </ul>
 <hr>
 <h1>MODULE-02b: DATA EXPLORATION — ADVANCED EDA</h1>
+<blockquote>
+<p><strong>Practice:</strong> The TechRetail numeric columns (<code>orders.csv</code> <code>subtotal</code>, <code>tax</code>, <code>total</code>, <code>discount_pct</code>) load as floats, so <code>corr()</code> works directly. Date columns (<code>order_date</code>, <code>signup_date</code>, …) load as strings — parse them with <code>pd.to_datetime</code> first. The <code>quick_eda()</code> function below runs on any table. Exercises: <code>datasets/README.md</code> (Phase 4).</p>
+</blockquote>
 <hr />
 <h2>Step 7: Correlation Analysis</h2>
 <pre><code class="language-python">import numpy as np
@@ -1422,6 +1469,9 @@ quick_eda(df, target_col='salary')
 </ul>
 <hr>
 <h1>MODULE-03a: DATA CLEANING — MISSING VALUES</h1>
+<blockquote>
+<p><strong>Practice:</strong> The datasets have real missing values: <code>customers.csv</code> (missing emails/phones), <code>shipments.csv</code> (missing tracking numbers and delivery dates), <code>products.csv</code> (missing prices). Full inventory: <code>datasets/DQ-EDGE-CASES.md</code>. Exercises: <code>datasets/README.md</code> (Phases 2 &amp; 3).</p>
+</blockquote>
 <h2>Why Data Cleaning Matters</h2>
 <p>Real-world data is messy. Studies show data scientists spend <strong>60-80% of their time</strong> on data cleaning.</p>
 <hr />
@@ -1581,6 +1631,9 @@ df[numeric_cols] = imputer.fit_transform(df[numeric_cols])
 </ul>
 <hr>
 <h1>MODULE-03b: DATA CLEANING — DUPLICATES, TYPES, STRINGS, OUTLIERS</h1>
+<blockquote>
+<p><strong>Practice:</strong> This maps directly to the dirty data: duplicate emails and invalid phones in <code>customers.csv</code>, mixed <code>state</code> casing, negative <code>total</code> and invalid <code>status</code> in <code>orders.csv</code>. Catalog: <code>datasets/DQ-EDGE-CASES.md</code>. Exercises: <code>datasets/README.md</code> (Phases 2 &amp; 3).</p>
+</blockquote>
 <hr />
 <h2>3. Duplicate Detection and Removal</h2>
 <blockquote class="jupyter-note">
@@ -1799,6 +1852,9 @@ else:
 </ul>
 <hr>
 <h1>MODULE-04a: DATA MANIPULATION — INDEXING, FILTERING, SORTING</h1>
+<blockquote>
+<p><strong>Practice:</strong> Filter and sort <code>datasets/raw/orders.csv</code>: <code>orders.query("status == 'completed'")</code>, <code>orders.sort_values('order_date', ascending=False)</code>, <code>orders[orders['customer_id'].isin(ids)]</code>. Exercises: <code>datasets/README.md</code> (Phases 1 &amp; 2).</p>
+</blockquote>
 <hr />
 <h2>1. Indexing and Selection</h2>
 <h3>The Four Accessors</h3>
@@ -1887,8 +1943,11 @@ df.sort_index()                       # Sort rows by index
 df.sort_index(axis=1)                 # Sort columns by name
 
 # --- IN-PLACE SORTING ---
-df.sort_values('salary', inplace=True)
-# Why inplace? Saves memory (no copy), but modifies original
+# Prefer assigning back to the DataFrame (idiomatic and chainable):
+df = df.sort_values('salary')
+# The inplace=True form still works but is discouraged — it does NOT save
+# memory (pandas copies internally) and makes code harder to reason about:
+# df.sort_values('salary', inplace=True)
 </code></pre>
 <hr />
 <h2>3. Column Operations</h2>
@@ -1913,7 +1972,6 @@ df = df.assign(
 </blockquote>
 <pre><code class="language-python"># --- DROP COLUMNS ---
 df = df.drop(columns=['bonus'])
-df.drop(columns=['bonus'], inplace=True)
 df = df[['name', 'age', 'salary']]  # Select only specific columns
 
 # --- RENAME COLUMNS ---
@@ -1935,18 +1993,18 @@ df.apply(lambda x: x.mean())  # Mean of each numeric column
 df.apply(lambda row: row['salary'] * 1.10, axis=1)  # Apply to each row
 # Why axis=1? When you need values from multiple columns
 
-# --- applymap: element-wise operations ---
-df.applymap(lambda x: x.upper() if isinstance(x, str) else x)
+# --- map: element-wise on DataFrame (pandas 2.1+) ---
+df.map(lambda x: x.upper() if isinstance(x, str) else x)
 
 # --- map: element-wise on Series ---
 df['department'].map({'Eng': 'Engineering', 'Sales': 'Sales', 'HR': 'Human Resources'})
 # Why map? Replace values using dict or Series (faster than apply for single column)
 
 # --- WHEN TO USE WHAT? ---
-# map(): Single column, value replacement (fastest)
-# applymap(): All cells, same function (medium)
+# map(): Single column (Series) or all cells (DataFrame), value replacement (fastest)
 # apply(): Rows or columns, complex logic (slowest)
 # Vectorized operations: Always prefer when possible (fastest)
+# Note: df.applymap() was deprecated in pandas 2.1 — use df.map() instead
 </code></pre>
 <hr />
 <h2>Quick Reference</h2>
@@ -2008,6 +2066,9 @@ df['department'].map({'Eng': 'Engineering', 'Sales': 'Sales', 'HR': 'Human Resou
 </ul>
 <hr>
 <h1>MODULE-04b: DATA MANIPULATION — GROUPBY, MERGE, CONCAT</h1>
+<blockquote>
+<p><strong>Practice:</strong> The schema is built for this module: <code>orders.merge(customers, on='customer_id').merge(order_items, on='order_id').merge(products, on='product_id')</code>, then group by <code>category</code> or <code>membership</code>. Exercises: <code>datasets/README.md</code> (Phase 5).</p>
+</blockquote>
 <hr />
 <h2>5. GroupBy — Split-Apply-Combine</h2>
 <p>The GroupBy pattern is the most powerful pandas operation.</p>
@@ -2196,6 +2257,9 @@ result = pd.concat([df1, df3], axis=1)
 </ul>
 <hr>
 <h1>MODULE-05a: DATA TRANSFORMATION — PIVOT TABLES AND RESHAPING</h1>
+<blockquote>
+<p><strong>Practice:</strong> Build a <code>category × membership</code> revenue pivot from the joined <code>orders ⋈ order_items ⋈ products</code> tables, or <code>pd.crosstab(customers['membership'], customers['source'])</code>. Exercises: <code>datasets/README.md</code> (Phases 4 &amp; 6).</p>
+</blockquote>
 <hr />
 <h2>1. Pivot Tables</h2>
 <p>Pivot tables summarize data by grouping and aggregating — like Excel pivot tables.</p>
@@ -2337,6 +2401,9 @@ wide = grouped.unstack()
 </ul>
 <hr>
 <h1>MODULE-05b: DATA TRANSFORMATION — STRINGS, DATETIME, TIME SERIES</h1>
+<blockquote>
+<p><strong>Practice:</strong> <code>website_traffic.csv</code> has daily records with intentional gaps — ideal for resampling/rolling. Parse <code>orders.csv</code> <code>order_date</code> with <code>pd.to_datetime</code> and normalize the inconsistent <code>customers['phone']</code> formats with <code>.str</code>. Exercises: <code>datasets/README.md</code> (Phases 3 &amp; 4).</p>
+</blockquote>
 <hr />
 <h2>3. String Operations</h2>
 <p>The <code>.str</code> accessor provides vectorized string methods.</p>
@@ -2409,7 +2476,8 @@ dates['age'] = (pd.Timestamp.now() - dates['date']).dt.days / 365.25
 
 # --- DATE RANGES ---
 date_range = pd.date_range('2024-01-01', '2024-12-31', freq='D')
-# freq='D': Daily, 'W': Weekly, 'M': Month-end, 'Q': Quarter-end, 'Y': Year-end
+# freq='D': Daily, 'W': Weekly, 'ME': Month-end (pandas 2.2+, formerly 'M')
+# freq='QE': Quarter-end, 'YE': Year-end
 # freq='B': Business days, 'H': Hours, 'T' or 'min': Minutes
 
 # --- BUSINESS DAYS ---
@@ -2522,7 +2590,7 @@ print(f&quot;Category: {df_large['col_cat'].memory_usage(deep=True)} bytes&quot;
 </tr>
 <tr>
 <td>Resample</td>
-<td><code>df.resample('M').sum()</code></td>
+<td><code>df.resample('ME').sum()</code></td>
 </tr>
 <tr>
 <td>Rolling mean</td>
@@ -2542,6 +2610,9 @@ print(f&quot;Category: {df_large['col_cat'].memory_usage(deep=True)} bytes&quot;
 </ul>
 <hr>
 <h1>MODULE-06a: VISUALIZATION — BASIC CHARTS</h1>
+<blockquote>
+<p><strong>Practice:</strong> Plot real revenue from <code>orders.csv</code>: parse <code>order_date</code> with <code>pd.to_datetime</code>, then group by month (<code>df['order_date'].dt.to_period('M')</code>) and sum <code>total</code> for a line chart. Exercises: <code>datasets/README.md</code> (Phase 4).</p>
+</blockquote>
 <h2>Why Visualization Matters</h2>
 <blockquote>
 <p>"The single most important thing in data analysis is to <strong>look at your data</strong>." — John Tukey</p>
@@ -2794,6 +2865,9 @@ plt.close()
 </ul>
 <hr>
 <h1>MODULE-06b: VISUALIZATION — ADVANCED CHARTS AND DASHBOARDS</h1>
+<blockquote>
+<p><strong>Practice:</strong> Scatter <code>quantity</code> vs <code>line_total</code> from <code>order_items.csv</code>, boxplot <code>total</code> by <code>membership</code> (join <code>orders</code> → <code>customers</code>), and a correlation heatmap of the numeric <code>orders</code> columns. Exercises: <code>datasets/README.md</code> (Phases 4 &amp; 7).</p>
+</blockquote>
 <hr />
 <h2>5. Scatter Plots — Relationships</h2>
 <pre><code class="language-python"># --- BASIC SCATTER ---
@@ -2837,8 +2911,8 @@ plt.close()
 <h2>6. Box Plots — Distribution Comparison</h2>
 <pre><code class="language-python"># --- BASIC BOX PLOT ---
 fig, ax = plt.subplots(figsize=(10, 6))
-sns.boxplot(data=sales, x='region', y='revenue', ax=ax, palette='Set3',
-            flierprops=dict(marker='o', markersize=4, alpha=0.5))
+sns.boxplot(data=sales, x='region', y='revenue', ax=ax, hue='region', palette='Set3',
+            legend=False, flierprops=dict(marker='o', markersize=4, alpha=0.5))
 # Add strip plot for individual points
 sns.stripplot(data=sales, x='region', y='revenue', ax=ax, color='black', alpha=0.2, size=3)
 ax.set_title('Revenue Distribution by Region', fontsize=16, fontweight='bold', pad=15)
@@ -2971,7 +3045,7 @@ sns.color_palette(&quot;Set3&quot;, 5)
 
 # --- ADDING ANNOTATIONS ---
 ax.annotate('Peak', xy=(peak_date, peak_value),
-            xytext=(peak_date + 30, peak_value + 10000),
+            xytext=(peak_date + pd.Timedelta(days=30), peak_value + 10000),
             arrowprops=dict(arrowstyle='-&gt;', color='red'),
             fontsize=12, color='red')
 </code></pre>
@@ -3044,6 +3118,9 @@ for fmt in ['png', 'pdf', 'svg']:
 </ul>
 <hr>
 <h1>MODULE-07a: DATA EXPORT — CSV AND EXCEL</h1>
+<blockquote>
+<p><strong>Practice:</strong> Export your cleaned TechRetail tables — e.g. a monthly sales summary CSV and a multi-sheet Excel report. Exercises: <code>datasets/README.md</code> (Phase 7).</p>
+</blockquote>
 <h2>Export Overview</h2>
 <p>After cleaning and analyzing data, you need to output it. Pandas provides <code>to_*</code> methods for each format:</p>
 <table>
@@ -3318,6 +3395,9 @@ with pd.ExcelWriter('styled_xlsxwriter.xlsx', engine='xlsxwriter') as writer:
 </ul>
 <hr>
 <h1>MODULE-07b: DATA EXPORT — JSON, SQL, PARQUET, AND MORE</h1>
+<blockquote>
+<p><strong>Practice:</strong> Save cleaned tables as Parquet for checkpoints and to SQLite with <code>create_engine('sqlite:///techretail.db')</code>. Exercises: <code>datasets/README.md</code> (Phase 7).</p>
+</blockquote>
 <hr />
 <h2>4. JSON Export</h2>
 <pre><code class="language-python">import pandas as pd
@@ -3525,6 +3605,9 @@ export_data(df, 'output/reports/employees.json')
 </ul>
 <hr>
 <h1>MODULE-08a: PRODUCTION-GRADE PANDAS — PERFORMANCE</h1>
+<blockquote>
+<p><strong>Practice:</strong> Time vectorization-vs-<code>apply</code> on <code>orders.csv</code> (5,000 rows). For chunked loading, use <code>datasets/transactions.json</code> (122 MB — regenerate with <code>python generate_datasets.py</code>). Exercises: <code>datasets/README.md</code> (Phase 6).</p>
+</blockquote>
 <h2>Production vs Notebook</h2>
 <p>Notebook code works for exploration. Production code must be:
 - <strong>Fast</strong> — handles large datasets efficiently
@@ -3733,6 +3816,9 @@ df = pd.read_csv('data.csv', parse_dates=['date_col'])
 </ul>
 <hr>
 <h1>MODULE-08b: PRODUCTION-GRADE PANDAS — PATTERNS AND BEST PRACTICES</h1>
+<blockquote>
+<p><strong>Practice:</strong> Wrap the Module 03 cleaning steps into a tested function and run it over <code>datasets/raw/*.csv</code>, asserting the issues in <code>datasets/DQ-EDGE-CASES.md</code> are resolved. Exercises: <code>datasets/README.md</code> (Phase 3).</p>
+</blockquote>
 <hr />
 <h2>3. Error Handling Patterns</h2>
 <pre><code class="language-python">import logging

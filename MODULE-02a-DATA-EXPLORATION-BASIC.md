@@ -1,5 +1,7 @@
 # MODULE-02a: DATA EXPLORATION — BASIC EDA
 
+> **Practice:** Run these steps on real data instead of the synthetic example below: load `datasets/raw/customers.csv` and `datasets/raw/orders.csv`, then try `orders.describe()`, `customers['membership'].value_counts()`, and `customers.isnull().sum()`. Exercises: `datasets/README.md` (Phases 1 & 4).
+
 ## What is EDA and Why It Matters
 
 **Exploratory Data Analysis (EDA)** is the process of understanding your data before modeling or reporting.

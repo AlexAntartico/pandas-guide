@@ -1,5 +1,7 @@
 # MODULE-05b: DATA TRANSFORMATION — STRINGS, DATETIME, TIME SERIES
 
+> **Practice:** `website_traffic.csv` has daily records with intentional gaps — ideal for resampling/rolling. Parse `orders.csv` `order_date` with `pd.to_datetime` and normalize the inconsistent `customers['phone']` formats with `.str`. Exercises: `datasets/README.md` (Phases 3 & 4).
+
 ---
 
 ## 3. String Operations
@@ -79,7 +81,8 @@ dates['age'] = (pd.Timestamp.now() - dates['date']).dt.days / 365.25
 
 # --- DATE RANGES ---
 date_range = pd.date_range('2024-01-01', '2024-12-31', freq='D')
-# freq='D': Daily, 'W': Weekly, 'M': Month-end, 'Q': Quarter-end, 'Y': Year-end
+# freq='D': Daily, 'W': Weekly, 'ME': Month-end (pandas 2.2+, formerly 'M')
+# freq='QE': Quarter-end, 'YE': Year-end
 # freq='B': Business days, 'H': Hours, 'T' or 'min': Minutes
 
 # --- BUSINESS DAYS ---
@@ -184,7 +187,7 @@ print(f"Category: {df_large['col_cat'].memory_usage(deep=True)} bytes")
 | String extract | `df['col'].str.extract(r'pattern')` |
 | Parse dates | `pd.to_datetime(df['col'])` |
 | Date components | `df['col'].dt.year`, `.dt.month`, `.dt.day` |
-| Resample | `df.resample('M').sum()` |
+| Resample | `df.resample('ME').sum()` |
 | Rolling mean | `df['col'].rolling(7).mean()` |
 | Categorical | `df['col'].astype('category')` |
 

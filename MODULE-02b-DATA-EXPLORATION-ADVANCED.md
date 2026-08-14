@@ -1,5 +1,7 @@
 # MODULE-02b: DATA EXPLORATION — ADVANCED EDA
 
+> **Practice:** The TechRetail numeric columns (`orders.csv` `subtotal`, `tax`, `total`, `discount_pct`) load as floats, so `corr()` works directly. Date columns (`order_date`, `signup_date`, …) load as strings — parse them with `pd.to_datetime` first. The `quick_eda()` function below runs on any table. Exercises: `datasets/README.md` (Phase 4).
+
 ---
 
 ## Step 7: Correlation Analysis

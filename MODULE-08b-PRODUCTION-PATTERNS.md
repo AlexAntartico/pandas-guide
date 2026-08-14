@@ -1,5 +1,7 @@
 # MODULE-08b: PRODUCTION-GRADE PANDAS — PATTERNS AND BEST PRACTICES
 
+> **Practice:** Wrap the Module 03 cleaning steps into a tested function and run it over `datasets/raw/*.csv`, asserting the issues in `datasets/DQ-EDGE-CASES.md` are resolved. Exercises: `datasets/README.md` (Phase 3).
+
 ---
 
 ## 3. Error Handling Patterns

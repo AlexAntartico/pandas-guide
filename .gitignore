@@ -1,5 +1,17 @@
-.gitignore
-./build_pdf.py
-./build_html.py
-.qwen
+# Environments
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+
+# Local editor settings
+.claude/
+.qwen/
+
+# Large generated dataset (regenerate with `python generate_datasets.py`)
 datasets/transactions.json
+
+# Exercise output
+reports/
+.ipynb_checkpoints/

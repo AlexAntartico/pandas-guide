@@ -2,11 +2,34 @@
 """Generate a professional PDF from the pandas guide MD files using fpdf2."""
 
 import re
-import os
 from pathlib import Path
 from fpdf import FPDF
 
 GUIDE_DIR = Path(__file__).parent
+
+# Common locations for the DejaVu Sans TTF files across platforms.
+FONT_CANDIDATES = [
+    "/usr/share/fonts/TTF",
+    "/usr/share/fonts/truetype/dejavu",
+    "/usr/share/fonts/dejavu",
+    "/Library/Fonts",
+    "/System/Library/Fonts",
+    str(Path.home() / "Library/Fonts"),
+    "C:/Windows/Fonts",
+]
+
+
+def find_font_dir():
+    for path in FONT_CANDIDATES:
+        if (Path(path) / "DejaVuSans.ttf").exists():
+            return path
+    raise FileNotFoundError(
+        "Could not locate DejaVuSans.ttf. Install the DejaVu fonts or set "
+        "FONT_CANDIDATES in build_pdf.py to a directory containing them."
+    )
+
+
+FONT_DIR = find_font_dir()
 MD_FILES = [
     "README.md",
     "MODULE-00-GETTING-STARTED.md",
@@ -27,8 +50,6 @@ MD_FILES = [
     "MODULE-08a-PRODUCTION-PERFORMANCE.md",
     "MODULE-08b-PRODUCTION-PATTERNS.md",
 ]
-
-FONT_DIR = "/usr/share/fonts/TTF"
 
 class GuidePDF(FPDF):
     def __init__(self):

@@ -1,5 +1,7 @@
 # MODULE-01b: DATA INGESTION — EXCEL, SQL, APIs, AND MORE
 
+> **Practice:** Compare `datasets/raw/orders.csv` vs `datasets/raw/orders.parquet` — Parquet preserves dtypes, CSV re-infers them. No Excel file ships with this guide, but the companion repo https://github.com/AlexAntartico/pandas_practice loads `cpi2022_globalresultstrends.xlsx` with `sheet_name=None`. Exercises: `datasets/README.md` (Phase 1).
+
 ---
 
 ## 3. EXCEL FILES
@@ -88,7 +90,6 @@ for chunk in chunk_iter:
 
 ```python
 import requests
-from pandas import json_normalize
 
 # Fetch data from API
 response = requests.get('https://api.example.com/users')
@@ -98,8 +99,9 @@ data = response.json()
 # Convert to DataFrame
 df = pd.DataFrame(data['results'])  # Adjust based on API structure
 
-# Handle nested API responses
-df = json_normalize(
+# Handle nested API responses (use pd.json_normalize, not the old
+# `from pandas import json_normalize` import — deprecated in pandas 2.0)
+df = pd.json_normalize(
     data['results'],
     record_path='items',
     meta=['page', 'total_count']

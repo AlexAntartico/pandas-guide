@@ -1,5 +1,7 @@
 # MODULE-06a: VISUALIZATION — BASIC CHARTS
 
+> **Practice:** Plot real revenue from `orders.csv`: parse `order_date` with `pd.to_datetime`, then group by month (`df['order_date'].dt.to_period('M')`) and sum `total` for a line chart. Exercises: `datasets/README.md` (Phase 4).
+
 ## Why Visualization Matters
 
 > "The single most important thing in data analysis is to **look at your data**." — John Tukey

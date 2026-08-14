@@ -1,5 +1,7 @@
 # MODULE-00: GETTING STARTED WITH PANDAS
 
+> **Practice:** The bundled TechRetail datasets in `datasets/raw/` are used throughout Modules 01–08. See `datasets/README.md` for the scenario, quick-start snippet, and exercise prompts.
+
 ## Why Pandas Exists
 
 Pandas was created by **Wes McKinney** in 2008 while working at quantitative trading firms. He needed a tool that combined:

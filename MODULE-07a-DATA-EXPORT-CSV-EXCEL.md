@@ -1,5 +1,7 @@
 # MODULE-07a: DATA EXPORT — CSV AND EXCEL
 
+> **Practice:** Export your cleaned TechRetail tables — e.g. a monthly sales summary CSV and a multi-sheet Excel report. Exercises: `datasets/README.md` (Phase 7).
+
 ## Export Overview
 
 After cleaning and analyzing data, you need to output it. Pandas provides `to_*` methods for each format:
